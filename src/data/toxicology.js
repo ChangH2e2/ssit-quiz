@@ -64,7 +64,7 @@ const rawQuestions = [
     "type": "multiple",
     "lecture": "9강",
     "category": "중금속 기초",
-    "question": "중금속 독성 4대 기전이 아닌 것은?",
+    "question": "다음 중 중금속의 독성 기전으로 옳지 않은 것은?",
     "options": [
       "산화적 스트레스(ROS 생성)",
       "산-염기 중화 반응",
@@ -72,37 +72,22 @@ const rawQuestions = [
       "항산화 방어 파괴"
     ],
     "answer": 1,
-    "explanation": "4대 기전: ①산화적스트레스 ②단백질/효소 기능장애 ③필수금속 치환 ④항산화 파괴."
+    "explanation": "중금속 4대 독성 기전: ①산화적 스트레스 ②단백질/효소 기능장애 ③필수금속 치환 ④항산화 방어 파괴. 산-염기 중화는 해당 없음."
   },
   {
     "id": 46,
     "type": "multiple",
     "lecture": "9강",
     "category": "방사성 원소",
-    "question": "방사선 종류 중 투과력이 가장 강한 것은?",
+    "question": "다음 중 방사선의 종류와 특성에 대한 설명으로 옳은 것은?",
     "options": [
-      "알파(α)선",
-      "베타(β)선",
-      "감마(γ)선",
-      "중성자선"
+      "알파선은 방사선 중 투과력이 가장 강하다",
+      "베타선은 감마선보다 투과력이 강하다",
+      "감마선은 납이나 콘크리트로 차폐가 필요한 강한 투과력을 가진다",
+      "알파선은 차폐에 납 벽이 필요하다"
     ],
     "answer": 2,
-    "explanation": "투과력: 감마선 > 베타선 > 알파선. 알파선은 종이로 차단, 감마선은 납이나 콘크리트 필요."
-  },
-  {
-    "id": 47,
-    "type": "multiple",
-    "lecture": "9강",
-    "category": "방사성 원소",
-    "question": "핵분열(nuclear fission)에 주로 사용되는 방사성 원소는?",
-    "options": [
-      "Ra-226",
-      "Rn-222",
-      "U-235",
-      "Th-232"
-    ],
-    "answer": 2,
-    "explanation": "U-235 + 중성자 → 핵분열 + 엄청난 에너지 + 추가 중성자(연쇄반응)."
+    "explanation": "투과력: 감마선 > 베타선 > 알파선. 알파선은 종이 한 장으로 차단 가능. 감마선은 납·콘크리트 차폐 필요."
   },
   {
     "id": 48,
@@ -118,21 +103,6 @@ const rawQuestions = [
     ],
     "answer": 2,
     "explanation": "6가 크롬은 도금·용접·피혁 공장에서 노출되며, 폐암·비강암과의 인과관계가 잘 확립."
-  },
-  {
-    "id": 49,
-    "type": "multiple",
-    "lecture": "9강",
-    "category": "아르신",
-    "question": "아르신(AsH₃)의 OSHA 허용노출기준(PEL)은?",
-    "options": [
-      "0.005 ppm",
-      "0.05 ppm",
-      "0.5 ppm",
-      "5 ppm"
-    ],
-    "answer": 1,
-    "explanation": "OSHA PEL: 0.05 ppm (0.2 mg/m³). NIOSH IDLH: 3 ppm."
   },
   {
     "id": 50,
@@ -289,30 +259,30 @@ const rawQuestions = [
     "type": "multiple",
     "lecture": "11-12강",
     "category": "ESG·CSR",
-    "question": "CSR(ISO 26000)과 ESG의 차이로 가장 적절한 것은?",
+    "question": "다음 중 CSR과 ESG에 대한 설명으로 옳은 것은?",
     "options": [
-      "CSR은 환경성과만 평가하고 ESG는 사회공헌 활동만 평가하는 기준",
-      "CSR은 ISO 국제지침 중심의 조직 실천, ESG는 투자·평가 기준 중심",
-      "CSR과 ESG는 명칭만 다르고 평가 주체와 활용 목적이 완전히 동일",
-      "ESG는 법적 강제 인증이고 CSR은 재무제표 작성 기준에 해당"
+      "CSR은 외부 투자자의 기업 평가 기준이고, ESG는 조직 내부 실천 지침이다",
+      "CSR(ISO 26000)은 조직의 자발적 사회책임 실천 지침이며, ESG는 투자·공시 평가 기준이다",
+      "CSR과 ESG는 동일한 목적과 평가 주체를 공유하는 같은 개념이다",
+      "ESG는 ISO 인증을 통해 법적 강제력이 부여되는 규정이다"
     ],
     "answer": 1,
-    "explanation": "CSR(ISO 26000): 조직의 실천 지침. ESG: 외부 투자자·평가기관이 기업 성과를 평가하는 기준."
+    "explanation": "CSR(ISO 26000): 조직의 자발적 사회책임 실천 지침. ESG: 외부 투자자·평가기관이 기업 성과를 평가하는 비재무적 기준."
   },
   {
     "id": 61,
     "type": "multiple",
     "lecture": "11-12강",
     "category": "연관·인과",
-    "question": "직업성 만성질환에서 인과 판단이 어려운 가장 핵심적인 이유는?",
+    "question": "다음 중 직업성 만성질환의 인과 관계 판단이 어려운 이유로 옳은 것은?",
     "options": [
-      "직업성 질환에는 법적 기준과 진단 기준이 전혀 존재하지 않기 때문에",
-      "장기 잠복기·다중 원인성·개인 감수성 차이가 함께 작용하기 때문에",
-      "근로자 자기신고가 없으면 역학조사를 시작할 수 없도록 되어 있기 때문에",
-      "의사의 진단만으로 업무관련성을 항상 즉시 확정해야 하기 때문에"
+      "직업성 질환은 특이적 증상과 명확한 진단 기준이 있어 판단이 용이하다",
+      "장기 잠복기·다중 원인성·개인 감수성 차이가 복합적으로 작용하기 때문이다",
+      "역학 연구로 연관성이 확인되면 반드시 인과관계로 인정된다",
+      "의사 진단만으로 업무관련성을 즉시 확정할 수 있기 때문이다"
     ],
     "answer": 1,
-    "explanation": "장기 잠복기(수년~수십년), 다중 원인성, 비특이성, 개인 감수성 차이, 역학적 연관과 개인 인과의 괴리."
+    "explanation": "장기 잠복기(수년~수십년), 다중 원인성, 비특이성, 개인 감수성 차이로 인해 인과 판단이 어렵다."
   },
   {
     "id": 62,
@@ -364,22 +334,22 @@ const rawQuestions = [
     "type": "multiple",
     "lecture": "12-13강",
     "category": "반도체 공정",
-    "question": "반도체 포토리소그래피(Photolithography) 공정에서 PR(감광제) 성분 중 생식독성이 문제가 되는 물질은?",
+    "question": "다음 중 반도체 감광액(PR)의 생식독성 원인 물질로 옳은 것은?",
     "options": [
-      "황산 계열 강산 세정제가 PR의 주성분으로 들어가기 때문",
-      "Glycol ethers 계열 용제가 PR 성분으로 쓰이며 생식독성이 문제됨",
-      "불산(HF)이 PR의 색을 변하게 하는 감광 성분으로 쓰이기 때문",
-      "아르신(AsH3)이 PR 점도를 조절하는 첨가제로 쓰이기 때문"
+      "황산(H₂SO₄)",
+      "Glycol ethers(글리콜 에테르)",
+      "불산(HF)",
+      "아르신(AsH₃)"
     ],
     "answer": 1,
-    "explanation": "PR의 Glycol ethers(methoxyethanol, ethoxyethanol)는 생식독성 물질. 반도체 여성 근로자 연구에서 주목."
+    "explanation": "PR의 Glycol ethers(methoxyethanol, ethoxyethanol 등): 생식독성 인정 물질. 반도체 여성 근로자 자연유산 연구에서 주목."
   },
   {
     "id": 66,
     "type": "multiple",
     "lecture": "12-13강",
     "category": "반도체 안전",
-    "question": "클린룸(Clean Room) 작업환경의 특성이 아닌 것은?",
+    "question": "다음 중 클린룸(Clean Room) 작업환경에 대한 설명으로 옳지 않은 것은?",
     "options": [
       "수직 층류 방식으로 공기를 공급한다",
       "단일 유해물질에 집중 노출되는 환경이다",
@@ -387,7 +357,7 @@ const rawQuestions = [
       "방진복 착용으로 열 스트레스가 발생할 수 있다"
     ],
     "answer": 1,
-    "explanation": "클린룸은 수십~수백 종 복합 화학물질 노출 환경. 단일 물질 집중 노출이 아님."
+    "explanation": "클린룸은 수십~수백 종 복합 화학물질 동시 노출 환경(복합노출). 단일 물질 집중 노출이 아님."
   },
   {
     "id": 67,
@@ -439,45 +409,45 @@ const rawQuestions = [
     "type": "multiple",
     "lecture": "13-14강",
     "category": "SEMI·위험성평가",
-    "question": "SEMI S10 위험성평가에서 Severity \"Catastrophic(매우 치명적)\"에 해당하는 상황은?",
+    "question": "다음 중 SEMI S10 위험 매트릭스의 Catastrophic(매우 치명적) 수준에 해당하는 것으로 옳은 것은?",
     "options": [
-      "일시적 불편",
-      "경미한 부상",
-      "가역적 신경 손상",
-      "사망에 가까운 폭발·대형 사고"
+      "일시적 불편 및 경미한 불쾌감",
+      "경미한 부상(응급처치 수준)",
+      "가역적 신경·장기 손상",
+      "사망 또는 다수 사상자 발생 대형 사고"
     ],
     "answer": 3,
-    "explanation": "Catastrophic(매우 치명적) → 사망/대형 사고. Critical(중대) → 신경계 등 심각 건강영향."
+    "explanation": "Catastrophic(매우 치명적) = 사망/대형 폭발 사고. Critical(중대) = 신경·장기 등 심각 건강 손상."
   },
   {
     "id": 71,
     "type": "multiple",
     "lecture": "13-14강",
     "category": "반도체 안전",
-    "question": "TMAH에 대한 설명으로 틀린 것은?",
+    "question": "다음 중 TMAH에 대한 설명으로 옳지 않은 것은?",
     "options": [
-      "반도체 현상액·식각제로 사용된다",
+      "반도체 현상액·박리제로 사용된다",
       "피부 침투성이 강하다",
-      "강한 냄새가 있어 쉽게 감지된다",
-      "피부 접촉 시 심장마비를 유발할 수 있다"
+      "강한 냄새가 있어 누출 시 쉽게 감지할 수 있다",
+      "피부 접촉 시 신경 마비·심장마비를 유발할 수 있다"
     ],
     "answer": 2,
-    "explanation": "TMAH는 무색·무취라 감지가 어렵다. 이것이 가장 큰 위험 특성 중 하나."
+    "explanation": "TMAH는 무색·무취라 누출 감지가 어렵다. 감지 어려움이 가장 큰 위험 특성."
   },
   {
     "id": 72,
     "type": "multiple",
     "lecture": "13-14강",
     "category": "반도체 안전",
-    "question": "불산(HF) 노출 시 발생하는 전신 독성의 주요 기전은?",
+    "question": "다음 중 불산(HF) 전신 독성의 주요 기전으로 옳은 것은?",
     "options": [
-      "폐포 손상으로 급성 폐부종만 발생하고 전해질 이상은 거의 없음",
-      "Ca2+ 결합에 따른 저칼슘혈증으로 부정맥·심장마비 위험이 커짐",
-      "적혈구 막 산화로 용혈이 발생하고 혈뇨가 주 증상으로 나타남",
-      "간세포 괴사가 주된 기전이며 급성 간부전이 가장 먼저 발생함"
+      "폐포 손상으로 인한 급성 폐부종만 발생한다",
+      "F⁻ 이온이 혈중 Ca²⁺와 결합하여 저칼슘혈증·심장마비를 유발한다",
+      "적혈구 막 산화로 용혈성 빈혈이 주된 독성으로 나타난다",
+      "간세포 괴사로 급성 간부전이 가장 먼저 발생한다"
     ],
     "answer": 1,
-    "explanation": "F⁻ + Ca²⁺ → CaF₂(불용성) → 혈중 칼슘 급감(저칼슘혈증) → 심장마비."
+    "explanation": "F⁻ + Ca²⁺ → CaF₂(불용성 침전) → 혈중 Ca²⁺ 급감(저칼슘혈증) → 심실세동·심장마비."
   },
   {
     "id": 73,
@@ -525,21 +495,6 @@ const rawQuestions = [
     "explanation": "퍼지(Purge): 불활성 기체(N₂)나 공기로 잔류 가스를 밀어내는 작업. 정비 전 필수 안전 조치."
   },
   {
-    "id": 76,
-    "type": "multiple",
-    "lecture": "13-14강",
-    "category": "SEMI",
-    "question": "SEMI F63 표준이 다루는 내용은?",
-    "options": [
-      "반도체 공정용 초순수(UPW) 품질 기준",
-      "반도체 장비 안전 요건",
-      "웨이퍼 규격",
-      "클린룸 청정도 기준"
-    ],
-    "answer": 0,
-    "explanation": "SEMI F63: 반도체 공정용 초순수(Ultra Pure Water) 품질 기준 및 관리 방법."
-  },
-  {
     "id": 77,
     "type": "multiple",
     "lecture": "13-14강",
@@ -574,15 +529,15 @@ const rawQuestions = [
     "type": "multiple",
     "lecture": "13-14강",
     "category": "반도체 안전",
-    "question": "인터록(Interlock)에 대한 설명으로 가장 적절한 것은?",
+    "question": "다음 중 인터록(Interlock)에 대한 설명으로 옳은 것은?",
     "options": [
-      "위험 작업 전 경고 표지와 출입 금지 표지를 부착하는 행정 절차",
-      "특정 조건 미충족 시 장비가 작동하지 않도록 막는 안전 장치",
-      "공정 중 발생한 유해가스를 외부로 배출하는 국소배기 장치",
-      "웨이퍼를 FOUP에 담아 공정 장비 사이에서 운반하는 시스템"
+      "위험 작업 전 경고 표지와 출입금지 표지를 부착하는 행정 절차이다",
+      "안전 조건 미충족 시 장비를 자동으로 정지·차단하는 설비 내장형 안전장치이다",
+      "공정 중 발생한 유해가스를 외부로 배출하는 국소배기 장치이다",
+      "웨이퍼를 클린룸 장비 사이에서 자동 운반하는 이송 시스템이다"
     ],
     "answer": 1,
-    "explanation": "인터록: 특정 안전 조건 미충족 시 장비를 물리적·전기적으로 작동 불가하게 하는 안전장치."
+    "explanation": "인터록: 차폐 커버 개방, 비정상 압력, 방사선 감지 시 장비를 즉각 가동 중단하는 안전장치. 우회(Bypass) 시 사고 발생."
   },
   {
     "id": 80,
@@ -749,25 +704,6 @@ const rawQuestions = [
       ]
     ],
     "explanation": "아르신(AsH₃): n형 도핑 가스. 용혈작용. OSHA PEL 0.05 ppm."
-  },
-  {
-    "id": 88,
-    "type": "fill",
-    "lecture": "9강",
-    "category": "아르신",
-    "question": "아르신(AsH₃)의 OSHA 허용노출기준(PEL)은 [①] ppm이다.",
-    "blanks": [
-      {
-        "id": "①",
-        "label": "①"
-      }
-    ],
-    "answers": [
-      [
-        "0.05"
-      ]
-    ],
-    "explanation": "OSHA PEL: 0.05 ppm. NIOSH IDLH: 3 ppm."
   },
   {
     "id": 89,
@@ -1529,21 +1465,6 @@ const rawQuestions = [
     "explanation": "실란 누출 시 공기 중 즉시 자연발화. 불꽃 불필요. 화재·폭발 위험. 누출 감지 후 즉시 대피."
   },
   {
-    "id": 161,
-    "type": "multiple",
-    "lecture": "9강",
-    "category": "아르신",
-    "question": "다음 중 NIOSH IDLH(즉시 위험 농도) 기준이 가장 낮은(엄격한) 물질은?",
-    "options": [
-      "아르신(AsH₃) - 3 ppm",
-      "포스핀(PH₃) - 50 ppm",
-      "실란(SiH₄) - 3,000 ppm",
-      "암모니아(NH₃) - 300 ppm"
-    ],
-    "answer": 0,
-    "explanation": "아르신 IDLH=3 ppm, PEL=0.05 ppm으로 극독성. 포스핀도 위험하지만 아르신이 더 낮은 기준."
-  },
-  {
     "id": 162,
     "type": "multiple",
     "lecture": "12-13강",
@@ -1589,36 +1510,6 @@ const rawQuestions = [
     "explanation": "글루콘산 칼슘 정주: F⁻ 이온이 Ca²⁺와 결합 → 혈중 Ca²⁺ 급감 → 심장마비 예방 목적."
   },
   {
-    "id": 167,
-    "type": "multiple",
-    "lecture": "12-13강",
-    "category": "반도체 공정",
-    "question": "반도체 P형(p-type) 반도체 제조에 사용하는 도판트 가스로 옳은 것은?",
-    "options": [
-      "아르신(AsH₃)",
-      "포스핀(PH₃)",
-      "디보란(B₂H₆)",
-      "실란(SiH₄)"
-    ],
-    "answer": 2,
-    "explanation": "디보란(B₂H₆) 또는 BF₃는 붕소(B) 공급원으로 p-type 도핑에 사용. 붕소는 정공(hole) 생성."
-  },
-  {
-    "id": 169,
-    "type": "multiple",
-    "lecture": "11-12강",
-    "category": "탄소중립",
-    "question": "UN이 2015년 채택한 지속가능발전목표(SDGs)는 총 몇 가지 목표로 구성되어 있는가?",
-    "options": [
-      "7가지",
-      "12가지",
-      "17가지",
-      "21가지"
-    ],
-    "answer": 2,
-    "explanation": "SDGs: 17 Goals, 169 Targets. 2030 Agenda for Sustainable Development. ESG 평가 기준과 연계."
-  },
-  {
     "id": 170,
     "type": "multiple",
     "lecture": "12-13강",
@@ -1649,41 +1540,11 @@ const rawQuestions = [
     "explanation": "SCBA(Self-Contained Breathing Apparatus): 자체 공기 공급. 방독마스크는 필터 방식이라 산소결핍 시 사용 불가."
   },
   {
-    "id": 173,
-    "type": "multiple",
-    "lecture": "12-13강",
-    "category": "반도체 공정",
-    "question": "반도체 배선(Interconnect)에서 저저항 특성으로 최근 주류가 된 금속은?",
-    "options": [
-      "알루미늄(Al)",
-      "구리(Cu)",
-      "철(Fe)",
-      "니켈(Ni)"
-    ],
-    "answer": 1,
-    "explanation": "구리(Cu)는 알루미늄보다 저항이 낮아 현재 반도체 배선의 주류. 다마신(Damascene) 공법으로 증착."
-  },
-  {
-    "id": 174,
-    "type": "multiple",
-    "lecture": "10강",
-    "category": "독성 개념",
-    "question": "독성학에서 \"LOAEL\"이 의미하는 것은?",
-    "options": [
-      "독성 영향이 없는 최고 용량(NOAEL)",
-      "독성 영향이 처음 관찰되는 최저 용량",
-      "치사 용량의 50%(LD50)",
-      "법적 허용 노출 기준"
-    ],
-    "answer": 1,
-    "explanation": "LOAEL(Lowest Observed Adverse Effect Level): 독성 영향이 처음 관찰되는 최저 용량. NOAEL 바로 위 단계."
-  },
-  {
     "id": 175,
     "type": "multiple",
     "lecture": "12-13강",
     "category": "반도체 안전",
-    "question": "반도체 공장 여성 근로자에서 보고된 건강 영향이 아닌 것은?",
+    "question": "다음 중 반도체 공장 여성 근로자에서 보고된 건강 영향으로 옳지 않은 것은?",
     "options": [
       "자연유산(SAB) 증가",
       "생리불순·무월경",
@@ -1691,7 +1552,7 @@ const rawQuestions = [
       "납(Pb) 중독에 의한 빈혈"
     ],
     "answer": 3,
-    "explanation": "반도체 공장 여성 건강 문제: 생식독성(자연유산, 불임, 생리이상)이 주요 이슈. 납 중독은 반도체 특이 문제 아님."
+    "explanation": "반도체 공장 여성 건강 이슈: 생식독성(자연유산, 생리이상, 불임). 납 중독은 반도체 공정 특이적 문제가 아님."
   },
   {
     "id": 177,
@@ -1722,21 +1583,6 @@ const rawQuestions = [
     ],
     "answer": 1,
     "explanation": "특수건강검진: 특정 유해물질 노출 근로자 대상. 직업성 건강 영향 조기 발견이 목적."
-  },
-  {
-    "id": 179,
-    "type": "multiple",
-    "lecture": "12-13강",
-    "category": "반도체 기초",
-    "question": "반도체 전공정(Fab)을 영문 약자로 올바르게 표현한 것은?",
-    "options": [
-      "BEOL(Back-End of Line)",
-      "FEOL(Front-End of Line)",
-      "MOL(Middle of Line)",
-      "CMP(Chemical Mechanical Planarization)"
-    ],
-    "answer": 1,
-    "explanation": "Fab(전공정) = FEOL(Front-End of Line). 후공정(패키징) = BEOL(Back-End of Line)."
   },
   {
     "id": 180,
