@@ -1,5 +1,6 @@
 import { questions as semiQuestions, LECTURES as SEMI_LECTURES } from './semiconductor.js'
 import { questions as toxQuestions, LECTURES as TOX_LECTURES, QUIZ_TYPES as TOX_TYPES } from './toxicology.js'
+import { questions as processQuestions, LECTURES as PROCESS_LECTURES, QUIZ_TYPES as PROCESS_TYPES } from './process.js'
 
 const SEMI_TYPES = [
   { id: 'all', label: '전체 유형', icon: '🎯', color: 'blue' },
@@ -7,6 +8,21 @@ const SEMI_TYPES = [
 ]
 
 export const SUBJECTS = [
+  {
+    id: 'process',
+    label: '반도체 공정',
+    subtitle: 'Ch.11~13 Gate·Cap·Interconnection',
+    icon: '⚙️',
+    color: 'emerald',
+    gradient: 'from-emerald-500 to-teal-600',
+    ring: 'ring-emerald-400',
+    bg: 'bg-emerald-50',
+    accent: 'text-emerald-600',
+    btn: 'bg-emerald-600 hover:bg-emerald-700',
+    lectures: PROCESS_LECTURES,
+    types: PROCESS_TYPES,
+    questions: processQuestions.map(q => ({ ...q, subject: 'process' })),
+  },
   {
     id: 'semiconductor',
     label: '반도체 구조 기술',
@@ -46,5 +62,6 @@ export function getSubject(id) {
 export function detectSubjectFromURL() {
   const host = window.location.hostname
   if (host.includes('ssit-semi')) return 'semiconductor'
+  if (host.includes('ssit-process')) return 'process'
   return null
 }

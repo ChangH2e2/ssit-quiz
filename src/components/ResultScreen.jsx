@@ -3,6 +3,7 @@ const TYPE_BADGE = {
   fill: { label: '빈칸', cls: 'bg-indigo-100 text-indigo-700' },
   short: { label: '주관식', cls: 'bg-orange-100 text-orange-700' },
   match: { label: '단답형', cls: 'bg-rose-100 text-rose-700' },
+  calc: { label: '계산 단답', cls: 'bg-emerald-100 text-emerald-700' },
 }
 
 const LABELS = ['①', '②', '③', '④']
@@ -11,6 +12,7 @@ function getCorrectAnswer(q) {
   if (q.type === 'multiple') return `${LABELS[q.answer]} ${q.options[q.answer]}`
   if (q.type === 'fill') return q.answers.map(answerSet => answerSet[0]).join(' / ')
   if (q.type === 'match') return q.answer
+  if (q.type === 'calc') return q.answerText ?? `${q.answer}${q.unit ? ` ${q.unit}` : ''}`
   return q.modelAnswer
 }
 

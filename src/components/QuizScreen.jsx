@@ -2,12 +2,14 @@ import { useState } from 'react'
 import FillQuestion from './questions/FillQuestion.jsx'
 import ShortQuestion from './questions/ShortQuestion.jsx'
 import MatchQuestion from './questions/MatchQuestion.jsx'
+import CalcQuestion from './questions/CalcQuestion.jsx'
 
 const TYPE_BADGE = {
   multiple: { label: '4지선다', cls: 'bg-blue-100 text-blue-700' },
   fill: { label: '빈칸', cls: 'bg-indigo-100 text-indigo-700' },
   short: { label: '주관식', cls: 'bg-orange-100 text-orange-700' },
   match: { label: '단답형', cls: 'bg-rose-100 text-rose-700' },
+  calc: { label: '계산 단답', cls: 'bg-emerald-100 text-emerald-700' },
 }
 
 const LABELS = ['①', '②', '③', '④']
@@ -124,6 +126,7 @@ export default function QuizScreen({ subject, settings, onFinish, onHome }) {
           {q.type === 'fill' && <FillQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
           {q.type === 'short' && <ShortQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
           {q.type === 'match' && <MatchQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
+          {q.type === 'calc' && <CalcQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
 
           {answered && q.explanation && (
             <div className={`mt-5 p-4 rounded-xl ${subject.bg} border border-gray-100 animate-popIn`}>
