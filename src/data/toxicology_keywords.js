@@ -266,7 +266,7 @@ export const keywords = [
   {
     id: 'k060', lecture: '11-12강',
     keyword: '도넛 경제학 (Doughnut Economics)',
-    description: '케이트 레이워스가 주창한 경제 모델. 사회적 기초(도넛 내벽)를 충족하면서 생태적 한계(도넛 외벽)를 초과하지 않는 "도넛 내부"가 인류의 안전하고 공정한 경제 공간이라는 메시지.',
+    description: '케이트 레이워스가 주창한 경제 모델. 사회적 기초(안쪽 경계)를 충족하면서 생태적 한계(바깥쪽 경계)를 초과하지 않는 경계 사이 공간이 인류의 안전하고 공정한 경제 공간이라는 메시지.',
   },
   {
     id: 'k061', lecture: '12-13강',
@@ -383,7 +383,7 @@ export const keywords = [
   {
     id: 'k081', lecture: '13-14강',
     keyword: 'SEMI Standard (S2/S10)',
-    description: 'SEMI가 발행하는 반도체 장비·공정 안전 기술 문서 시리즈. 대표 표준: S2(장비 ESH 안전 가이드라인, 전 세계 장비 입고 필수), S10(정량적 위험성평가 가이드라인, Risk = Severity × Likelihood, 위험 매트릭스 도출 기준).',
+    description: '해당 협회가 발행하는 반도체 장비·공정 안전 기술 문서 시리즈. 대표 표준: S2(장비 ESH 안전 가이드라인, 전 세계 장비 입고 필수), S10(정량적 위험성평가 가이드라인, Risk = Severity × Likelihood, 위험 매트릭스 도출 기준).',
   },
   {
     id: 'k082', lecture: '13-14강',
@@ -391,17 +391,17 @@ export const keywords = [
     description: 'SEMI S10 기준. 결함 심각도(Catastrophic/Critical/Marginal/Negligible) × 발생 가능성(A~E)을 조합하여 위험 매트릭스 도출. Risk = Severity × Likelihood.',
   },
   {
-    id: 'k083', lecture: '13-14강',
+    id: 'k083', lecture: '13-14강', mode: 'reverse',
     keyword: 'TMAH 중독 위험 (Tetramethylammonium hydroxide)',
     description: '반도체 현상액·박리제로 사용되는 강알칼리 화합물. 무색무취라 누출 감지 어려움. 피부 접촉 시 전신 장벽을 초고속 침투하여 신경 마비·심정지 유발. 2011·2012·2021년 사망 사고 발생.',
   },
   {
-    id: 'k084', lecture: '13-14강',
+    id: 'k084', lecture: '13-14강', mode: 'reverse',
     keyword: '불산 누출 위험 (HF, Hydrofluoric acid)',
     description: '반도체 습식 식각·세정 공정의 핵심 강산. 피부 침투 후 F⁻ 이온이 혈중 Ca²⁺·Mg²⁺와 결합 → 저칼슘혈증 → 심실세동·심장마비. 응급처치: 글루콘산칼슘 겔 도포. 2013년 배관 정비 중 사망 사고.',
   },
   {
-    id: 'k085', lecture: '13-14강',
+    id: 'k085', lecture: '13-14강', mode: 'reverse',
     keyword: '질소 중독 위험 (N₂ 산소결핍)',
     description: '반도체 공정 분위기 조성·퍼지에 초대량 사용되는 무색·무취 불활성 기체. 밀폐 공간 누출 시 산소를 밀어내어 산소결핍(18% 미만) 조성. 단 한 번 호흡으로 즉각 뇌사·질식 사망. 2015년 3명 연쇄 질식 사망.',
   },
@@ -413,7 +413,7 @@ export const keywords = [
   {
     id: 'k087', lecture: '13-14강',
     keyword: '잠금·표지 (LOTO, Lockout/Tagout)',
-    description: '정비 작업 전 에너지원 밸브·전원을 차단 후 개인 전용 자물쇠로 잠그고(Lockout), 작업자 이름·연락처·목적이 적힌 경고 표지판을 부착(Tagout)하여 오작동·재가동을 물리적으로 방지하는 안전 절차.',
+    description: '정비 작업 전 에너지원 밸브·전원을 차단 후 개인 전용 자물쇠로 잠그고(잠금), 작업자 이름·연락처·목적이 적힌 경고 표지판을 부착(표지)하여 오작동·재가동을 물리적으로 방지하는 안전 절차.',
   },
   {
     id: 'k088', lecture: '13-14강',
@@ -436,7 +436,7 @@ export const keywords = [
     description: '전자산업 직업병 역학 결과 혈액암(AML·NHL) 유발이 명확히 입증된 인자: ①벤젠(Benzene) — IARC 1군, 골수 독성 → AML 유발 ②포름알데히드(Formaldehyde) — 혈액암 유발 ③전리방사선(X선 등) — 이온주입 장비 정비 시 피폭, 염색체 파괴.',
   },
   {
-    id: 'k092', lecture: '13-14강',
+    id: 'k092', lecture: '13-14강', mode: 'reverse',
     keyword: '전자산업 사고 사망·부상 사례',
     description: '반도체·전자 제조 현장 대표 사고: ①TMAH 누출 → 신경마비·심정지 사망(2011·2012·2021) ②HF 배관 정비 중 누출 → 저칼슘혈증·심장마비 사망(2013) ③질소 밀폐 공간 누출 → 연쇄 질식 사망(2015, 3명) ④이온주입 인터록 우회 정비 → X선 피폭. 예방: PTW→LOTO→퍼지→농도 측정→화학방호복→2인 1조 체계.',
   },

@@ -141,11 +141,18 @@ export default function KeywordStudyScreen({ subject, onHome }) {
 
             {/* 카드 */}
             <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg shadow-violet-200/50 overflow-hidden">
-              {/* 설명 영역 */}
+              {/* 설명/사례 영역 */}
               <div className="p-6">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">설명</p>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+                  {card.mode === 'reverse' ? '사고 사례' : '설명'}
+                </p>
+                {card.mode === 'reverse' && (
+                  <p className="text-xs text-violet-500 font-semibold mb-2">이 사고의 원인 물질·개념은?</p>
+                )}
                 <p className="text-gray-700 leading-relaxed text-[15px]">
-                  <DescriptionText text={card.description} keyword={card.keyword} revealed={revealed} />
+                  {card.mode === 'reverse'
+                    ? card.description
+                    : <DescriptionText text={card.description} keyword={card.keyword} revealed={revealed} />}
                 </p>
               </div>
 
