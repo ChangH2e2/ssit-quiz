@@ -2114,5 +2114,740 @@ export const questions = [
     ],
     "answer": 2,
     "explanation": "FinFET에서 Fin Width가 작을수록 Natural Length가 작아져 SCE 억제에 유리하다. 그러나 Fin이 너무 좁으면(7nm 이하) 공정 제어가 어려워 process burden이 크게 증가한다. Wide(>37nm) NanoSheet이 sweet spot이다."
+  },
+  {
+    "id": 140,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Gate 기본",
+    "question": "T/R gate와 B/L을 비교한 설명으로 가장 적절한 것은?",
+    "options": [
+      "T/R gate는 switching 특성에 중요하고, B/L은 storage 영역의 데이터 유지와 관련된다",
+      "T/R gate는 오염 방지 용기이고, B/L은 공정 가스를 공급하는 배관이다",
+      "T/R gate는 배선 간 절연막이고, B/L은 CMP 평탄화 장비를 의미한다",
+      "T/R gate는 패키지 외부 단자이고, B/L은 칩 외곽 보호 링을 의미한다"
+    ],
+    "answer": 0,
+    "explanation": "요약본 기준 T/R gate는 switching 특성과 관련되고, B/L은 Storage 영역의 data 유지와 관련된다."
+  },
+  {
+    "id": 141,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Gate Stack",
+    "question": "Polycide gate를 Memory 계열에서 사용하는 이유로 가장 적절한 것은?",
+    "options": [
+      "Gate oxide를 완전히 제거해 채널과 금속을 직접 접촉시키기 위해",
+      "Poly-Si 위에 WSix를 증착해 저항을 낮추고 안정적인 gate stack을 만들기 위해",
+      "S/D junction을 깊게 만들어 punch-through를 의도적으로 키우기 위해",
+      "Capacitor 표면적을 수직 방향으로 늘려 storage capacitance를 확보하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "Polycide gate는 Poly-Si 위에 WSix 등을 증착하여 저항을 낮추는 Memory용 gate stack으로 정리된다."
+  },
+  {
+    "id": 142,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Salicide",
+    "question": "Salicide 공정의 핵심 특징으로 가장 적절한 것은?",
+    "options": [
+      "Si 전체를 산화시켜 contact resistance를 의도적으로 높이는 공정이다",
+      "금속이 oxide와 먼저 반응하여 gate oxide를 두껍게 성장시키는 공정이다",
+      "금속이 노출된 Si와만 반응하여 필요한 영역에 self-aligned silicide를 형성한다",
+      "Poly-Si를 완전히 제거하고 모든 gate를 oxide로 대체하는 공정이다"
+    ],
+    "answer": 2,
+    "explanation": "Salicide는 metal-Si 반응을 이용해 Si 노출부에 선택적으로 silicide가 생기는 self-aligned 공정이다."
+  },
+  {
+    "id": 143,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Silicidation",
+    "question": "Full silicidation을 진행했을 때 gate poly-Si에 일어나는 변화는?",
+    "options": [
+      "Poly-Si와 gate oxide가 동시에 제거되어 channel이 노출된다",
+      "Poly-Si 표면 일부만 반응하고 내부 Poly-Si는 대부분 그대로 남는다",
+      "Poly-Si가 산화되어 SiO2로 바뀌며 저항이 급격히 증가한다",
+      "Poly-Si 전체가 금속과 반응하여 metal-like silicide 상태로 전환된다"
+    ],
+    "answer": 3,
+    "explanation": "Partial silicidation은 일부 Poly-Si가 남고, full silicidation은 Poly-Si가 대부분 silicide/metal화된다."
+  },
+  {
+    "id": 144,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "식각 안정성",
+    "question": "Gate 식각 공정에서 식각 선택비가 중요한 이유는?",
+    "options": [
+      "금속층 식각 중 하부 gate oxide 손상과 잔류물 문제를 줄이기 위해",
+      "Capacitor 높이를 키워 storage capacitance를 직접 증가시키기 위해",
+      "Cu 배선을 electroplating 방식으로 bottom-up fill하기 위해",
+      "Bit line과 active 영역 사이에 Si-Si contact를 만들기 위해"
+    ],
+    "answer": 0,
+    "explanation": "식각 선택비가 낮으면 metal 식각 중 하부 gate oxide 손상, over-etch, poly-Si buffer 한계 문제가 생길 수 있다."
+  },
+  {
+    "id": 145,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Replacement Gate",
+    "question": "Logic에서 Replacement Metal Gate 방식이 유리한 이유로 가장 적절한 것은?",
+    "options": [
+      "금속 gate를 먼저 넣은 뒤 이후 모든 고온 공정에서 metal doping을 활성화하기 위해",
+      "고온 공정 이후 dummy gate를 제거하고 metal을 채워 low heat budget으로 HKMG를 구현하기 위해",
+      "SiO2를 두껍게 성장시켜 EOT를 키우고 leakage를 완전히 제거하기 위해",
+      "Capacitor 형성 뒤 gate를 만들기 때문에 DRAM refresh time을 직접 늘리기 위해"
+    ],
+    "answer": 1,
+    "explanation": "Logic Gate Last/Replacement Metal Gate는 고온 공정 이후 metal gate를 넣어 work function과 열 예산 문제를 줄인다."
+  },
+  {
+    "id": 146,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Dual Gox",
+    "question": "Dual Gate Oxide를 적용하는 가장 핵심적인 목적은?",
+    "options": [
+      "Contact plug 내부에 W 대신 Cu를 채워 galvanic corrosion을 막기 위해",
+      "모든 gate oxide를 동일 두께로 만들어 device variation을 없애기 위해",
+      "속도용 얇은 oxide와 신뢰성용 두꺼운 oxide를 소자 용도에 맞게 구분하기 위해",
+      "Bit line pitch를 넓혀 DRAM cell array 면적을 의도적으로 늘리기 위해"
+    ],
+    "answer": 2,
+    "explanation": "Dual Gox는 speed용 thin oxide와 신뢰성/SWD 영역용 thick oxide를 구분해 사용하는 개념이다."
+  },
+  {
+    "id": 147,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "HKMG",
+    "question": "HKMG 도입이 필요한 배경으로 가장 적절한 것은?",
+    "options": [
+      "DRAM capacitor가 2D 구조로만 형성되어야 하기 때문",
+      "Cu 배선의 oxidation으로 wire bonding이 항상 불가능해지기 때문",
+      "Contact 면적이 커질수록 Rc가 증가해 scaling이 불가능하기 때문",
+      "SiO2가 너무 얇아지면 gate leakage와 reliability 문제가 커지기 때문"
+    ],
+    "answer": 3,
+    "explanation": "얇은 SiO2는 leakage와 신뢰성 문제가 커지므로 high-k로 EOT를 낮추면서 물리 두께를 확보한다."
+  },
+  {
+    "id": 148,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Dipole Engineering",
+    "question": "DRAM에서 Gate Last HKMG 대신 dipole engineering을 활용하는 이유로 가장 적절한 것은?",
+    "options": [
+      "Capacitor 이후 공정의 heat budget 제약 때문에 gate last 적용이 어렵기 때문",
+      "Cu 배선을 wet etch로 쉽게 제거해 replacement gate를 만들 수 있기 때문",
+      "Silicide grain boundary를 키워 contact resistance를 높일 수 있기 때문",
+      "Low-k 손상을 증가시켜 capacitance를 더 크게 만들 수 있기 때문"
+    ],
+    "answer": 0,
+    "explanation": "Memory는 후속 capacitor 공정 등 열 예산 제약이 커서 gate last가 어렵고, dipole engineering으로 Vt를 조정한다."
+  },
+  {
+    "id": 149,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "C-SiGe",
+    "question": "Logic에서 C-SiGe가 PMOS 특성 개선에 도움을 주는 이유는?",
+    "options": [
+      "SiGe가 Bit line contact를 절연시켜 DRAM tRDL을 늘려주기 때문",
+      "SiGe stress와 dipole 효과로 PMOS의 Vt 및 이동도 특성 개선에 기여하기 때문",
+      "SiGe가 Cu diffusion barrier로 작동해 BEOL corrosion을 막기 때문",
+      "SiGe가 capacitor dielectric loss를 제거해 refresh가 필요 없어지기 때문"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 C-SiGe가 Logic PMOS에만 적용되며 channel stress와 dipole 관련 특성 개선에 관여한다고 정리한다."
+  },
+  {
+    "id": 150,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "Spacer",
+    "question": "Offset SiN spacer와 active spacer의 역할 차이로 가장 적절한 것은?",
+    "options": [
+      "Offset SiN은 capacitor supporter이고, active spacer는 honeycomb layout을 만든다",
+      "Offset SiN은 Cu 배선을 형성하고, active spacer는 RDL pad 위치를 재배치한다",
+      "Offset SiN은 LDD 침투를 막고, active spacer는 S/D implant 거리 확보와 SCE 개선에 관여한다",
+      "Offset SiN은 FOUP 밀폐 용기이고, active spacer는 wafer 자동 이송 장치이다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 lateral gate stack에서 offset SiN spacer와 active spacer가 LDD, S/D implant, SCE 개선과 관련된다고 정리한다."
+  },
+  {
+    "id": 151,
+    "type": "multiple",
+    "lecture": "8강",
+    "category": "EOR Defect",
+    "question": "EOR(End Of Range) defect를 줄이기 위한 접근으로 가장 적절한 것은?",
+    "options": [
+      "ILD를 high-k로 바꿔 배선 간 capacitance를 증가시킨다",
+      "Cu 배선에 electroplating을 적용해 bottom-up fill을 형성한다",
+      "Capacitor pillar를 제거하고 planar capacitor로 되돌린다",
+      "implant damage를 curing하고 diffusion stopper를 활용해 SCE와 defect를 완화한다"
+    ],
+    "answer": 3,
+    "explanation": "EOR defect는 implant edge damage와 관련되며 curing, diffusion stopper 등이 언급된다."
+  },
+  {
+    "id": 152,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Contact 종류",
+    "question": "DRAM contact가 Logic/NAND보다 contact 종류가 많은 이유로 가장 적절한 것은?",
+    "options": [
+      "DRAM cell 특성상 Si-Si contact 등 cell 연결 구조가 추가로 필요하기 때문",
+      "DRAM은 Cu damascene 공정을 쓰지 않기 때문에 contact가 전부 metal-metal이기 때문",
+      "DRAM은 gate oxide가 없어서 모든 contact가 near-ohmic 형태로만 형성되기 때문",
+      "DRAM은 BEOL이 없으므로 contact가 capacitor 내부에만 존재하기 때문"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 DRAM cell 유지를 위해 Si-Si contact 등이 존재해 Logic/NAND보다 contact 종류가 많다고 정리한다."
+  },
+  {
+    "id": 153,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Bar Contact",
+    "question": "Bar contact를 사용하는 주된 목적은?",
+    "options": [
+      "gate oxide 두께를 증가시켜 transistor leakage를 줄이기 위해",
+      "contact 집적도를 높이고 산포와 저항 특성을 동시에 개선하기 위해",
+      "Cu 배선을 wet etch로 제거해 via profile을 단순화하기 위해",
+      "capacitor inner area를 제거해 pillar 구조로 바꾸기 위해"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 contact size가 작아지는 scaling에서 single→bar contact가 산포와 저항 개선에 쓰인다고 정리한다."
+  },
+  {
+    "id": 154,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Borderless Contact",
+    "question": "Borderless contact의 핵심 의미로 가장 적절한 것은?",
+    "options": [
+      "Capacitor 상하부 전극 사이를 직접 연결하는 short 구조",
+      "금속과 산화막 사이에 의도적으로 두꺼운 절연막을 넣는 구조",
+      "설계 여유가 작아진 contact에서 enclosure 없이도 면적 활용을 높이는 구조",
+      "Cu 배선과 Al 배선을 전해질 안에서 직접 접촉시키는 구조"
+    ],
+    "answer": 2,
+    "explanation": "요약본에는 borderless contact가 규제/enclosure 없는 contact로 면적 활용 측면에서 정리되어 있다."
+  },
+  {
+    "id": 155,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Contact Resistance",
+    "question": "Contact 저항을 낮추기 위한 방향으로 가장 적절한 것은?",
+    "options": [
+      "junction depth 증가, capacitor height 감소, refresh interval 감소",
+      "contact 면적 축소, high-k ILD 적용, oxide thickness 증가",
+      "dopant 농도 감소, silicide 제거, barrier metal 완전 제거",
+      "contact 면적 확보, Schottky barrier height 감소, Si doping 농도 확보"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 contact size, SBH, doping 농도와 contact 저항/Rc delay/power를 연결한다."
+  },
+  {
+    "id": 156,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Schottky Barrier",
+    "question": "Metal-Si contact에서 Schottky barrier가 생기는 근본적인 이유로 가장 적절한 것은?",
+    "options": [
+      "금속과 Si의 work function 및 Fermi level 정렬 차이로 barrier가 형성되기 때문",
+      "Cu가 산화되어 wire bonding이 불가능해지기 때문",
+      "Low-k가 plasma damage를 받아 유전율이 다시 증가하기 때문",
+      "Capacitor dielectric loss가 커져 DC leakage가 생기기 때문"
+    ],
+    "answer": 0,
+    "explanation": "요약본의 band diagram은 metal work function, Si Fermi level, built-in potential/barrier 형성을 강조한다."
+  },
+  {
+    "id": 157,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Fermi Level Pinning",
+    "question": "Fermi level pinning을 contact 관점에서 줄이기 위해 사용되는 대표적 접근은?",
+    "options": [
+      "Cu 배선 위에 passivation oxide를 두껍게 성장시켜 barrier를 키운다",
+      "Si 고농도 doping과 silicide 형성으로 barrier와 pinning 영향을 완화한다",
+      "Capacitor supporter를 제거해 cylinder 구조를 pillar 구조로 바꾼다",
+      "Gate oxide를 high-k에서 SiO2로 되돌려 EOT를 증가시킨다"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 ohmic contact를 위해 pinning 제거/완화, Si 고농도 doping, silicide를 연결해 정리한다."
+  },
+  {
+    "id": 158,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Blanket Silicide",
+    "question": "Blanket silicide 공정의 특징으로 가장 적절한 것은?",
+    "options": [
+      "Cu line과 via를 하나의 damascene 공정으로 동시에 채우는 방식",
+      "contact hole을 만든 뒤 hole 내부 필요한 부분에만 silicide를 형성하는 방식",
+      "contact 형성 전에 silicide를 만든 뒤 불필요 영역을 제거하는 방식",
+      "photoresist를 남긴 채 HDP oxide를 증착해 passivation을 만드는 방식"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 blanket silicide와 trench silicide를 구분하며, blanket은 contact 뚫기 전 silicide를 형성하는 흐름으로 정리된다."
+  },
+  {
+    "id": 159,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Trench Silicide",
+    "question": "Trench silicide 공정의 특징으로 가장 적절한 것은?",
+    "options": [
+      "Low-k를 산화시켜 다시 SiO2로 바꾸는 passivation 공정이다",
+      "contact 형성 전 wafer 전체에 silicide를 blanket으로 먼저 형성한다",
+      "Cu seed를 PVD로 증착한 뒤 electroplating으로 via를 채운다",
+      "contact hole을 형성한 뒤 필요한 contact 바닥 영역에 silicide를 형성한다"
+    ],
+    "answer": 3,
+    "explanation": "Trench silicide는 contact를 뚫은 뒤 Ti/Co 등을 넣어 필요한 부분에 silicide를 만드는 방식으로 정리된다."
+  },
+  {
+    "id": 160,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "TiSi2",
+    "question": "TiSi2가 Logic contact에서 쓰이는 이유로 가장 적절한 것은?",
+    "options": [
+      "후속 heat budget이 작은 환경에서 낮은 저항과 clean 기능을 기대할 수 있기 때문",
+      "native oxide와 반응하지 않아 어떤 환경에서도 단차 문제가 없기 때문",
+      "고온 열안정성이 가장 낮아 memory DRAM에만 제한적으로 쓰이기 때문",
+      "Cu electroplating seed 역할을 하며 via bottom-up fill을 담당하기 때문"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 TiSi2를 Logic에서 사용하며 native oxide와 반응/clean 기능, heat budget 조건을 함께 언급한다."
+  },
+  {
+    "id": 161,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "CoSi2",
+    "question": "CoSi2가 DRAM memory contact에서 선호되는 이유로 가장 적절한 것은?",
+    "options": [
+      "자연 산화막에 가장 민감하여 contact 전처리를 완전히 생략할 수 있기 때문",
+      "열안정성이 비교적 좋고 native oxide와 반응이 작아 memory 조건에 적합하기 때문",
+      "Cu보다 비저항이 낮아 BEOL metal line을 전부 대체할 수 있기 때문",
+      "PVD seed 없이 electroplating이 가능해 barrier metal을 제거할 수 있기 때문"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 CoSi2가 DRAM에서 쓰이며 열안정성, native oxide 반응 억제, 낮은 저항 유지 측면을 언급한다."
+  },
+  {
+    "id": 162,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Dopant Out Diffusion",
+    "question": "Dopant out diffusion을 보상하기 위한 contact plug implant의 목적은?",
+    "options": [
+      "Capacitor dielectric loss를 줄여 refresh가 필요 없도록 만들기 위해",
+      "Cu 배선 내부 void를 채워 electroplating 후 CMP dishing을 줄이기 위해",
+      "도펀트 빠져나감을 보상해 contact 부근 저항이 임계적으로 커지는 것을 막기 위해",
+      "Low-k damage layer를 산화시켜 유전율을 의도적으로 높이기 위해"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 dopant out diffusion을 보상하기 위해 contact plug implant를 사용하며 contact 저항에 critical하다고 정리한다."
+  },
+  {
+    "id": 163,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "Agglomeration",
+    "question": "TiSi 계열에서 agglomeration이 문제가 되는 이유로 가장 적절한 것은?",
+    "options": [
+      "Capacitor supporter가 제거되어 cylinder height가 낮아지기 때문",
+      "Cu가 oxide와 반응해 wire bonding을 완전히 불가능하게 만들기 때문",
+      "Gate oxide가 두꺼워져 transistor drive current가 항상 증가하기 때문",
+      "silicide가 뭉쳐 contact 저항이 증가하고 미세 contact에서 불리해지기 때문"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 TiSi에서 agglomeration이 surface energy, grain, contact resistance 문제와 연결된다고 정리한다."
+  },
+  {
+    "id": 164,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "PPN Barrier Metal",
+    "question": "PPN(Pre Plasma Nitridation)을 Barrier Metal 공정에 적용하는 목적은?",
+    "options": [
+      "Ti 표면을 nitridation해 TiN 접착과 barrier 특성을 개선하기 위해",
+      "Cu 배선을 wet etch로 제거해 dual damascene을 단순화하기 위해",
+      "Capacitor dielectric을 high-k에서 low-k로 바꾸기 위해",
+      "Gate oxide를 selective oxidation으로 두껍게 만들기 위해"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 PPN을 Ti nitridation 및 TiN 증착 전처리로 정리하며 B/M 특성 향상과 연결한다."
+  },
+  {
+    "id": 165,
+    "type": "multiple",
+    "lecture": "9강",
+    "category": "DCC/GBC",
+    "question": "DCC, GBL, GBC의 연결 관계로 가장 적절한 것은?",
+    "options": [
+      "DCC는 capacitor 유전막, GBL은 passivation, GBC는 chip guard ring을 의미한다",
+      "DCC는 B/L-ACT 연결, GBL은 Bit Line, GBC는 Capacitor-ACT 연결과 관련된다",
+      "DCC는 Cu seed, GBL은 electroplating, GBC는 CMP dishing을 의미한다",
+      "DCC는 FOUP, GBL은 AMHS, GBC는 clean room class를 의미한다"
+    ],
+    "answer": 1,
+    "explanation": "요약본에는 DCC: B/L-ACT 연결, GBL: B/L, GBC: Capacitor-ACT 연결로 정리되어 있다."
+  },
+  {
+    "id": 166,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "BEOL 금속",
+    "question": "BEOL 배선 재료가 Al에서 Cu로 전환된 핵심 이유로 가장 적절한 것은?",
+    "options": [
+      "Cu는 dry etch가 쉬워 damascene 없이 subtractive etch로만 배선을 만든다",
+      "Cu는 Al보다 비저항이 높아 intentional delay를 만들어 신호 안정성을 높인다",
+      "Cu는 비저항이 낮아 RC delay를 줄일 수 있지만 산화와 식각 측면의 공정 난점이 있다",
+      "Cu는 oxide와 반응하지 않아 barrier metal이나 passivation이 전혀 필요 없다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 Al→Cu 전환 이유를 낮은 비저항으로 설명하면서 Cu oxidation, dry etch 어려움도 함께 언급한다."
+  },
+  {
+    "id": 167,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Dual Damascene",
+    "question": "Dual damascene 공정의 장점으로 가장 적절한 것은?",
+    "options": [
+      "Capacitor supporter를 식각해 cylinder를 pillar로 바꾸는 공정이다",
+      "Cu를 dry etch로 직접 패터닝해 barrier metal 없이 line을 만든다",
+      "Gate oxide를 선택적으로 성장시켜 dual Gox를 형성하는 공정이다",
+      "via와 metal line을 한 번에 채워 single damascene 대비 step을 줄일 수 있다"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 via와 metal line을 동시에 채우는 dual damascene을 single damascene보다 step이 적은 방식으로 정리한다."
+  },
+  {
+    "id": 168,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Via First/Trench First",
+    "question": "Via-first와 trench-first 비교로 가장 적절한 것은?",
+    "options": [
+      "Via-first는 alignment 이슈가 커질 수 있고, trench-first는 via 형상 자체가 작아지는 경향이 있다",
+      "Via-first는 항상 dishing이 없고, trench-first는 barrier metal을 전혀 쓰지 않는다",
+      "Via-first는 capacitor 공정이고, trench-first는 transistor S/D implant 공정이다",
+      "Via-first는 W plug 전용이고, trench-first는 poly-Si gate 전용 공정이다"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 via-first에서 via와 metal line M/A에 따른 TDDP 신뢰성 이슈, trench-first에서 via 자체가 작아지는 경향을 정리한다."
+  },
+  {
+    "id": 169,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Cu Fill",
+    "question": "Cu 배선 형성에서 PVD seed와 electroplating을 함께 사용하는 이유는?",
+    "options": [
+      "PVD seed로 Cu를 전부 채우고 electroplating은 oxide를 식각하기 위해",
+      "PVD seed로 전기적 경로를 만든 뒤 electroplating으로 bottom-up fill을 하기 위해",
+      "electroplating으로 barrier metal을 만들고 PVD seed로 CMP를 수행하기 위해",
+      "PVD seed와 electroplating 모두 gate oxide 성장에 쓰이는 열처리이기 때문"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 Cu dry etch가 어렵기 때문에 trench를 만들고 seed를 깐 뒤 electroplating으로 채우는 damascene 흐름을 정리한다."
+  },
+  {
+    "id": 170,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "CMP Dishing",
+    "question": "Cu CMP에서 dishing을 줄이기 위한 설계/공정 조건으로 가장 적절한 것은?",
+    "options": [
+      "S/D implant 농도를 낮춰 junction depth를 깊게 만드는 조건만 조절한다",
+      "gate oxide를 두껍게 만들어 channel electric field를 낮추는 조건만 조절한다",
+      "metal/oxide 선택비와 pattern density를 고려하고 폭이 큰 line의 과연마를 제어한다",
+      "FOUP 밀폐 압력을 높여 wafer 표면의 slurry를 완전히 제거한다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 CMP dishing, metal:oxide 선택비, width/density, over-CMP 조건을 함께 정리한다."
+  },
+  {
+    "id": 171,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Low-k/ULK",
+    "question": "ULK 적용이 scaling에서 어려운 이유로 가장 적절한 것은?",
+    "options": [
+      "Gate last 공정을 반드시 막아 모든 transistor가 planar로만 형성되기 때문이다",
+      "k가 너무 높아 배선 간 capacitance가 증가하고 RC delay가 항상 커지기 때문이다",
+      "Cu와 직접 반응해 silicide를 만들기 때문에 contact resistance가 낮아지기 때문이다",
+      "k는 낮지만 mechanical strength가 약하고 plasma damage를 받으면 유전율이 다시 증가할 수 있다"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 Low-k/ULK의 낮은 modulus/hardness, plasma damage, damaged layer와 유전율 증가 문제를 정리한다."
+  },
+  {
+    "id": 172,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Low-k Etch",
+    "question": "Low-k dual damascene에서 trench-first가 via-first보다 손상 관점에서 유리할 수 있는 이유는?",
+    "options": [
+      "hard mask가 low-k를 보호해 via-first 대비 전체 damage를 줄일 수 있기 때문",
+      "via와 metal line이 항상 완벽히 정렬되어 TDDP가 완전히 사라지기 때문",
+      "Cu dry etch가 쉬워져 damascene 구조가 필요 없어지기 때문",
+      "oxide를 high-k로 바꾸어 배선 간 capacitance를 키울 수 있기 때문"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 trench-first가 hard mask로 low-k를 보호해 damage가 작고 ULK에 적합하다고 정리한다."
+  },
+  {
+    "id": 173,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Cu Barrier",
+    "question": "Cu 배선에서 Ta/TaN 계열 barrier가 필요한 이유로 가장 적절한 것은?",
+    "options": [
+      "Cu를 dry etch하기 쉽게 만들어 subtractive etch를 가능하게 하기 위해",
+      "Cu diffusion과 주변 물질 반응을 막아 신뢰성을 확보하기 위해",
+      "Gate oxide를 selective oxidation으로 성장시키기 위해",
+      "Bit line refresh interval을 직접 8ns로 고정하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 Cu가 확산/반응성이 있어 B/M이 필요하고 TaN이 주로 쓰인다고 정리한다."
+  },
+  {
+    "id": 174,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Passivation",
+    "question": "DRAM passivation 공정 흐름으로 가장 적절한 것은?",
+    "options": [
+      "Gate oxide 성장, S/D implant, spacer etch 순으로 RDL을 만든다",
+      "PVD seed 증착, Cu plating, CMP 순으로 contact silicide를 형성한다",
+      "HDP oxide 증착, alloy, PE-SiN 증착 순으로 보호막을 형성한다",
+      "FOUP loading, AMHS 이동, wafer sort 순으로 dielectric을 만든다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 현재 DRAM passivation을 HDP Depo → PE-SiN Depo → alloy 흐름으로 정리한다."
+  },
+  {
+    "id": 175,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "Alloy",
+    "question": "BEOL alloy 공정의 목적과 trade-off로 가장 적절한 것은?",
+    "options": [
+      "FOUP 내부 산소를 제거하지만 chip guard ring에는 손상을 준다",
+      "Cu line을 dry etch하기 쉽게 만들지만 barrier metal을 모두 제거해야 한다",
+      "Gate oxide를 성장시키지만 transistor Vt 조절에는 전혀 영향이 없다",
+      "수소로 dangling bond를 안정화하지만 capacitor 관점에서는 refresh 저하 위험이 있다"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 alloy가 외부에서 H를 주입해 DIBL/continuity 개선에 기여하지만 capacitor 관점 trade-off가 있다고 정리한다."
+  },
+  {
+    "id": 176,
+    "type": "multiple",
+    "lecture": "10강",
+    "category": "RDL/PSPI",
+    "question": "RDL과 PSPI의 역할 조합으로 가장 적절한 것은?",
+    "options": [
+      "RDL은 pad 위치를 재배치하고, PSPI는 외부 충격과 soft error로부터 chip을 보호한다",
+      "RDL은 gate oxide를 성장시키고, PSPI는 S/D junction depth를 조절한다",
+      "RDL은 silicide를 형성하고, PSPI는 Schottky barrier height를 낮춘다",
+      "RDL은 FOUP 역할을 하고, PSPI는 cleanroom class를 결정한다"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 RDL을 I/O pad를 edge 쪽으로 배치하는 재배선, PSPI를 chip 보호/soft error 방지와 연결한다."
+  },
+  {
+    "id": 177,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "Cell Tr 특성",
+    "question": "DRAM Cell T/R이 Logic T/R과 다르게 특히 중시하는 특성은?",
+    "options": [
+      "고속 동작만을 위해 gate delay를 최소화하고 leakage는 거의 고려하지 않는 특성",
+      "Capacitor charge가 빠져나가지 않도록 off/leakage와 retention을 관리하는 특성",
+      "Cu 배선을 electroplating으로 채우는 BEOL metal fill 특성",
+      "패키지 외부 pad 위치를 edge로 옮기는 redistribution 특성"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 DRAM은 data 저장을 위해 capacitor charge가 빠져나가지 않는 것이 중요하고, Logic은 빠른 data 전달이 중요하다고 정리한다."
+  },
+  {
+    "id": 178,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "DRAM 불량",
+    "question": "GIDL과 BTBT의 관계로 가장 적절한 것은?",
+    "options": [
+      "Capacitor supporter가 무너져 honeycomb layout이 planar 구조로 바뀐다",
+      "Bit line metal이 산화되어 Cu seed가 사라지면서 refresh가 완전히 멈춘다",
+      "Gate-drain overlap 부근 강한 전계에서 BTBT가 발생해 junction leakage가 증가한다",
+      "RDL pad가 edge로 이동하면서 chip guard ring이 사라지는 현상이다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 GIDL을 gate-drain overlap 부근 강한 electric field와 BTBT, junction leakage 증가로 정리한다."
+  },
+  {
+    "id": 179,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "DRAM 불량",
+    "question": "DTBT가 DRAM Cell에서 문제가 되는 이유로 가장 적절한 것은?",
+    "options": [
+      "Low-k가 damaged layer 없이 완전히 SiO2로 변환되기 때문이다",
+      "Cu 배선이 wet etch되지 않아 damascene 공정이 불가능해진다",
+      "Gate poly-Si가 전부 metal로 바뀌어 W roughness가 사라진다",
+      "Drain 전압 때문에 channel barrier가 낮아져 원치 않는 tunneling current가 증가한다"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 DTBT를 drain 전압에 따른 tunneling current, SCE와 연결해 정리한다."
+  },
+  {
+    "id": 180,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "BCAT 구조",
+    "question": "BCAT에서 channel이 짧아질 때 생기는 static/dynamic retention 문제 조합으로 가장 적절한 것은?",
+    "options": [
+      "Static retention은 junction leakage, dynamic retention은 DIBL 관련 leakage가 핵심이다",
+      "Static retention은 Cu corrosion, dynamic retention은 wire bonding 실패가 핵심이다",
+      "Static retention은 CMP dishing, dynamic retention은 slurry 응집이 핵심이다",
+      "Static retention은 RDL pad 이동, dynamic retention은 PSPI crack이 핵심이다"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 static retention을 junction leakage, dynamic retention을 DIBL에 의한 leakage와 연결한다."
+  },
+  {
+    "id": 181,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "S-BCAT",
+    "question": "S-BCAT 구조가 RCAT 대비 갖는 장점으로 가장 적절한 것은?",
+    "options": [
+      "Cu 배선의 dry etch가 쉬워져 BEOL 공정을 단순화할 수 있다",
+      "곡률 완화와 channel 길이 증가로 SCE와 DIBL을 개선할 수 있다",
+      "Capacitor inner area를 제거해 storage capacitance를 줄일 수 있다",
+      "FOUP 내부 산소 농도를 낮춰 wafer 오염을 줄일 수 있다"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 S-BCAT이 곡률 완화, channel 길이 증가, gate controllability 향상, SCE/DIBL 개선과 관련된다고 정리한다."
+  },
+  {
+    "id": 182,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "FFRCAT",
+    "question": "FFRCAT(Inner GP/Fence Free)의 구조적 의도는?",
+    "options": [
+      "Capacitor supporter를 제거해 mechanical stability를 낮추는 것",
+      "Cu line의 overhang을 의도적으로 키워 electroplating void를 만드는 것",
+      "Si oxide를 선택적으로 식각해 inner GP를 만들고 gate controllability를 높이는 것",
+      "RDL pad를 chip 중심으로 모아 wire 길이를 늘리는 것"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 FFRCAT가 inner GP/fence free 구조로 gate controllability를 좋게 하기 위한 구조라고 정리한다."
+  },
+  {
+    "id": 183,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "BCAT W",
+    "question": "BCAT W 구조에서 W를 도입하는 주된 목적은?",
+    "options": [
+      "Gate oxide를 두껍게 만들어 DIBL을 의도적으로 증가시키기 위해",
+      "Cu 배선을 완전히 제거하고 Al wire bonding만 사용하기 위해",
+      "Capacitor dielectric loss를 증가시켜 refresh 특성을 낮추기 위해",
+      "WL 저항을 낮춰 특성을 개선하고 poly-Si depletion 문제를 완화하기 위해"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 BCAT에서 W 도입이 WL 저항 개선, poly-Si depletion 완화, 특성 개선과 관련된다고 정리한다."
+  },
+  {
+    "id": 184,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "Dual Work Function",
+    "question": "BCAT Dual Work Function 구조의 목적은?",
+    "options": [
+      "cell 특성 극복을 위해 gate metal work function을 위치별로 조절하는 것",
+      "Cu 배선의 work function을 바꾸어 electroplating 속도만 조절하는 것",
+      "Capacitor 유전막의 k값을 위치별로 낮춰 capacitance를 줄이는 것",
+      "FOUP 내부 기압을 조절해 wafer loading 시간을 줄이는 것"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 scaling에 따른 특성 한계 극복을 위해 dual work function을 도입한다고 정리한다."
+  },
+  {
+    "id": 185,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "tREF/tRDL",
+    "question": "tRDL과 tREF의 의미 조합으로 가장 적절한 것은?",
+    "options": [
+      "tRDL은 Cu seed 증착 시간, tREF는 electroplating으로 via를 채우는 시간을 의미한다",
+      "tRDL은 write 후 data가 cell capacitor에 저장될 때까지의 허용 시간, tREF는 refresh 주기와 관련된다",
+      "tRDL은 gate oxide 성장 시간, tREF는 S/D implant activation 시간을 의미한다",
+      "tRDL은 FOUP 이송 시간, tREF는 cleanroom particle count 측정 시간을 의미한다"
+    ],
+    "answer": 1,
+    "explanation": "요약본은 tRDL을 data가 cell capacitor에 재생될 때까지 허용된 시간, tREF를 refresh time과 연결한다."
+  },
+  {
+    "id": 186,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "Pass Gate Effect",
+    "question": "Pass Gate Effect(PGE)가 발생했을 때 victim cell에 나타나는 영향으로 가장 적절한 것은?",
+    "options": [
+      "Low-k modulus가 증가해 plasma damage가 완전히 사라진다",
+      "Cu 배선의 grain size가 커져 contact resistance가 항상 낮아진다",
+      "pass gate 전압 영향으로 potential이 변하고 Vt 변화와 leakage/retention 불량이 생긴다",
+      "RDL pad가 edge로 이동해 chip size가 자동으로 감소한다"
+    ],
+    "answer": 2,
+    "explanation": "요약본은 PGE를 pass gate가 victim potential에 영향을 주어 Vt 감소/증가와 tREF/tRDL 불량으로 이어지는 현상으로 정리한다."
+  },
+  {
+    "id": 187,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "Row Hammer",
+    "question": "Row Hammer와 1RD 현상의 관계로 가장 적절한 것은?",
+    "options": [
+      "Silicide grain boundary가 커져 contact resistance가 낮아지는 현상이다",
+      "Cu line의 bottom-up fill 실패가 passivation crack으로 이어지는 현상이다",
+      "Gate last HKMG에서 dummy gate가 제거되지 않아 Vt가 고정되는 현상이다",
+      "인접 WL 반복 동작이 victim cell capacitance 전하를 변화시켜 data flip을 유발할 수 있다"
+    ],
+    "answer": 3,
+    "explanation": "요약본은 1RD/Row Hammer를 인근 WL 전압, coupling, victim cell 전하 변화, data 0↔1 변화와 연결한다."
+  },
+  {
+    "id": 188,
+    "type": "multiple",
+    "lecture": "11강",
+    "category": "방사선 영향",
+    "question": "DRAM에서 thermal neutron 등 방사선 영향이 tRDL fail로 이어지는 경로로 가장 적절한 것은?",
+    "options": [
+      "He가 phosphorus dopant를 밀어내 저항이 증가하고 tRDL fail이 발생할 수 있다",
+      "Cu가 산화되어 via가 모두 절연체로 바뀌며 RDL pad가 사라진다",
+      "Gate oxide가 high-k로 변하면서 refresh가 완전히 불필요해진다",
+      "Capacitor honeycomb layout이 자동으로 pillar 구조로 전환된다"
+    ],
+    "answer": 0,
+    "explanation": "요약본은 thermal neutron에 의해 He가 방출되고 phosphorus dopant를 밀어내 저항 증가, tRDL fail로 이어질 수 있다고 정리한다."
   }
 ]

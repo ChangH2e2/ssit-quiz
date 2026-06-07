@@ -37,10 +37,6 @@ export default function SubjectScreen({ subjects, onSelect }) {
             </button>
           ))}
         </div>
-
-        <p className="text-center text-xs text-gray-400 mt-8">
-          과목별 문제 은행을 하나로 묶은 통합 퀴즈 앱
-        </p>
       </div>
     </div>
   )
