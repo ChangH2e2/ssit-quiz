@@ -27,21 +27,18 @@ function shuffleMultipleOptions(question) {
   }
 }
 
-export default function StartScreen({ subject, onStart, onBack }) {
+export default function StartScreen({ subject, onStart, onBack, onKeywordStudy }) {
   const hasMultipleTypes = subject.types.length > 2
-  const hasDifficulties = Array.isArray(subject.difficulties) && subject.difficulties.length > 1
   const [lecture, setLecture] = useState('all')
   const [type, setType] = useState('all')
-  const [difficulty, setDifficulty] = useState('all')
   const [count, setCount] = useState(20)
 
   const pool = useMemo(() => {
     let qs = subject.questions
     if (lecture !== 'all') qs = qs.filter(q => q.lecture === lecture)
     if (type !== 'all') qs = qs.filter(q => q.type === type)
-    if (difficulty !== 'all') qs = qs.filter(q => q.difficulty === difficulty)
     return qs
-  }, [subject, lecture, type, difficulty])
+  }, [subject, lecture, type])
 
   const effectiveCount = count === 999 ? pool.length : Math.min(count, pool.length)
 
@@ -50,7 +47,6 @@ export default function StartScreen({ subject, onStart, onBack }) {
       questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
       lecture,
       type,
-      difficulty,
       count: effectiveCount,
     })
   }
@@ -117,27 +113,6 @@ export default function StartScreen({ subject, onStart, onBack }) {
             </section>
           )}
 
-          {hasDifficulties && (
-            <section>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">난이도</p>
-              <div className="flex flex-wrap gap-2">
-                {subject.difficulties.map(item => (
-                  <button
-                    key={item.id}
-                    onClick={() => setDifficulty(item.id)}
-                    className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${
-                      difficulty === item.id
-                        ? `bg-gradient-to-r ${subject.gradient} text-white shadow-sm`
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                    }`}
-                  >
-                    {item.label ?? item.id}
-                  </button>
-                ))}
-              </div>
-            </section>
-          )}
-
           <section>
             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">문제 수</p>
             <div className="flex flex-wrap gap-2">
@@ -178,6 +153,15 @@ export default function StartScreen({ subject, onStart, onBack }) {
           >
             퀴즈 시작하기 →
           </button>
+
+          {onKeywordStudy && (
+            <button
+              onClick={onKeywordStudy}
+              className="w-full py-3 rounded-xl font-bold text-sm border-2 border-violet-300 text-violet-600 hover:bg-violet-50 transition-all active:scale-95"
+            >
+              📖 키워드 공부하기
+            </button>
+          )}
         </div>
       </div>
     </div>

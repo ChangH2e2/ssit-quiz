@@ -1574,21 +1574,6 @@ const rawQuestions = [
     "explanation": "건식식각 = 플라즈마 이용 식각(RIE, ICP 등). 습식식각이 화학 용액(HF 등) 이용."
   },
   {
-    "id": 164,
-    "type": "multiple",
-    "lecture": "10강",
-    "category": "독성동태",
-    "question": "생체변환 2상 반응(Phase II Biotransformation)에 해당하는 것은?",
-    "options": [
-      "CYP450에 의한 산화반응",
-      "환원(Reduction) 반응",
-      "가수분해(Hydrolysis) 반응",
-      "글루쿠론산 포합(Glucuronidation)"
-    ],
-    "answer": 3,
-    "explanation": "2상 반응 = 포합(Conjugation) 반응: 글루쿠론산·황산·글리신·글루타치온 등과 결합. 수용성↑ → 배설↑."
-  },
-  {
     "id": 165,
     "type": "multiple",
     "lecture": "13-14강",
@@ -1604,21 +1589,6 @@ const rawQuestions = [
     "explanation": "글루콘산 칼슘 정주: F⁻ 이온이 Ca²⁺와 결합 → 혈중 Ca²⁺ 급감 → 심장마비 예방 목적."
   },
   {
-    "id": 166,
-    "type": "multiple",
-    "lecture": "11-12강",
-    "category": "연관·인과",
-    "question": "Hill의 인과기준(Bradford Hill's criteria)에 포함되지 않는 것은?",
-    "options": [
-      "연관의 강도(Strength of Association)",
-      "시간적 선행성(Temporality)",
-      "생물학적 개연성(Biological Plausibility)",
-      "경제적 비용-편익 분석(Cost-Benefit Analysis)"
-    ],
-    "answer": 3,
-    "explanation": "Hill 기준 9가지: 강도·일관성·특이성·시간성·노출반응관계·실험성·개연성·유추·일관성. 경제성은 포함되지 않음."
-  },
-  {
     "id": 167,
     "type": "multiple",
     "lecture": "12-13강",
@@ -1632,21 +1602,6 @@ const rawQuestions = [
     ],
     "answer": 2,
     "explanation": "디보란(B₂H₆) 또는 BF₃는 붕소(B) 공급원으로 p-type 도핑에 사용. 붕소는 정공(hole) 생성."
-  },
-  {
-    "id": 168,
-    "type": "multiple",
-    "lecture": "13-14강",
-    "category": "SEMI",
-    "question": "SEMI S14가 다루는 주요 내용은?",
-    "options": [
-      "위험성평가(Risk Assessment)",
-      "화재·가스 감지 시스템(Fire Risk & Gas Detection)",
-      "인간공학(Ergonomics)",
-      "초순수(Ultra Pure Water) 품질"
-    ],
-    "answer": 1,
-    "explanation": "SEMI S14: Safety Guideline for Fire Risk Assessment — 화재 위험성 평가 및 가스 감지 관련."
   },
   {
     "id": 169,
@@ -1694,21 +1649,6 @@ const rawQuestions = [
     "explanation": "SCBA(Self-Contained Breathing Apparatus): 자체 공기 공급. 방독마스크는 필터 방식이라 산소결핍 시 사용 불가."
   },
   {
-    "id": 172,
-    "type": "multiple",
-    "lecture": "11-12강",
-    "category": "탄소중립",
-    "question": "기업 온실가스 배출 분류에서 \"Scope 3\"에 해당하는 것은?",
-    "options": [
-      "자사 연료 연소에서 직접 배출",
-      "구매 전력에서 간접 배출",
-      "공급망·소비자 사용 등 가치사슬 전체 간접 배출",
-      "자사 건물 냉난방 배출"
-    ],
-    "answer": 2,
-    "explanation": "Scope 1: 직접 배출. Scope 2: 구매 전력 간접. Scope 3: 공급망·소비·폐기 등 가치사슬 전체."
-  },
-  {
     "id": 173,
     "type": "multiple",
     "lecture": "12-13강",
@@ -1752,21 +1692,6 @@ const rawQuestions = [
     ],
     "answer": 3,
     "explanation": "반도체 공장 여성 건강 문제: 생식독성(자연유산, 불임, 생리이상)이 주요 이슈. 납 중독은 반도체 특이 문제 아님."
-  },
-  {
-    "id": 176,
-    "type": "multiple",
-    "lecture": "13-14강",
-    "category": "SEMI",
-    "question": "다음 SEMI 표준과 내용의 연결 중 잘못된 것은?",
-    "options": [
-      "S2 – 장비 환경·안전·보건 가이드라인",
-      "S8 – 장비 인간공학 가이드라인",
-      "S10 – 위험성평가 가이드라인",
-      "F63 – 클린룸 청정도 등급 기준"
-    ],
-    "answer": 3,
-    "explanation": "F63은 반도체 공정용 초순수(UPW) 품질 기준. 클린룸 청정도는 ISO 14644 기준."
   },
   {
     "id": 177,
@@ -2110,26 +2035,6 @@ const rawQuestions = [
     "explanation": "LOAEL(Lowest Observed Adverse Effect Level). NOAEL은 독성이 관찰되지 않는 최고 용량."
   },
   {
-    "id": 194,
-    "type": "fill",
-    "lecture": "12-13강",
-    "category": "반도체 공정",
-    "question": "반도체 클린룸에서 0.3μm 입자를 99.97% 이상 걸러내는 고효율 공기 필터를 [①] 필터라 한다.",
-    "blanks": [
-      {
-        "id": "①",
-        "label": "①"
-      }
-    ],
-    "answers": [
-      [
-        "HEPA",
-        "hepa"
-      ]
-    ],
-    "explanation": "HEPA(High Efficiency Particulate Air): 클린룸 핵심 공기 정화 장치. 더 고효율 버전은 ULPA."
-  },
-  {
     "id": 195,
     "type": "fill",
     "lecture": "12-13강",
@@ -2246,18 +2151,6 @@ const rawQuestions = [
     "explanation": "REACH: Registration, Evaluation, Authorisation of Chemicals. 2만 종 이상의 화학물질 관리."
   },
   {
-    "id": 204,
-    "type": "match",
-    "lecture": "12-13강",
-    "category": "반도체 공정",
-    "question": "다음 설명이 가리키는 것은?\n\n\"반도체 클린룸 공기 정화에 사용하는 필터. 0.3μm 입자를 99.97% 이상 포집. 이보다 효율 높은 ULPA가 있음\"",
-    "answer": "HEPA 필터",
-    "accepts": [
-      "HEPA 필터"
-    ],
-    "explanation": "HEPA(High Efficiency Particulate Air): 클린룸 핵심 공기 정화 장치."
-  },
-  {
     "id": 205,
     "type": "match",
     "lecture": "13-14강",
@@ -2286,35 +2179,6 @@ const rawQuestions = [
       "SDGs"
     ],
     "explanation": "SDGs: Sustainable Development Goals. 17 Goals, 169 Targets. ESG 평가와 연계."
-  },
-  {
-    "id": 207,
-    "type": "match",
-    "lecture": "10강",
-    "category": "독성동태",
-    "question": "다음 설명이 가리키는 것은?\n\n\"간에 주로 분포하는 효소군. 산화·환원·가수분해 반응을 촉매하는 생체변환 1상 효소. 이소효소(isoenzyme) 다형성이 개인 감수성 차이의 주요 원인\"",
-    "answer": "CYP450(시토크롬 P450)",
-    "accepts": [
-      "CYP450(시토크롬 P450)",
-      "시토크롬",
-      "P450",
-      "CYP450"
-    ],
-    "explanation": "CYP450: 생체변환 1상 핵심 효소. CYP1A1, CYP2E1 등 이소효소 다형성 → 개인 감수성 차이."
-  },
-  {
-    "id": 208,
-    "type": "match",
-    "lecture": "10강",
-    "category": "독성동태",
-    "question": "다음 설명이 가리키는 것은?\n\n\"생체변환 2상 반응 중 가장 대표적인 포합 반응. UGT 효소가 촉매. 수용성을 대폭 높여 담즙·신장 배설을 촉진\"",
-    "answer": "글루쿠론산 포합(Glucuronidation)",
-    "accepts": [
-      "글루쿠론산 포합(Glucuronidation)",
-      "Glucuronidation",
-      "글루쿠론산 포합"
-    ],
-    "explanation": "글루쿠론산 포합: 2상 반응 중 가장 많은 물질에 적용. 글루쿠론산+독성물질 → 극성↑ → 배설."
   },
   {
     "id": 209,
@@ -2389,36 +2253,6 @@ const rawQuestions = [
     ],
     "answer": 2,
     "explanation": "ISO 9000(1987, 품질) → ISO 14000(1996, 환경) → ISO 45000(2018, 안전보건) 순으로 발전."
-  },
-  {
-    "id": 234,
-    "type": "multiple",
-    "lecture": "11-12강",
-    "category": "연관·인과",
-    "question": "전향적 코호트 연구(Prospective Cohort Study)의 특징으로 옳은 것은?",
-    "options": [
-      "질병군·대조군에서 과거 노출을 후향적으로 비교",
-      "특정 시점에서 노출·질병을 동시에 단면 파악",
-      "현재 노출군·비노출군을 미래로 추적하여 질병 발생률 비교",
-      "실험적으로 노출을 통제하는 무작위 대조 실험"
-    ],
-    "answer": 2,
-    "explanation": "전향적 코호트: 현재 노출 확인 → 미래 질병 추적. 시간·비용 많이 소요되나 인과관계 증거가 강함."
-  },
-  {
-    "id": 235,
-    "type": "multiple",
-    "lecture": "11-12강",
-    "category": "연관·인과",
-    "question": "환자-대조군(Case-Control) 연구의 특징으로 옳은 것은?",
-    "options": [
-      "현재 노출군과 비노출군을 정해 미래 질병 발생률을 비교하는 연구",
-      "질병군과 비질병군을 정한 뒤 과거 노출 여부를 후향적으로 비교",
-      "특정 시점의 노출과 질병 상태를 동시에 조사해 유병률을 비교",
-      "연구자가 노출을 무작위 배정해 질병 발생 차이를 직접 확인"
-    ],
-    "answer": 1,
-    "explanation": "환자-대조군: 후향적(Retrospective). 질병군↔대조군 과거 노출 비교. 오즈비(OR) 산출. 희귀 질환에 효율적."
   },
   {
     "id": 236,

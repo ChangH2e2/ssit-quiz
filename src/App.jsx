@@ -4,9 +4,10 @@ import SubjectScreen from './components/SubjectScreen.jsx'
 import StartScreen from './components/StartScreen.jsx'
 import QuizScreen from './components/QuizScreen.jsx'
 import ResultScreen from './components/ResultScreen.jsx'
+import KeywordStudyScreen from './components/KeywordStudyScreen.jsx'
 
 export default function App() {
-  const [screen, setScreen] = useState('subject') // subject | start | quiz | result
+  const [screen, setScreen] = useState('subject') // subject | start | quiz | result | keyword-study
   const [subjectId, setSubjectId] = useState(null)
   const [settings, setSettings] = useState(null)  // { questions[], lecture, type, count }
   const [results, setResults] = useState(null)     // { total, log[] }
@@ -64,6 +65,14 @@ export default function App() {
     }
   }
 
+  if (screen === 'keyword-study') {
+    return (
+      <KeywordStudyScreen
+        subject={subject}
+        onHome={handleHome}
+      />
+    )
+  }
   if (screen === 'subject') {
     return <SubjectScreen subjects={SUBJECTS} onSelect={handleSelectSubject} />
   }
@@ -72,6 +81,7 @@ export default function App() {
       <StartScreen
         subject={subject}
         onStart={handleStart}
+        onKeywordStudy={subject?.id === 'toxicology' ? () => setScreen('keyword-study') : null}
         onBack={detectSubjectFromURL() ? null : () => setScreen('subject')}
       />
     )
