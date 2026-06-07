@@ -8023,6 +8023,208 @@ const rawQuestions = [
     "accepts": ["불산", "HF", "Hydrofluoric acid", "플루오르화수소산", "불화수소산"],
     "difficulty": "basic",
     "explanation": "불산은 Ca2+와 결합하여 전신 독성까지 유발할 수 있어 노출 시 즉시 처치가 필요하다."
+  },
+  {
+    "id": 701,
+    "type": "fill",
+    "lecture": "9강",
+    "category": "중금속 기초",
+    "question": "중금속은 담즙으로 분비된 후 장에서 재흡수되는 [①] 구조로 인해 체내 축적률이 더욱 가속된다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["장간 순환", "enterohepatic circulation", "장간순환"]],
+    "explanation": "장간 순환(enterohepatic circulation): 담즙 → 소장 → 재흡수 반복. 중금속 배출이 느려지는 핵심 이유."
+  },
+  {
+    "id": 702,
+    "type": "fill",
+    "lecture": "9강",
+    "category": "중금속 기초",
+    "question": "화학물질이 중추신경계(뇌, 척수) 및 말초신경계 세포를 직접 파괴하거나 신경전달물질 메커니즘을 변성시키는 유해 특성을 [①](이)라 한다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["신경독성", "neurotoxicity"]],
+    "explanation": "신경독성(neurotoxicity): 망간 → 파킨슨 증후군이 대표. 미성숙 혈뇌장벽(BBB)을 가진 어린이에게 특히 치명적."
+  },
+  {
+    "id": 703,
+    "type": "fill",
+    "lecture": "9강",
+    "category": "발암성",
+    "question": "IARC 1군 발암 중금속으로 지정된 물질: [①], 6가 크롬(Cr⁶⁺), 카드뮴(Cd), 니켈(Ni).",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["비소", "As", "비소(As)", "arsenic"]],
+    "explanation": "IARC Group 1(인체 발암성 충분 증거): 비소·6가 크롬·카드뮴·니켈. 산업보건 핵심 중금속."
+  },
+  {
+    "id": 704,
+    "type": "fill",
+    "lecture": "10강",
+    "category": "독성 개념",
+    "question": "동일 노출에도 개인 유전·면역 등 내재적 취약 성향을 [①](이)라 하며, 이보다 포괄적으로 노출 환경·보건의료 접근성까지 포함하는 개념을 [②](이)라 한다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["감수성", "susceptibility"],
+      ["취약성", "vulnerability"]
+    ],
+    "explanation": "감수성(내재적 소인) ⊂ 취약성(감수성 + 노출 환경 + 사회경제적 대응 능력 포함)."
+  },
+  {
+    "id": 705,
+    "type": "fill",
+    "lecture": "10강",
+    "category": "독성 개념",
+    "question": "진폐증·악성 종양처럼 원인 인자를 제거해도 회복이 불가능한 질병 단계를 [①] 질병, 초기 급성 피부염처럼 회복 가능한 단계를 [②] 질병이라 한다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["비가역적", "irreversible"],
+      ["가역적", "reversible"]
+    ],
+    "explanation": "가역적(회복 가능) vs 비가역적(영구 손상). 폐섬유화·암은 비가역적."
+  },
+  {
+    "id": 706,
+    "type": "fill",
+    "lecture": "10강",
+    "category": "독성동태",
+    "question": "납(Pb)의 최종 표적조직은 [①]와/과 조혈계이며, 카드뮴(Cd)의 대표 표적조직은 [②] 사구체이다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["뼈", "골격", "bone"],
+      ["신장", "kidney", "콩팥"]
+    ],
+    "explanation": "납→뼈(95% 축적)·조혈계. 카드뮴→신장 사구체(이타이이타이병). 벤젠→골수."
+  },
+  {
+    "id": 707,
+    "type": "fill",
+    "lecture": "11-12강",
+    "category": "제도·법규",
+    "question": "근로자 업무상 재해를 사업주 개인이 아닌 국가 사회보험 체계로 보상하는 법률을 [①](이)라 하며, 이 법은 [②]적 성격이 짙다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["산업재해보상보험법", "산재보험법"],
+      ["사후 보상", "사후보상"]
+    ],
+    "explanation": "산업재해보상보험법: 근로복지공단 체제. 사후 보상적 성격(예방은 산업안전보건법)."
+  },
+  {
+    "id": 708,
+    "type": "fill",
+    "lecture": "11-12강",
+    "category": "제도·법규",
+    "question": "산업안전보건법 제125조에 의거한 작업환경측정은 원칙적으로 연 [①]회(반기 1회 이상) 의무 실시된다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["2", "두", "2회"]],
+    "explanation": "작업환경측정: 산안법 제125조 근거. 원칙 연 2회(반기 1회 이상). 고용노동부 지정 기관이 실시."
+  },
+  {
+    "id": 709,
+    "type": "fill",
+    "lecture": "11-12강",
+    "category": "제도·법규",
+    "question": "특수건강검진의 법적 근거는 산업안전보건법 제[①]조이며, 유해인자 노출 근로자의 [②] 조기 발견이 목적이다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["130"],
+      ["직업병", "건강 영향", "건강영향", "직업성 질병"]
+    ],
+    "explanation": "특수건강검진: 산안법 제130조. 직업병 유소견자 조기 발견 목적. 배치 후 첫 검진 및 정기 주기 실시."
+  },
+  {
+    "id": 710,
+    "type": "fill",
+    "lecture": "12-13강",
+    "category": "반도체 기초",
+    "question": "300mm 웨이퍼 25장을 수납하여 클린룸 내 장비 간을 이동하는 밀폐형 전면 개방식 웨이퍼 이송 용기를 [①](이)라 한다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["FOUP", "Front Opening Unified Pod"]],
+    "explanation": "FOUP(Front Opening Unified Pod): 300mm 웨이퍼 25장 수납. AMHS의 OHT로 자동 운반."
+  },
+  {
+    "id": 711,
+    "type": "fill",
+    "lecture": "12-13강",
+    "category": "반도체 공정",
+    "question": "반도체 웨이퍼 기판 위에 결정 방향을 모방하며 단결정 실리콘 박막층을 추가 성장시키는 공정을 [①](이)라 하며, 이때 [②]계 맹독 가스가 사용된다.",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["에피탁시", "Epitaxy", "epitaxy", "에피택시"],
+      ["실란", "SiH4", "SiH₄"]
+    ],
+    "explanation": "에피탁시(Epitaxy): CVD 기법으로 단결정 실리콘 증착. 실란(SiH₄) 등 맹독 가스 사용."
+  },
+  {
+    "id": 712,
+    "type": "fill",
+    "lecture": "12-13강",
+    "category": "반도체 안전",
+    "question": "반도체 클린룸에서 다종 화학물질·방사선·야간 3교대 근무 등이 동시에 중첩되는 노출 형태를 [①](이)라 하며, 단일 노출기준(TWA) 만족 시에도 직업병 발생 가능성이 상존한다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["복합노출", "mixed exposure", "복합 노출"]],
+    "explanation": "복합노출(Mixed Exposure): 단일 기준 충족에도 시너지 효과(Synergy)로 직업병 발생. 클린룸의 핵심 위험."
+  },
+  {
+    "id": 713,
+    "type": "fill",
+    "lecture": "12-13강",
+    "category": "ESG·CSR",
+    "question": "케이트 레이워스가 주창한 [①] 경제학은 사회적 기초(도넛 내벽)를 충족하면서 생태적 한계(도넛 외벽)를 초과하지 않는 범위를 지속가능한 공간으로 제시한다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["도넛", "Doughnut", "donut"]],
+    "explanation": "도넛 경제학: 사회적 기초(내벽) ↔ 생태적 한계(외벽) 사이 '도넛 내부'가 인류의 안전하고 공정한 공간."
+  },
+  {
+    "id": 714,
+    "type": "fill",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "전자산업 역학 결과, 골수 조혈기계를 직접 교란하여 급성 골수성 백혈병(AML)을 유발하는 대표 1군 발암 유기용제는 [①]이다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["벤젠", "Benzene", "benzene"]],
+    "explanation": "벤젠(Benzene): IARC 1군. 골수 독성 → AML·NHL 유발. 세척제 불순물로 반도체 공정에 유입 가능."
+  },
+  {
+    "id": 715,
+    "type": "fill",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "반도체 이온주입 장비에서 정비 작업자가 [①] 장치를 임의로 우회(Bypass)한 상태에서 고전압 장비를 수동 가동하다가 X선 피폭 사고가 발생하는 사례가 많다.",
+    "blanks": [{ "id": "①", "label": "①" }],
+    "answers": [["인터록", "interlock", "Interlock"]],
+    "explanation": "인터록(Interlock): 안전 차폐 이상 감지 시 즉각 장비 가동 중단 장치. 우회 시 방사선 피폭 사고 직결."
+  },
+  {
+    "id": 716,
+    "type": "fill",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "전자산업 직업병으로 인정된 혈액암 원인 인자 3가지: [①](유기용제), [②](PCB 공정), 전리방사선(X선 등).",
+    "blanks": [
+      { "id": "①", "label": "①" },
+      { "id": "②", "label": "②" }
+    ],
+    "answers": [
+      ["벤젠", "Benzene"],
+      ["포름알데히드", "Formaldehyde", "formaldehyde"]
+    ],
+    "explanation": "혈액암(AML·NHL) 주요 원인 인자: 벤젠(1위) + 포름알데히드 + 전리방사선. 세 가지 모두 암기 필요."
   }
 ]
 
