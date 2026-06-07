@@ -29,16 +29,19 @@ function shuffleMultipleOptions(question) {
 
 export default function StartScreen({ subject, onStart, onBack }) {
   const hasMultipleTypes = subject.types.length > 2
+  const hasDifficulties = Array.isArray(subject.difficulties) && subject.difficulties.length > 1
   const [lecture, setLecture] = useState('all')
   const [type, setType] = useState('all')
+  const [difficulty, setDifficulty] = useState('all')
   const [count, setCount] = useState(20)
 
   const pool = useMemo(() => {
     let qs = subject.questions
     if (lecture !== 'all') qs = qs.filter(q => q.lecture === lecture)
     if (type !== 'all') qs = qs.filter(q => q.type === type)
+    if (difficulty !== 'all') qs = qs.filter(q => q.difficulty === difficulty)
     return qs
-  }, [subject, lecture, type])
+  }, [subject, lecture, type, difficulty])
 
   const effectiveCount = count === 999 ? pool.length : Math.min(count, pool.length)
 
@@ -47,6 +50,7 @@ export default function StartScreen({ subject, onStart, onBack }) {
       questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
       lecture,
       type,
+      difficulty,
       count: effectiveCount,
     })
   }
@@ -107,6 +111,27 @@ export default function StartScreen({ subject, onStart, onBack }) {
                     }`}
                   >
                     {item.icon ? `${item.icon} ` : ''}{item.label ?? item.id}
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {hasDifficulties && (
+            <section>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">난이도</p>
+              <div className="flex flex-wrap gap-2">
+                {subject.difficulties.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => setDifficulty(item.id)}
+                    className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all ${
+                      difficulty === item.id
+                        ? `bg-gradient-to-r ${subject.gradient} text-white shadow-sm`
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {item.label ?? item.id}
                   </button>
                 ))}
               </div>

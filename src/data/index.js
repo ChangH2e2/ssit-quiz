@@ -1,5 +1,5 @@
 import { questions as semiQuestions, LECTURES as SEMI_LECTURES } from './semiconductor.js'
-import { questions as toxQuestions, LECTURES as TOX_LECTURES, QUIZ_TYPES as TOX_TYPES } from './toxicology.js'
+import { questions as toxQuestions, LECTURES as TOX_LECTURES, QUIZ_TYPES as TOX_TYPES, DIFFICULTIES as TOX_DIFFICULTIES } from './toxicology.js'
 import { questions as processQuestions, LECTURES as PROCESS_LECTURES, QUIZ_TYPES as PROCESS_TYPES } from './process.js'
 
 const SEMI_TYPES = [
@@ -51,6 +51,7 @@ export const SUBJECTS = [
     btn: 'bg-violet-600 hover:bg-violet-700',
     lectures: TOX_LECTURES,
     types: TOX_TYPES,
+    difficulties: TOX_DIFFICULTIES,
     questions: toxQuestions.map(q => ({ ...q, subject: 'toxicology' })),
   },
 ]

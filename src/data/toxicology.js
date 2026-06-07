@@ -1,4 +1,4 @@
-export const questions = [
+const rawQuestions = [
   {
     "id": 41,
     "type": "multiple",
@@ -7792,7 +7792,305 @@ export const questions = [
     "question": "한국의 PSM(공정안전관리) 제도의 주요 구성 요소와 반도체 공장 적용 시 핵심 사항을 설명하시오.",
     "modelAnswer": "[PSM 주요 구성 요소 (산안법 기반, 12~14개 요소)]\n①공정안전자료(PSI): 물질 특성, 공정 조건, 설비 사양\n②공정위험성 평가(PHA): HAZOP·What-if 등\n③변경관리(MOC): 모든 공정 변경 사전 검토\n④작업허가서(PTW): 위험 작업 사전 허가\n⑤근로자 교육·훈련\n⑥비상 조치 계획\n⑦도급업체 안전 관리\n[반도체 공장 적용 핵심]\n - 규정량 이상 독성 가스(SiH₄·AsH₃·PH₃ 등) 사용 시 PSM 적용\n - 독성 가스의 독성 기준값(TQ) 이상 보관·사용 여부 확인\n - 클린룸 내 복합 화학물질 → 물질별 PSI 작성 필수\n - 정비 작업 MOC+PTW 연계 운용",
     "explanation": "PSM = 대형 화학 사고 예방 체계. 반도체는 독성 고압가스 다량 사용으로 PSM 핵심 사업장."
+  },
+  {
+    "id": 640,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "탄소중립",
+    "question": "다음 설명이 가리키는 제도는?\n\n\"정부가 온실가스 총배출 한도를 정하고 기업에 배출권을 할당한 뒤, 부족하거나 남는 배출권을 시장에서 거래하게 하는 탄소 가격 제도\"",
+    "answer": "배출권 거래제(ETS)",
+    "accepts": ["배출권 거래제", "ETS", "Emission Trading System", "탄소배출권 거래제", "탄소 배출권 거래제", "Cap and Trade", "캡앤트레이드"],
+    "difficulty": "basic",
+    "explanation": "ETS는 Emission Trading System의 약자이며 배출권 거래제, 탄소배출권 거래제, cap and trade로도 부른다."
+  },
+  {
+    "id": 641,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "탄소중립",
+    "question": "다음 설명이 가리키는 개념은?\n\n\"온실가스를 배출한 만큼 흡수·상쇄하여 순배출량을 0으로 만드는 목표\"",
+    "answer": "탄소중립(Net Zero)",
+    "accepts": ["탄소중립", "Net Zero", "넷제로", "순배출제로", "순배출량 제로", "Carbon Neutrality"],
+    "difficulty": "basic",
+    "explanation": "탄소중립은 배출량과 흡수·상쇄량을 맞추어 순배출량을 0으로 만드는 개념이다."
+  },
+  {
+    "id": 642,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "탄소중립",
+    "question": "다음 설명이 가리키는 것은?\n\n\"고탄소 산업에서 저탄소 경제로 전환할 때 일자리·지역경제·비용 부담이 특정 집단에만 몰리지 않도록 공정하게 나누자는 원칙\"",
+    "answer": "공정한 전환(Just Transition)",
+    "accepts": ["공정한 전환", "Just Transition", "저스트 트랜지션"],
+    "difficulty": "basic",
+    "explanation": "공정한 전환은 탄소중립 과정에서 발생하는 사회·경제적 부담을 공정하게 분담하자는 원칙이다."
+  },
+  {
+    "id": 643,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "ESG·CSR",
+    "question": "다음 설명이 가리키는 약어는?\n\n\"기업을 환경, 사회, 지배구조의 세 축으로 평가하는 비재무 성과 기준\"",
+    "answer": "ESG",
+    "accepts": ["ESG", "Environment Social Governance", "환경 사회 지배구조", "환경·사회·지배구조", "환경사회지배구조"],
+    "difficulty": "basic",
+    "explanation": "ESG는 Environment, Social, Governance의 약자이다."
+  },
+  {
+    "id": 644,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "ESG·CSR",
+    "question": "다음 설명이 가리키는 것은?\n\n\"기업이 이해관계자와 사회·환경에 대해 자발적으로 책임 있는 경영을 수행한다는 개념. ISO 26000과 연결된다\"",
+    "answer": "CSR",
+    "accepts": ["CSR", "기업의 사회적 책임", "사회적 책임", "Corporate Social Responsibility", "기업 사회 책임"],
+    "difficulty": "basic",
+    "explanation": "CSR은 Corporate Social Responsibility, 즉 기업의 사회적 책임이다."
+  },
+  {
+    "id": 645,
+    "type": "match",
+    "lecture": "10강",
+    "category": "독성동태",
+    "question": "다음 설명이 가리키는 순서를 쓰시오.\n\n\"독성물질이 체내로 들어와 이동하고, 변환된 뒤, 몸 밖으로 빠져나가는 기본 처리 과정\"",
+    "answer": "흡수→분포→대사→배설",
+    "accepts": ["흡수→분포→대사→배설", "흡수 분포 대사 배설", "흡수, 분포, 대사, 배설", "Absorption Distribution Metabolism Excretion", "ADME"],
+    "difficulty": "basic",
+    "explanation": "독성동태의 기본 과정은 흡수, 분포, 대사, 배설이다. 문제에서 ADME라는 약어를 먼저 주면 너무 쉽게 유추되므로 설명형으로 냈다."
+  },
+  {
+    "id": 646,
+    "type": "match",
+    "lecture": "10강",
+    "category": "바이오마커",
+    "question": "다음 설명이 가리키는 개념은?\n\n\"노출, 생체 내 변화, 초기 생물학적 영향 등을 혈액·소변·호기 등 생체 시료에서 측정하는 지표\"",
+    "answer": "바이오마커(Biomarker)",
+    "accepts": ["바이오마커", "Biomarker", "생체지표", "생물학적 지표"],
+    "difficulty": "basic",
+    "explanation": "바이오마커는 노출·영향·감수성 등을 생체 시료에서 측정하는 지표이다."
+  },
+  {
+    "id": 647,
+    "type": "match",
+    "lecture": "10강",
+    "category": "바이오마커",
+    "question": "다음 설명이 가리키는 것은?\n\n\"유해물질이 실제로 체내에 들어왔는지, 또는 대사산물이 생겼는지를 보여주는 바이오마커\"",
+    "answer": "노출 바이오마커",
+    "accepts": ["노출 바이오마커", "노출마커", "Marker of Exposure", "Exposure Biomarker", "노출 지표"],
+    "difficulty": "basic",
+    "explanation": "노출 바이오마커는 내부노출 또는 대사산물 존재를 보여준다."
+  },
+  {
+    "id": 648,
+    "type": "match",
+    "lecture": "10강",
+    "category": "바이오마커",
+    "question": "다음 설명이 가리키는 것은?\n\n\"효소 활성 감소, DNA 손상, 생리 기능 변화처럼 독성작용의 초기 생물학적 변화를 보여주는 바이오마커\"",
+    "answer": "영향 바이오마커",
+    "accepts": ["영향 바이오마커", "영향마커", "Marker of Effect", "Effect Biomarker", "효과 바이오마커"],
+    "difficulty": "basic",
+    "explanation": "영향 바이오마커는 노출 이후 생체 기능이나 분자 수준 변화가 나타났는지를 보여준다."
+  },
+  {
+    "id": 649,
+    "type": "match",
+    "lecture": "10강",
+    "category": "바이오마커",
+    "question": "다음 설명이 가리키는 것은?\n\n\"같은 노출에서도 개인의 유전적·생리적 차이 때문에 독성 반응이 달라질 수 있음을 나타내는 바이오마커\"",
+    "answer": "감수성 바이오마커",
+    "accepts": ["감수성 바이오마커", "감수성마커", "Marker of Susceptibility", "Susceptibility Biomarker", "감수성 지표"],
+    "difficulty": "basic",
+    "explanation": "감수성 바이오마커는 개인차에 따른 독성 반응 가능성을 보여주는 지표이다."
+  },
+  {
+    "id": 650,
+    "type": "match",
+    "lecture": "9강",
+    "category": "중금속 질환",
+    "question": "다음 설명이 가리키는 질환은?\n\n\"카드뮴 노출과 관련되며 신장 손상, 칼슘 대사 이상, 골연화증·골절이 특징적이다\"",
+    "answer": "이이타이이타이병",
+    "accepts": ["이이타이이타이병", "이타이이타이병", "Itai-Itai", "Itai Itai disease", "카드뮴 골연화증"],
+    "difficulty": "basic",
+    "explanation": "이이타이이타이병은 카드뮴 중독과 관련된 대표적 환경성 질환이다."
+  },
+  {
+    "id": 651,
+    "type": "match",
+    "lecture": "9강",
+    "category": "중금속 질환",
+    "question": "다음 설명이 가리키는 질환은?\n\n\"메틸수은에 오염된 어패류 섭취와 관련되며 운동실조, 시야협착, 감각장애 등 신경계 증상이 나타난다\"",
+    "answer": "미나마타병",
+    "accepts": ["미나마타병", "Minamata disease", "Minamata", "메틸수은 중독"],
+    "difficulty": "basic",
+    "explanation": "미나마타병은 메틸수은에 의한 대표적 신경독성 질환이다."
+  },
+  {
+    "id": 652,
+    "type": "match",
+    "lecture": "9강",
+    "category": "중금속 기초",
+    "question": "다음 설명이 가리키는 단백질은?\n\n\"카드뮴 등 금속과 결합하여 해독·저장에 관여하지만, 신장 축적과 독성에도 연결되는 금속 결합 단백질\"",
+    "answer": "Metallothionein",
+    "accepts": ["Metallothionein", "메탈로티오네인", "금속결합단백질", "MT"],
+    "difficulty": "basic",
+    "explanation": "Metallothionein은 카드뮴 등 금속과 결합하는 cysteine-rich 단백질이다."
+  },
+  {
+    "id": 653,
+    "type": "match",
+    "lecture": "9강",
+    "category": "방사성 원소",
+    "question": "다음 설명이 가리키는 방사선은?\n\n\"종이로도 차단될 수 있을 정도로 투과력은 낮지만, 체내로 들어오면 내부피폭 위험이 커진다\"",
+    "answer": "알파선",
+    "accepts": ["알파선", "알파", "alpha ray", "alpha radiation", "α선"],
+    "difficulty": "basic",
+    "explanation": "알파선은 외부투과력은 낮지만 내부피폭 시 국소 에너지 전달이 커 위험하다."
+  },
+  {
+    "id": 654,
+    "type": "match",
+    "lecture": "9강",
+    "category": "방사성 원소",
+    "question": "다음 설명이 가리키는 방사선은?\n\n\"납이나 콘크리트 차폐가 필요할 정도로 투과력이 크며 외부피폭 위험이 큰 전자기파 성격의 방사선\"",
+    "answer": "감마선",
+    "accepts": ["감마선", "감마", "gamma ray", "gamma radiation", "γ선"],
+    "difficulty": "basic",
+    "explanation": "감마선은 투과력이 커 납·콘크리트 차폐가 필요하다."
+  },
+  {
+    "id": 655,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "연관·인과",
+    "question": "다음 설명이 가리키는 기준은?\n\n\"Hill의 인과관계 기준 중 유일하게 반드시 만족해야 하는 조건. 원인이 결과보다 먼저 있어야 한다\"",
+    "answer": "시간성(Temporality)",
+    "accepts": ["시간성", "Temporality", "시간적 선후관계", "선후관계"],
+    "difficulty": "basic",
+    "explanation": "Hill 기준 중 시간성은 인과관계를 주장하기 위한 필수 조건이다."
+  },
+  {
+    "id": 656,
+    "type": "match",
+    "lecture": "11-12강",
+    "category": "경영시스템",
+    "question": "다음 설명이 가리키는 순환 구조는?\n\n\"계획을 세우고 실행한 뒤, 결과를 점검하고 개선하는 ISO 경영시스템의 공통 개선 사이클\"",
+    "answer": "PDCA",
+    "accepts": ["PDCA", "Plan Do Check Act", "계획 실행 점검 개선", "Plan-Do-Check-Act"],
+    "difficulty": "basic",
+    "explanation": "PDCA는 Plan, Do, Check, Act의 순환 구조이다."
+  },
+  {
+    "id": 657,
+    "type": "match",
+    "lecture": "13-14강",
+    "category": "SEMI·위험성평가",
+    "question": "다음 설명이 가리키는 것은?\n\n\"반도체 장비 위험성평가에서 위험을 심각도와 발생가능성의 조합으로 평가하는 SEMI 안전 지침\"",
+    "answer": "SEMI S10",
+    "accepts": ["SEMI S10", "S10", "세미 S10", "SEMI 위험성평가"],
+    "difficulty": "basic",
+    "explanation": "SEMI S10은 반도체 장비 위험성평가에서 Severity와 Likelihood 조합으로 risk를 평가한다."
+  },
+  {
+    "id": 658,
+    "type": "match",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "다음 설명이 가리키는 안전 절차는?\n\n\"정비·보수 중 전기, 가스, 압력 등 에너지원을 차단하고 잠금·표지를 통해 예기치 않은 기동을 방지하는 절차\"",
+    "answer": "LOTO",
+    "accepts": ["LOTO", "Lockout Tagout", "Lockout/Tagout", "록아웃 태그아웃", "잠금표지", "잠금 표지"],
+    "difficulty": "basic",
+    "explanation": "LOTO는 Lockout/Tagout으로 에너지원을 차단하고 경고표지를 부착하는 절차이다."
+  },
+  {
+    "id": 659,
+    "type": "match",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "다음 설명이 가리키는 화학물질은?\n\n\"반도체 현상액으로 사용되며 무색·무취라 감지가 어렵고, 노출 시 콜린성 위기와 호흡마비 위험이 있다\"",
+    "answer": "TMAH",
+    "accepts": ["TMAH", "테트라메틸암모늄하이드록사이드", "Tetramethylammonium hydroxide", "현상액"],
+    "difficulty": "basic",
+    "explanation": "TMAH는 반도체 현상액으로 쓰이며 치명적 전신 독성이 가능하다."
+  },
+  {
+    "id": 660,
+    "type": "match",
+    "lecture": "13-14강",
+    "category": "반도체 안전",
+    "question": "다음 설명이 가리키는 물질은?\n\n\"SiO2 식각에 사용되며 피부 통증이 지연될 수 있고, 칼슘과 결합해 저칼슘혈증·부정맥 위험을 일으킨다\"",
+    "answer": "불산(HF)",
+    "accepts": ["불산", "HF", "Hydrofluoric acid", "플루오르화수소산", "불화수소산"],
+    "difficulty": "basic",
+    "explanation": "불산은 Ca2+와 결합하여 전신 독성까지 유발할 수 있어 노출 시 즉시 처치가 필요하다."
   }
+]
+
+const DIFFICULTY_LABELS = {
+  basic: '기초',
+  standard: '표준',
+  advanced: '심화',
+}
+
+const aliasGroups = [
+  ['ETS', '배출권 거래제', '탄소배출권 거래제', '탄소 배출권 거래제', 'Emission Trading System', 'Cap and Trade', '캡앤트레이드'],
+  ['탄소중립', 'Net Zero', '넷제로', '순배출제로', 'Carbon Neutrality'],
+  ['CSR', '기업의 사회적 책임', 'Corporate Social Responsibility', '기업 사회 책임'],
+  ['ESG', 'Environment Social Governance', '환경 사회 지배구조', '환경·사회·지배구조'],
+  ['PDCA', 'Plan Do Check Act', 'Plan-Do-Check-Act', '계획 실행 점검 개선'],
+  ['LOTO', 'Lockout Tagout', 'Lockout/Tagout', '록아웃 태그아웃', '잠금표지'],
+  ['TMAH', '테트라메틸암모늄하이드록사이드', 'Tetramethylammonium hydroxide'],
+  ['HF', '불산', 'Hydrofluoric acid', '플루오르화수소산', '불화수소산'],
+  ['SEMI S10', 'S10', '세미 S10', 'SEMI 위험성평가'],
+  ['ADME', '흡수 분포 대사 배설', '흡수→분포→대사→배설', 'Absorption Distribution Metabolism Excretion'],
+  ['바이오마커', 'Biomarker', '생체지표', '생물학적 지표'],
+  ['미나마타병', 'Minamata disease', '메틸수은 중독'],
+  ['이이타이이타이병', '이타이이타이병', 'Itai-Itai', 'Itai Itai disease'],
+  ['Metallothionein', '메탈로티오네인', '금속결합단백질', 'MT'],
+]
+
+function relatedAliases(values) {
+  const text = values.filter(Boolean).join(' ').toLowerCase()
+  const aliases = new Set(values.filter(Boolean))
+  for (const group of aliasGroups) {
+    if (group.some(item => text.includes(String(item).toLowerCase()))) {
+      group.forEach(item => aliases.add(item))
+    }
+  }
+  return [...aliases]
+}
+
+function inferDifficulty(question) {
+  if (question.difficulty) return question.difficulty
+  const text = `${question.question ?? ''} ${question.category ?? ''} ${question.explanation ?? ''}`
+  if (question.type === 'short') return 'advanced'
+  if (/순서|비교|차이|계산|위험성평가|Hill|RR|OR|PSM|Scope|SEMI|사례|공정/.test(text)) return 'advanced'
+  if (question.type === 'match' && /다음 설명|설명이 가리키는|가리키는/.test(text)) return 'basic'
+  if (question.type === 'fill') return 'standard'
+  if (/정의|약자|원인|대표|무엇|어느|어떤/.test(text)) return 'basic'
+  return 'standard'
+}
+
+function enrichQuestion(question) {
+  const difficulty = inferDifficulty(question)
+  if (question.type === 'match') {
+    const accepts = relatedAliases([question.answer, ...(question.accepts ?? [])])
+    return { ...question, difficulty, difficultyLabel: DIFFICULTY_LABELS[difficulty], accepts }
+  }
+  if (question.type === 'fill' && Array.isArray(question.answers)) {
+    const answers = question.answers.map(answerSet => relatedAliases(answerSet))
+    return { ...question, difficulty, difficultyLabel: DIFFICULTY_LABELS[difficulty], answers }
+  }
+  return { ...question, difficulty, difficultyLabel: DIFFICULTY_LABELS[difficulty] }
+}
+
+export const questions = rawQuestions.map(enrichQuestion)
+
+export const DIFFICULTIES = [
+  { id: 'all', label: '전체 난이도' },
+  { id: 'basic', label: '기초: 설명→키워드' },
+  { id: 'standard', label: '표준: 보기 비교' },
+  { id: 'advanced', label: '심화: 연결·서술' },
 ]
 
 export const QUIZ_TYPES = [

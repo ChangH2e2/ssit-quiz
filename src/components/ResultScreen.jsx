@@ -6,6 +6,12 @@ const TYPE_BADGE = {
   calc: { label: '계산 단답', cls: 'bg-emerald-100 text-emerald-700' },
 }
 
+const DIFFICULTY_BADGE = {
+  basic: { label: '기초', cls: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
+  standard: { label: '표준', cls: 'bg-amber-50 text-amber-700 border-amber-100' },
+  advanced: { label: '심화', cls: 'bg-rose-50 text-rose-700 border-rose-100' },
+}
+
 const LABELS = ['①', '②', '③', '④']
 
 function SourceReference({ source, subject }) {
@@ -105,10 +111,16 @@ export default function ResultScreen({ subject, results, onRestart, onRestartSam
             <h3 className="font-black text-gray-700 px-1">틀린 문제 {wrong.length}개</h3>
             {wrong.map(({ q, userValue }, index) => {
               const badge = TYPE_BADGE[q.type] ?? { label: q.type, cls: 'bg-gray-100 text-gray-600' }
+              const difficultyBadge = DIFFICULTY_BADGE[q.difficulty]
               return (
                 <div key={`${q.subject}-${q.id}-${index}`} className="bg-white rounded-2xl shadow-sm shadow-black/5 p-5">
                   <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${badge.cls}`}>{badge.label}</span>
+                    {difficultyBadge && (
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${difficultyBadge.cls}`}>
+                        {difficultyBadge.label}
+                      </span>
+                    )}
                     <span className="text-xs text-gray-400">{q.lecture}</span>
                     {q.category && <span className="text-xs text-gray-400">· {q.category}</span>}
                   </div>
