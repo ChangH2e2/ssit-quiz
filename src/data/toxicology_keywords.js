@@ -32,7 +32,7 @@ export const keywords = [
   {
     id: 'k005', lecture: '9강',
     keyword: '생체축적 (bio-accumulation)',
-    description: '생물체가 유해 화학물질을 흡수하는 속도가 배설 속도보다 빨라 체내 조직에 지속적으로 농축·잔류하는 현상. 중금속은 분해되지 않아 생체축적이 강하며, 장간 순환으로 더욱 가속됨.',
+    description: '생물체가 유해 화학물질을 흡수하는 속도가 배설 속도보다 빨라 체내 조직에 지속적으로 농축·잔류하는 현상. 중금속은 분해되지 않아 이러한 현상이 특히 강하며, 장간 순환으로 더욱 가속됨.',
   },
   {
     id: 'k006', lecture: '9강',
@@ -72,12 +72,12 @@ export const keywords = [
   {
     id: 'k013', lecture: '9강',
     keyword: '납(Pb) 직업병',
-    description: '페인트·배관 용접 작업자에서 납 독성 축적 → 복통·빈혈·만성 신부전 유발. ALAD 효소 억제 → 헴(Heme) 합성 장애. 뼈에 전체 납의 약 95%가 축적.',
+    description: '페인트·배관 용접 작업자에서 뼈에 약 95% 장기 축적. ALAD 효소 억제 → 헴(Heme) 합성 장애 → 복통·빈혈·만성 신부전 유발.',
   },
   {
     id: 'k014', lecture: '9강',
     keyword: '수은(Hg) 직업병 — 미나마타병',
-    description: '무기수은 증기 흡입(문송면 사건) 또는 메틸수은 오염 어패류 섭취로 중추신경계 파괴. 언어장애·시야협착·운동실조 유발. 만성 미나마타병.',
+    description: '금속 증기 흡입(문송면 사건) 또는 유기 화합물 형태로 오염된 어패류 섭취로 중추신경계 파괴. 언어장애·시야협착·운동실조 유발. 만성 미나마타병.',
   },
   {
     id: 'k015', lecture: '9강',
@@ -92,7 +92,7 @@ export const keywords = [
   {
     id: 'k017', lecture: '9강',
     keyword: '망간(Mn) 직업병',
-    description: '용접 근로자에게 만성 축적되어 보행 장애·떨림을 동반하는 파킨슨 증후군(망간증) 유발.',
+    description: '용접 근로자에게 만성 축적되어 보행 장애·떨림을 동반하는 파킨슨 유사 증후군 유발.',
   },
   {
     id: 'k018', lecture: '9강',
@@ -276,7 +276,7 @@ export const keywords = [
   {
     id: 'k062', lecture: '12-13강',
     keyword: '실리콘 웨이퍼 (Wafer)',
-    description: '고순도 실리콘 단결정 기둥(잉곳, Ingot)을 얇게 슬라이싱·연마한 원판 형태의 기판. 집적회로(IC)가 새겨지는 베이스. 현재 주류 크기: 300mm(12인치).',
+    description: '고순도 실리콘 단결정 기둥(잉곳, Ingot)을 얇게 슬라이싱·연마한 원판 형태의 기판. 집적회로(IC)가 층층이 새겨지는 베이스 기판.',
   },
   {
     id: 'k063', lecture: '12-13강',
@@ -388,7 +388,7 @@ export const keywords = [
   {
     id: 'k082', lecture: '13-14강',
     keyword: '반도체 위험성평가 / 위험 매트릭스',
-    description: 'SEMI S10 기준. 결함 심각도(Catastrophic/Critical/Marginal/Negligible) × 발생 가능성(A~E)을 조합하여 위험 매트릭스 도출. Risk = Severity × Likelihood.',
+    description: 'SEMI S10 기준. 결함 심각도(Catastrophic/Critical/Marginal/Negligible) × 발생 가능성(A~E)을 표로 조합하여 리스크 수준 결정. Risk = Severity × Likelihood.',
   },
   {
     id: 'k083', lecture: '13-14강', mode: 'reverse',
