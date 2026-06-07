@@ -127,10 +127,10 @@ export const questions = [
     "category": "Gate Stack History",
     "question": "Polycide Gate가 Salicide Gate보다 유리한 점은?",
     "options": [
-      "Dual Poly 및 저항 분리가 어렵다",
-      "Silicide 공정이 Control 어렵다",
+      "Self-aligned silicide 형성으로 Source/Drain까지 동시에 저저항화하기 쉽다",
+      "Gate와 Source/Drain silicide 두께를 동일 조건으로 맞추기 쉽다",
       "Dual Poly 및 저항 분리가 용이하다",
-      "Single Poly만 사용 가능하다"
+      "노출된 Si 영역과 선택적으로 반응해 별도 stack 구성이 필요 없다"
     ],
     "answer": 2,
     "explanation": "Polycide Gate는 Silicide 공정이 용이하여 Dual Poly 및 저항 분리가 쉽다. 반면 Salicide Gate는 Silicide 공정 Control이 어려워 Dual Poly 및 저항 분리가 어렵다."
@@ -142,10 +142,10 @@ export const questions = [
     "category": "Gate Stack",
     "question": "PMOS에서 N+Poly를 사용했을 때 발생하는 주요 문제는?",
     "options": [
-      "Gate Oxide가 파괴된다",
-      "Contact 형성이 불가능해진다",
+      "P+ S/D junction이 깊어져 short channel effect가 줄어든다",
+      "Gate work function이 PMOS Vt 요구와 어긋나고 유효 산화막 두께가 증가한다",
       "Poly Depletion(폴리 공핍) 문제가 발생한다",
-      "S/D Doping이 불균일해진다"
+      "Dual gate 형성이 쉬워져 NMOS와 PMOS Vt 차이가 줄어든다"
     ],
     "answer": 2,
     "explanation": "PMOS에서 N+Poly를 사용하면 Gate와 채널 사이에 Poly Depletion(폴리 공핍)이 발생하여 유효 게이트 산화막 두께가 증가하는 문제가 생긴다."
@@ -173,9 +173,9 @@ export const questions = [
     "question": "Poly Si를 Fully Silicidation 했을 때의 결과는?",
     "options": [
       "Poly Si가 남아 부분적으로만 금속화된다",
-      "Gate Oxide도 함께 금속화된다",
+      "Poly Si 상부만 silicide가 되고 하부 Poly Si는 gate electrode로 남는다",
       "전체 Poly Si가 완전히 금속화(Metal化)된다",
-      "Silicide가 형성되지 않는다"
+      "Source/Drain 영역만 silicide가 되고 gate stack에는 변화가 없다"
     ],
     "answer": 2,
     "explanation": "Fully Silicidation을 진행하면 Poly Si 전체가 금속과 반응하여 완전히 금속화된다. Partial Silicidation은 일부만 금속화된다."
@@ -262,10 +262,10 @@ export const questions = [
     "category": "Contact 역할 NAND",
     "question": "NAND Flash의 Contact 구성의 특징으로 올바른 것은?",
     "options": [
-      "Cell 내 Contact 있음, 하부 on ACT, on GP Metal",
+      "Cell array 내부에 많은 contact를 배치하고 하부는 주로 Si-Si contact로 연결",
       "Cell 내 Contact 없음, 하부 on ACT·on GP Metal, 상부 on Metal deep Contact",
-      "Cell 내 Contact 있음, 전체 Metal Contact",
-      "Cell 내 Contact 없음, 전체 Si-Si Contact"
+      "Cell 내 Contact은 줄이지만 하부 ACT 연결 없이 상부 Metal deep Contact만 사용",
+      "Cell 내 Contact 없음, 하부와 상부 모두 Si-Si contact 중심으로 구성"
     ],
     "answer": 1,
     "explanation": "NAND Flash는 Cell 내 Contact 없음, 하부 on ACT·on GP Metal, 상부 on Metal deep Contact로 구성된다."
@@ -279,8 +279,8 @@ export const questions = [
     "options": [
       "하부 on ACT or SEG, on GP Metal로 구성되며 on Metal Deep Contact는 없음",
       "Cell 내부 Contact가 없고 하부 ACT·GP와 상부 Metal Deep Contact로 구성",
-      "Cell 내부 Contact가 있으며 Metal Deep Contact가 반드시 포함되는 구성",
-      "Si-Si Contact만 사용하고 Metal 계열 Contact는 배제되는 구성"
+      "하부 contact보다 capacitor와 bit line 연결용 Si-Si contact 비중이 큰 구성",
+      "Gate와 active 연결보다 string 적층 구조의 vertical deep contact가 핵심인 구성"
     ],
     "answer": 0,
     "explanation": "Logic은 하부 on ACT or SEG, on GP Metal로 구성되며, on Metal Deep Contact는 없다."
@@ -382,10 +382,10 @@ export const questions = [
     "category": "BEOL 구성요소",
     "question": "BEOL에서 RC delay를 줄이기 위한 ILD(절연막) 조건은?",
     "options": [
-      "High-k(고유전율) IMD 사용",
+      "High-k IMD를 사용해 배선 간 coupling capacitance를 키우는 조건",
       "Low-k(저유전율) IMD 사용",
-      "SiO2만 사용",
-      "SiN만 사용"
+      "Barrier metal 두께를 늘려 line resistance보다 capacitance를 우선 증가시키는 조건",
+      "ILD를 조밀한 SiN 계열로만 구성해 mechanical strength를 우선하는 조건"
     ],
     "answer": 1,
     "explanation": "RC delay = R × C이므로, 배선 간 절연막의 유전율(k)을 낮추는 Low-k IMD를 사용하여 C를 줄이고 RC delay를 감소시킨다."
@@ -710,15 +710,15 @@ export const questions = [
     "type": "multiple",
     "lecture": "13강",
     "category": "Classical Scaling 한계",
-    "question": "Classical Scaling의 한계 중 S/D Leakage 원인이 아닌 것은?",
+    "question": "Classical Scaling에서 S/D leakage를 증가시키는 대표 메커니즘 조합으로 가장 적절한 것은?",
     "options": [
-      "Thermionic emission over barrier",
-      "QM tunneling through barrier",
-      "Band to band tunneling from body to drain",
-      "Contact 저항 증가"
+      "Thermionic emission, quantum tunneling, band-to-band tunneling",
+      "Contact resistance 증가, Cu grain boundary scattering, CMP dishing",
+      "Low-k plasma damage, electroplating void, barrier metal oxidation",
+      "Supporter collapse, dielectric loss, cylinder leaning"
     ],
-    "answer": 3,
-    "explanation": "S/D Leakage의 원인은 (1) Thermionic emission, (2) QM tunneling, (3) BTBT(Band-To-Band Tunneling)이다. Contact 저항은 S/D Leakage와 직접 관련 없다."
+    "answer": 0,
+    "explanation": "S/D leakage는 barrier를 넘는 thermionic emission, barrier를 통과하는 quantum tunneling, body-drain 사이 band-to-band tunneling 등이 핵심이다."
   },
   {
     "id": 47,
@@ -727,10 +727,10 @@ export const questions = [
     "category": "Classical Scaling 한계",
     "question": "Leakage 억제 방법 중 Higher body doping의 단점으로 올바른 것은?",
     "options": [
-      "Random Dopant Fluctuation이 완전히 제거되어 Vth 조절이 불가능해진다",
+      "Random Dopant Fluctuation과 Vt 산포가 커질 수 있다",
       "Lower mobility, higher junction capacitance, increased junction leakage가 발생한다",
-      "Gate Oxide 물리 두께가 자동으로 증가해 EOT scaling이 어려워진다",
-      "Drain 전압이 낮아져 읽기 전류가 완전히 흐르지 않게 된다"
+      "Gate oxide EOT가 낮아지는 대신 gate work function 조절 범위가 넓어진다",
+      "Source/Drain series resistance가 낮아지는 대신 junction capacitance가 작아진다"
     ],
     "answer": 1,
     "explanation": "Higher body doping은 Leakage를 억제하지만 Mobility 감소, 접합 용량 증가, 접합 누설 증가라는 부작용이 생긴다."
@@ -890,15 +890,15 @@ export const questions = [
     "type": "multiple",
     "lecture": "8강",
     "category": "Gate Stack Polycide",
-    "question": "Polycide Gate에서 W gate를 도입(Stack down)했을 때 얻는 효과가 아닌 것은?",
+    "question": "Polycide Gate에서 W gate를 도입(Stack down)했을 때 기대되는 효과 조합으로 가장 적절한 것은?",
     "options": [
-      "W/L Rs(저항) 개선",
-      "Ti Stack Height 감소",
-      "Speed 증가",
-      "Gate Oxide 두께 증가"
+      "Word line 저항 개선, stack height 부담 완화, 동작 speed 개선",
+      "Gate oxide physical thickness 증가, direct tunneling 감소, EOT 증가",
+      "Source/Drain junction 깊이 증가, contact 면적 확대, leakage 감소",
+      "Capacitor 유효 면적 증가, bit line capacitance 감소, refresh 제거"
     ],
-    "answer": 3,
-    "explanation": "Polycide Gate의 W gate 도입(Stack down)으로 W/L Rs 개선, Ti Stack Height 감소, Speed 증가 효과가 있다. Gate Oxide 두께는 Stack down과 무관하다."
+    "answer": 0,
+    "explanation": "W 도입은 word line 저항을 낮추고 stack height 및 speed 측면의 이점을 주기 위한 방향이다."
   },
   {
     "id": 59,
@@ -1012,10 +1012,10 @@ export const questions = [
     "category": "Contact Si-Metal",
     "question": "Metal to Semiconductor Contact에서 Ideal Ohmic Contact가 불가능한 이유는?",
     "options": [
-      "금속과 반도체의 녹는점 차이로 접촉 계면이 공정 중 항상 녹기 때문",
+      "금속 work function 변화가 barrier height에 선형으로만 반영되어 계면 상태 영향이 작기 때문",
       "Fermi-level pinning으로 실질 Barrier Height이 surface states에 의존하기 때문",
-      "반도체 도핑 농도가 항상 낮아서 터널링 전류가 전혀 흐르지 않기 때문",
-      "접촉 면적이 작으면 모든 금속-반도체 접촉이 Schottky로만 동작하기 때문"
+      "고농도 doping을 적용하면 depletion width가 넓어져 tunneling이 더 어려워지기 때문",
+      "silicide를 형성하면 barrier metal 없이도 계면 결함이 모두 사라지기 때문"
     ],
     "answer": 1,
     "explanation": "Fermi-level pinning 현상으로 인해 실질적 Schottky Barrier Height은 Metal의 Work Function이 아니라 반도체 계면의 surface states에 의해 결정된다. 따라서 Ideal M-Si Contact에서 ΦB = ΦM - χ이지만, 실제로는 surface states 의존."
@@ -1060,7 +1060,7 @@ export const questions = [
       "TiSi2",
       "CoSi2",
       "NiSi",
-      "세 가지 모두 동일하게 민감"
+      "TiSi2와 CoSi2가 동일하게 둔감하고 NiSi만 민감"
     ],
     "answer": 2,
     "explanation": "TiSi2는 Native Oxide에 Sensitive, CoSi2는 Very Sensitive, NiSi는 Insensitive하다. NiSi가 Native Oxide 영향을 가장 적게 받는다."
@@ -1102,10 +1102,10 @@ export const questions = [
     "category": "Contact Silicide",
     "question": "Contact Silicide에서 Dopants redistribution(도펀트 재분포) 문제가 발생하는 주요 조건은?",
     "options": [
-      "저온 어닐링으로 silicide grain이 전혀 성장하지 못해 도펀트가 고정될 때",
+      "저온 어닐링으로 silicide 반응이 제한되어 계면 도펀트 이동보다 미반응 Si가 남을 때",
       "고온 어닐링으로 Si 내 도펀트가 Silicide로 확산되거나 증발할 때",
-      "진공 조건에서 산소가 제거되어 native oxide가 완전히 사라질 때",
-      "낮은 Doping 농도 조건에서 Fermi-level pinning이 완전히 억제될 때"
+      "barrier metal 두께가 증가해 metal line resistance가 올라갈 때",
+      "silicide phase가 안정화되면서 dopant profile과 junction depth 변화가 줄어들 때"
     ],
     "answer": 1,
     "explanation": "고온(> 800°C) 어닐링은 Si 내 도펀트(특히 B)가 Silicide층으로 확산되거나 표면에서 증발하여, Contact 저항 증가 또는 문턱전압 변화를 유발한다."
@@ -1119,8 +1119,8 @@ export const questions = [
     "options": [
       "어닐링 온도가 높을수록 grain size가 감소하여 저항이 증가한다",
       "amorphous 상태의 silicide가 어닐링을 거쳐 grain size가 증가하면 저항이 감소한다",
-      "어닐링 온도와 저항 변화는 무관하다",
-      "grain size가 증가하면 저항이 증가한다"
+      "어닐링 온도 상승은 phase 변화 없이 dopant activation만 바꾸므로 silicide 저항과는 독립적이다",
+      "grain size가 증가하면 grain boundary scattering이 커져 silicide sheet resistance가 증가한다"
     ],
     "answer": 1,
     "explanation": "Silicide는 처음 증착 시 amorphous 상태이며 저항이 높다. 어닐링을 통해 grain size가 증가하면 high resistivity → anneal → grain size 증가 → resistivity 감소의 과정을 거친다."
@@ -1387,10 +1387,10 @@ export const questions = [
     "category": "Cell Cap 구조",
     "question": "DRAM Capacitor에서 Honeycomb Layout을 사용하는 이유는?",
     "options": [
-      "Capacitor 식각 공정 수를 줄여 전체 제조 공정을 단순화하기 위해",
+      "Capacitor 간 간섭을 줄이기 위해 pitch를 넓히고 cell density를 낮추기 위해",
       "한정된 공간에서 Capacitor 배치 밀도를 높여 공간 활용을 극대화하기 위해",
-      "유전막 물리 두께를 의도적으로 늘려 Leakage를 완전히 제거하기 위해",
-      "Supporter 구조를 제거하고 높은 Cylinder가 쓰러지도록 유도하기 위해"
+      "Cylinder 높이를 낮추는 대신 plate electrode 접촉 면적만 늘리기 위해",
+      "Bit line capacitance를 증가시켜 sense amplifier 입력 신호를 키우기 위해"
     ],
     "answer": 1,
     "explanation": "Honeycomb Layout은 원형 배열 대비 공간 손실을 최소화하여 단위 면적당 Capacitor 수를 극대화하는 배치 방식이다."
@@ -1464,8 +1464,8 @@ export const questions = [
     "options": [
       "OCS는 Outer 영역만 사용, Pillar는 Inner+Outer 영역 모두 사용",
       "OCS는 Inner+Outer 영역 모두 사용(Inner 기여 약 20%), Pillar는 Outer 영역만 사용",
-      "두 구조 모두 Inner 영역만 사용",
-      "두 구조 모두 Outer 영역만 사용"
+      "OCS는 plate electrode를 제거하고, Pillar는 storage node를 제거한 구조",
+      "OCS와 Pillar 모두 구조 차이 없이 유전막 재료만 다른 구조"
     ],
     "answer": 1,
     "explanation": "OCS(Over Cell Stack)는 Inner+Outer 영역을 모두 활용(Inner 기여 약 20%)하고, Pillar 구조는 Outer 영역만 사용한다. 그러나 실제로는 Inner 영역 기여가 한계에 달해 Pillar로 전환하는 추세이다."
@@ -1478,9 +1478,9 @@ export const questions = [
     "question": "Scaling이 진행됨에도 불구하고 DRAM Cell Cap 용량이 감소하는 추세의 원인은?",
     "options": [
       "유전체 재료 개발 한계와 구조적 한계로 Scaling에 따른 나이도가 증가하기 때문",
-      "Scaling과 함께 Cap 용량이 자동으로 증가하기 때문",
-      "Scaling과 Cap 용량은 완전히 무관하기 때문",
-      "최신 공정에서 Cap 용량이 지수함수적으로 증가하기 때문"
+      "Cell 면적 감소를 3D height 증가와 high-k 적용만으로 모두 보상할 수 있기 때문",
+      "Bit line capacitance가 줄어들면 storage capacitance 요구량도 같은 비율로 사라지기 때문",
+      "유전막을 두껍게 만들수록 leakage와 capacitance가 동시에 개선되기 때문"
     ],
     "answer": 0,
     "explanation": "엄청난 공정 개발 노력에도 불구하고 Scaling에 따른 나이도 증가로 인해 Cap 용량은 감소 추세이다. 대략 6D~7F 이후부터 Capacitor의 공간적 한계가 크게 작용한다."
@@ -1510,7 +1510,7 @@ export const questions = [
       "Body 두께가 Gate 길이의 2배 이상",
       "Body 두께가 Gate 길이의 1/4 이하(< ¼ Lg)",
       "Body 두께가 Gate 길이와 동일해야 함",
-      "Body 두께와 Gate 길이는 무관"
+      "Body 두께가 Source/Drain junction depth와 동일해야 함"
     ],
     "answer": 1,
     "explanation": "FinFET UTB 조건: Body 두께 < ¼ Lg (Gate 길이의 1/4 이하). 이를 통해 채널 아래를 통한 누설 전류 경로를 제거한다."
@@ -1520,15 +1520,15 @@ export const questions = [
     "type": "multiple",
     "lecture": "13강",
     "category": "FinFET",
-    "question": "FinFET에서 Double-Gate 구조의 장점이 아닌 것은?",
+    "question": "FinFET에서 Double-Gate 구조의 장점 조합으로 가장 적절한 것은?",
     "options": [
-      "Gate coupling을 강화하여 채널 제어력 향상",
-      "Ultra-Thin Body보다 Scalability가 더 우수",
-      "공정이 단순하고 제조가 쉬움",
-      "기생 정전용량(Cdep) 제거 가능"
+      "Gate coupling 강화, channel 제어력 향상, short channel effect 억제",
+      "Gate 수 감소, planar 대비 공정 단순화, alignment 부담 감소",
+      "Body 두께 증가, depletion capacitance 증가, electrostatic control 약화",
+      "Source/Drain series resistance 제거, contact resistance 완전 제거"
     ],
-    "answer": 2,
-    "explanation": "Double-Gate(FinFET)는 공정이 복잡하다(Require complex process). 장점은 Gate coupling 최대화, UTB보다 우수한 Scalability, Cdep 제거이다."
+    "answer": 0,
+    "explanation": "Double-Gate는 채널을 양쪽에서 제어해 gate coupling을 강화하고 short channel effect 억제에 유리하다. 단, 공정은 더 복잡해질 수 있다."
   },
   {
     "id": 101,
@@ -1597,10 +1597,10 @@ export const questions = [
     "category": "3D Tr Parasitic",
     "question": "소자 Scaling이 진행될수록 Parasitic Components의 영향은 어떻게 변하는가?",
     "options": [
-      "Parasitic이 줄어들어 Channel resistance가 지배적이 된다",
+      "Channel resistance가 줄어드는 만큼 parasitic resistance와 capacitance의 상대 비중도 함께 작아진다",
       "Parasitic components가 Ion current와 Capacitance를 지배하게 된다",
       "Parasitic과 Channel resistance의 영향이 동일해진다",
-      "Parasitic 영향은 Scaling과 무관하게 일정하다"
+      "Gate length가 줄어들면 source/drain extension과 contact parasitic은 device 성능에서 분리된다"
     ],
     "answer": 1,
     "explanation": "소자가 Scaling될수록 S/D parasitic 저항과 capacitance가 Channel resistance·capacitance보다 상대적으로 커져 Ion current와 Cap를 지배하게 된다."
@@ -1615,7 +1615,7 @@ export const questions = [
       "SOI FinFET은 일반 Si 기판에 직접 형성되고 Bulk FinFET은 절연막 위에 형성",
       "SOI FinFET은 절연막 위 Si층을 사용하고 Bulk FinFET은 일반 Si 기판에 형성",
       "두 구조 모두 동일한 SOI 기판에 형성되며 차이는 Gate metal 종류뿐임",
-      "SOI는 NMOS 전용 구조이고 Bulk는 PMOS 전용 구조로만 사용됨"
+      "SOI와 Bulk 모두 기판 구조는 같고 isolation 방식만 STI에서 LOCOS로 바뀜"
     ],
     "answer": 1,
     "explanation": "SOI FinFET은 Silicon on Insulator(절연막 위 Si) 기판을 사용하여 기생 정전용량이 작고 Fin 아래가 완전 절연된다. Bulk FinFET은 일반 Si 기판에 형성되어 제조비용이 낮지만 기생 정전용량 제어가 필요하다."
@@ -1642,10 +1642,10 @@ export const questions = [
     "category": "Gox Scaling",
     "question": "SiO2 Gate Oxide 두께가 2nm 미만으로 얇아질 때 발생하는 주요 문제는?",
     "options": [
-      "Gate Oxide 녹는점이 낮아져 열처리 불가",
-      "S/D Doping 효율이 급격히 떨어짐",
+      "Gate oxide 물리 두께 감소로 tunneling barrier 폭이 줄어듦",
+      "Poly depletion이 줄어 EOT는 개선되지만 leakage 문제가 사라짐",
       "Direct Tunneling에 의한 게이트 누설 전류가 지수함수적으로 증가",
-      "Poly Depletion 효과가 완전히 사라짐"
+      "Work function 조절 범위가 넓어져 Vt 산포가 줄어듦"
     ],
     "answer": 2,
     "explanation": "SiO2 Gate Oxide 두께 < 2nm에서는 Non-zero wave-function에 의한 Direct Tunneling이 발생하여 게이트 누설 전류(Gate Leakage)가 급증한다. 이 때문에 High-k 재료 도입이 필요해졌다."
@@ -1657,10 +1657,10 @@ export const questions = [
     "category": "HKMG",
     "question": "Gate Last(RMG) 방식이 Gate First 방식보다 유리한 이유는?",
     "options": [
-      "Dummy Gate가 필요 없어 공정이 단순해지기 때문",
-      "Gate 저항이 Gate First보다 항상 낮아지기 때문",
+      "Dummy Gate를 쓰지 않고 metal gate를 초기 공정부터 형성해 후속 열처리를 활용하기 때문",
+      "Gate First보다 gate resistance가 낮아지는 것이 유일한 integration 이슈이기 때문",
       "Metal Gate가 후반부 공정에 형성되어 High Heat Budget을 피할 수 있기 때문",
-      "High-k 유전막을 먼저 형성하지 않아도 되기 때문"
+      "High-k 유전막을 제거한 뒤 SiO2만 남겨 EOT를 낮추기 때문"
     ],
     "answer": 2,
     "explanation": "Gate Last(RMG: Replacement Metal Gate)는 소자 공정 후반부에 Metal Gate를 형성하므로 Metal Gate가 이후 고온 공정(High Heat Budget)에 노출되지 않는다. Gate First는 초기 형성 후 모든 고온 공정을 견뎌야 한다."
@@ -1960,7 +1960,7 @@ export const questions = [
       "Electronic Polarization (k ~ 2)",
       "Ionic Polarization (k ~ 80)",
       "Ionic displacement - Ferroelectric (k > 100)",
-      "세 가지 모두 동일한 k값을 가짐"
+      "Interfacial polarization 중심의 일반 SiO2 network (k ~ 4)"
     ],
     "answer": 2,
     "explanation": "k값 비교: Electronic Polarization(k~2, 전자 중심 이동) < Ionic Polarization(k~80, 이온 평시 위치 이동) < Ionic displacement(k>100, Ferroelectric, 이온 영구적 위치 변경). DRAM은 높은 k를 위해 Ionic Polarization 이상의 재료를 사용한다."
@@ -1972,10 +1972,10 @@ export const questions = [
     "category": "Cell Cap Physics",
     "question": "실제 제작된 Capacitor가 Ideal Capacitor와 다른 두 가지 특성은?",
     "options": [
-      "무한대 저항과 주파수 무관 Capacitance를 가지므로 손실이 전혀 없다",
-      "완전 절연과 무한대 충전 용량을 가져 DC Leakage가 발생하지 않는다",
+      "전극 면적과 유전율만으로 결정되어 온도·주파수 의존성을 거의 보이지 않는다",
+      "series resistance보다 dielectric constant 변화만 측정하면 모든 손실을 설명할 수 있다",
       "Dielectric loss(tan δ)와 DC Leakage Current가 존재해 이상적 특성과 다르다",
-      "Capacitance 값이 고정되고 온도·주파수·재료 결함의 영향을 받지 않는다"
+      "charge storage보다 bit line resistance가 커져 capacitor 자체 평가는 필요하지 않다"
     ],
     "answer": 2,
     "explanation": "Real Capacitor는 Ideal과 달리: (1) Dielectric loss 존재(tan δ, 손실인자) - 고주파에서 유전 손실 발생, (2) DC Leakage Current 존재 - 직류에서도 누설 전류 흐름. 이를 개선하는 것이 Cap 개발의 핵심과제다."
@@ -1987,10 +1987,10 @@ export const questions = [
     "category": "Cell Cap Physics",
     "question": "Capacitor 누설 전류(LKG)에서 고전압 + 고온 조건에서 지배적인 메커니즘은?",
     "options": [
-      "Direct Tunneling (두께에 지수 비례, 온도 무관)",
-      "F-N Tunneling (전계 지수 의존, 온도 의존성 미약)",
+      "Direct Tunneling (얇은 막에서 barrier를 직접 통과하는 두께 의존 성분)",
+      "F-N Tunneling (고전계에서 삼각형 barrier를 통과하는 전계 의존 성분)",
       "Schottky emission (온도 의존성 강함)",
-      "Poole-Frenkel (전압 영역 무관하게 동일)"
+      "Poole-Frenkel (bulk trap barrier가 field에 의해 낮아지는 성분)"
     ],
     "answer": 2,
     "explanation": "전압-온도에 따른 LKG 메커니즘: Low V → Direct Tunneling(온도 무관), Medium V → F-N Tunneling(온도 의존성 미약), High V + 고온 → Schottky emission(온도 의존성 강함). 고전압·고온에서는 Schottky 방출이 지배적이다."
@@ -2003,9 +2003,9 @@ export const questions = [
     "question": "ALD TaO와 CVD TaO의 누설 전류(LKG) 메커니즘 차이로 옳은 것은?",
     "options": [
       "ALD TaO가 defect 많아 Hopping 전도, 온도 의존성 강함",
-      "CVD TaO가 defect 적어 Direct Tunneling, 온도 의존성 없음",
+      "CVD TaO가 결함이 적어 직접 tunneling 성분이 커지고 온도 의존성이 작다",
       "ALD TaO는 defect 적어 Tunneling(온도 의존성 없음), CVD TaO는 defect 많아 Hopping(온도 의존성 있음)",
-      "두 방법 모두 동일한 메커니즘으로 온도 의존성 동일"
+      "ALD와 CVD 모두 trap density 차이보다 electrode work function만으로 같은 LKG를 보인다"
     ],
     "answer": 2,
     "explanation": "ALD TaO: 막내 defect가 적어 Tunneling 메커니즘 → 온도 의존성 없음. CVD TaO: 막내 defect가 많아 defect assisted tunneling(Hopping, Poole-Frenkel) → 온도 의존성 나타남."
@@ -2063,7 +2063,7 @@ export const questions = [
     "question": "GAA NanoSheet의 폭(Width)에 따른 AC 성능 차이로 옳은 것은?",
     "options": [
       "좁은 NanoSheet(7nm Thin)이 넓은 것보다 AC 성능이 우수",
-      "NanoSheet 폭과 AC 성능은 완전히 무관",
+      "NanoSheet 폭이 좁아질수록 parasitic capacitance가 줄어 AC 성능 이득이 커진다",
       "넓은 NanoSheet(>37nm Wide)은 AC 성능 이득이 있고, 좁은 NanoSheet(7nm Thin)은 AC 성능 이득이 없음",
       "넓은 NanoSheet은 공정 난이도가 낮아 성능보다 제조 편의성이 장점"
     ],
@@ -2094,8 +2094,8 @@ export const questions = [
     "options": [
       "더 많은 Fin을 수평 방향으로 나란히 배치해 Cell Width를 늘리는 방식",
       "Front-side와 Back-side interconnect를 함께 활용해 Cell Height를 줄이는 방식",
-      "Si 기판을 완전히 제거하고 공중에 채널과 Gate를 독립 형성하는 방식",
-      "Gate Length만 기존의 1/3로 줄이고 배선 구조는 기존과 동일하게 유지하는 방식"
+      "nFET과 pFET을 수평으로 더 멀리 분리해 routing congestion을 낮추는 방식",
+      "Front-side interconnect만 유지하고 back-side power rail을 쓰지 않는 방식"
     ],
     "answer": 1,
     "explanation": "3DSFET는 Pitch Scaling 둔화를 극복하기 위해 Front-side뿐 아니라 Back-side interconnect를 활용하여 Cell Height를 획기적으로 줄인다. FinFET → MBCFET → 3DSFET으로 이어지는 차세대 아키텍처(2027~2032 예상)."
@@ -2107,10 +2107,10 @@ export const questions = [
     "category": "FinFET",
     "question": "FinFET의 Scaling 한계에서 SCE(Short Channel Effect) 억제를 위한 Fin geometry 조건은?",
     "options": [
-      "Fin Width가 Gate Length보다 항상 커야 SCE 억제 가능",
-      "Fin Width가 클수록 Short Channel 억제에 유리하며 공정도 쉬움",
+      "Fin Width를 키워 channel volume을 늘리면 gate control이 강해져 SCE가 줄어든다",
+      "Fin Height를 낮추고 Width를 키우면 electrostatic control과 drive current가 동시에 개선된다",
       "Fin Width가 작을수록 SCE 억제에 유리하나 공정 제어가 어려워지는 trade-off 존재",
-      "Fin Width와 SCE는 서로 독립적인 관계"
+      "Fin Width보다 metal pitch만 줄이면 channel electrostatics 변화 없이 SCE를 억제할 수 있다"
     ],
     "answer": 2,
     "explanation": "FinFET에서 Fin Width가 작을수록 Natural Length가 작아져 SCE 억제에 유리하다. 그러나 Fin이 너무 좁으면(7nm 이하) 공정 제어가 어려워 process burden이 크게 증가한다. Wide(>37nm) NanoSheet이 sweet spot이다."
@@ -2137,10 +2137,10 @@ export const questions = [
     "category": "Gate Stack",
     "question": "Polycide gate를 Memory 계열에서 사용하는 이유로 가장 적절한 것은?",
     "options": [
-      "Gate oxide를 완전히 제거해 채널과 금속을 직접 접촉시키기 위해",
+      "Self-aligned salicide만으로 word line과 peripheral gate 저항을 동시에 분리하기 위해",
       "Poly-Si 위에 WSix를 증착해 저항을 낮추고 안정적인 gate stack을 만들기 위해",
-      "S/D junction을 깊게 만들어 punch-through를 의도적으로 키우기 위해",
-      "Capacitor 표면적을 수직 방향으로 늘려 storage capacitance를 확보하기 위해"
+      "Fully silicidation을 적용해 Poly-Si를 남기지 않고 모든 gate work function을 metal 하나로 맞추기 위해",
+      "Gate oxide를 high-k에서 low-k로 바꾸어 word line capacitance를 낮추기 위해"
     ],
     "answer": 1,
     "explanation": "Polycide gate는 Poly-Si 위에 WSix 등을 증착하여 저항을 낮추는 Memory용 gate stack으로 정리된다."
@@ -2152,10 +2152,10 @@ export const questions = [
     "category": "Salicide",
     "question": "Salicide 공정의 핵심 특징으로 가장 적절한 것은?",
     "options": [
-      "Si 전체를 산화시켜 contact resistance를 의도적으로 높이는 공정이다",
-      "금속이 oxide와 먼저 반응하여 gate oxide를 두껍게 성장시키는 공정이다",
+      "금속을 blanket 증착한 뒤 oxide 위 금속까지 silicide로 만들어 전체 표면을 저저항화하는 공정이다",
+      "Poly-Si 위에만 silicide를 만들고 Source/Drain Si 영역은 반응시키지 않는 공정이다",
       "금속이 노출된 Si와만 반응하여 필요한 영역에 self-aligned silicide를 형성한다",
-      "Poly-Si를 완전히 제거하고 모든 gate를 oxide로 대체하는 공정이다"
+      "Contact plug 금속을 먼저 채운 뒤 silicide가 plug 내부에서만 성장하도록 하는 공정이다"
     ],
     "answer": 2,
     "explanation": "Salicide는 metal-Si 반응을 이용해 Si 노출부에 선택적으로 silicide가 생기는 self-aligned 공정이다."
@@ -2199,8 +2199,8 @@ export const questions = [
     "options": [
       "금속 gate를 먼저 넣은 뒤 이후 모든 고온 공정에서 metal doping을 활성화하기 위해",
       "고온 공정 이후 dummy gate를 제거하고 metal을 채워 low heat budget으로 HKMG를 구현하기 위해",
-      "SiO2를 두껍게 성장시켜 EOT를 키우고 leakage를 완전히 제거하기 위해",
-      "Capacitor 형성 뒤 gate를 만들기 때문에 DRAM refresh time을 직접 늘리기 위해"
+      "poly depletion을 활용해 EOT를 키우고 threshold voltage를 후속 implant로만 조절하기 위해",
+      "high-k 계면을 제거하고 SiO2/poly-Si stack으로 되돌려 reliability 문제를 피하기 위해"
     ],
     "answer": 1,
     "explanation": "Logic Gate Last/Replacement Metal Gate는 고온 공정 이후 metal gate를 넣어 work function과 열 예산 문제를 줄인다."
@@ -2227,12 +2227,12 @@ export const questions = [
     "category": "HKMG",
     "question": "HKMG 도입이 필요한 배경으로 가장 적절한 것은?",
     "options": [
-      "DRAM capacitor가 2D 구조로만 형성되어야 하기 때문",
-      "Cu 배선의 oxidation으로 wire bonding이 항상 불가능해지기 때문",
-      "Contact 면적이 커질수록 Rc가 증가해 scaling이 불가능하기 때문",
-      "SiO2가 너무 얇아지면 gate leakage와 reliability 문제가 커지기 때문"
+      "SiO2 두께를 계속 줄이면 capacitance는 증가하지만 direct tunneling leakage와 신뢰성 문제가 커지기 때문",
+      "Poly-Si gate의 sheet resistance만 낮추면 EOT scaling과 leakage 문제가 함께 해결되기 때문",
+      "Contact 면적 축소에 따른 Rc 증가는 HKMG보다 silicide phase 선택만으로 해결되기 때문",
+      "SiO2를 두껍게 유지해 EOT scaling 요구보다 reliability margin만 우선하기 때문"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "얇은 SiO2는 leakage와 신뢰성 문제가 커지므로 high-k로 EOT를 낮추면서 물리 두께를 확보한다."
   },
   {
@@ -2272,10 +2272,10 @@ export const questions = [
     "category": "Spacer",
     "question": "Offset SiN spacer와 active spacer의 역할 차이로 가장 적절한 것은?",
     "options": [
-      "Offset SiN은 capacitor supporter이고, active spacer는 honeycomb layout을 만든다",
-      "Offset SiN은 Cu 배선을 형성하고, active spacer는 RDL pad 위치를 재배치한다",
+      "Offset SiN은 gate CD shrink용 hard mask이고, active spacer는 contact plug barrier 역할을 한다",
+      "Offset SiN은 salicide 반응을 촉진하고, active spacer는 gate oxide를 high-k로 바꾸는 역할을 한다",
       "Offset SiN은 LDD 침투를 막고, active spacer는 S/D implant 거리 확보와 SCE 개선에 관여한다",
-      "Offset SiN은 FOUP 밀폐 용기이고, active spacer는 wafer 자동 이송 장치이다"
+      "Offset SiN은 LDD를 더 깊게 밀어 넣고, active spacer는 junction capacitance를 의도적으로 증가시킨다"
     ],
     "answer": 2,
     "explanation": "요약본은 lateral gate stack에서 offset SiN spacer와 active spacer가 LDD, S/D implant, SCE 개선과 관련된다고 정리한다."
@@ -2303,9 +2303,9 @@ export const questions = [
     "question": "DRAM contact가 Logic/NAND보다 contact 종류가 많은 이유로 가장 적절한 것은?",
     "options": [
       "DRAM cell 특성상 Si-Si contact 등 cell 연결 구조가 추가로 필요하기 때문",
-      "DRAM은 Cu damascene 공정을 쓰지 않기 때문에 contact가 전부 metal-metal이기 때문",
-      "DRAM은 gate oxide가 없어서 모든 contact가 near-ohmic 형태로만 형성되기 때문",
-      "DRAM은 BEOL이 없으므로 contact가 capacitor 내부에만 존재하기 때문"
+      "DRAM은 peripheral 영역 없이 cell array만 있어 contact가 모두 word line 내부에 형성되기 때문",
+      "DRAM은 capacitor와 bit line 연결을 모두 metal-metal contact 하나로 처리하기 때문",
+      "DRAM은 NAND처럼 cell 내 contact를 제거하고 vertical string contact만 사용하기 때문"
     ],
     "answer": 0,
     "explanation": "요약본은 DRAM cell 유지를 위해 Si-Si contact 등이 존재해 Logic/NAND보다 contact 종류가 많다고 정리한다."
@@ -2363,9 +2363,9 @@ export const questions = [
     "question": "Metal-Si contact에서 Schottky barrier가 생기는 근본적인 이유로 가장 적절한 것은?",
     "options": [
       "금속과 Si의 work function 및 Fermi level 정렬 차이로 barrier가 형성되기 때문",
-      "Cu가 산화되어 wire bonding이 불가능해지기 때문",
-      "Low-k가 plasma damage를 받아 유전율이 다시 증가하기 때문",
-      "Capacitor dielectric loss가 커져 DC leakage가 생기기 때문"
+      "silicide grain size가 커질수록 metal과 Si 사이에 유전막 capacitance가 증가하기 때문",
+      "barrier metal이 두꺼워질수록 Schottky barrier height가 doping 농도와 무관하게 사라지기 때문",
+      "contact area가 커질수록 Fermi level이 vacuum level에 고정되어 barrier가 생기기 때문"
     ],
     "answer": 0,
     "explanation": "요약본의 band diagram은 metal work function, Si Fermi level, built-in potential/barrier 형성을 강조한다."
@@ -2437,10 +2437,10 @@ export const questions = [
     "category": "CoSi2",
     "question": "CoSi2가 DRAM memory contact에서 선호되는 이유로 가장 적절한 것은?",
     "options": [
-      "자연 산화막에 가장 민감하여 contact 전처리를 완전히 생략할 수 있기 때문",
+      "TiSi2보다 미세 contact에서 agglomeration 부담이 낮고 thermal stability 측면에서 유리하기 때문",
       "열안정성이 비교적 좋고 native oxide와 반응이 작아 memory 조건에 적합하기 때문",
-      "Cu보다 비저항이 낮아 BEOL metal line을 전부 대체할 수 있기 때문",
-      "PVD seed 없이 electroplating이 가능해 barrier metal을 제거할 수 있기 때문"
+      "NiSi보다 고온에서 phase 변화가 커서 junction dopant redistribution을 늘리기 때문",
+      "CoSi2는 salicide가 아니라 plug fill metal이므로 Si와 직접 반응하지 않기 때문"
     ],
     "answer": 1,
     "explanation": "요약본은 CoSi2가 DRAM에서 쓰이며 열안정성, native oxide 반응 억제, 낮은 저항 유지 측면을 언급한다."
@@ -2467,9 +2467,9 @@ export const questions = [
     "category": "Agglomeration",
     "question": "TiSi 계열에서 agglomeration이 문제가 되는 이유로 가장 적절한 것은?",
     "options": [
-      "Capacitor supporter가 제거되어 cylinder height가 낮아지기 때문",
-      "Cu가 oxide와 반응해 wire bonding을 완전히 불가능하게 만들기 때문",
-      "Gate oxide가 두꺼워져 transistor drive current가 항상 증가하기 때문",
+      "silicide phase가 균일해져 contact 면적이 증가하고 junction leakage가 줄어들기 때문",
+      "grain boundary가 줄어 sheet resistance가 낮아져 미세 contact margin이 커지기 때문",
+      "native oxide 제거가 쉬워져 contact 전처리 조건 의존성이 사라지기 때문",
       "silicide가 뭉쳐 contact 저항이 증가하고 미세 contact에서 불리해지기 때문"
     ],
     "answer": 3,
@@ -2512,10 +2512,10 @@ export const questions = [
     "category": "BEOL 금속",
     "question": "BEOL 배선 재료가 Al에서 Cu로 전환된 핵심 이유로 가장 적절한 것은?",
     "options": [
-      "Cu는 dry etch가 쉬워 damascene 없이 subtractive etch로만 배선을 만든다",
+      "Cu는 dry etch가 어려워도 낮은 비저항 이점 때문에 damascene integration을 적용한다",
       "Cu는 Al보다 비저항이 높아 intentional delay를 만들어 신호 안정성을 높인다",
       "Cu는 비저항이 낮아 RC delay를 줄일 수 있지만 산화와 식각 측면의 공정 난점이 있다",
-      "Cu는 oxide와 반응하지 않아 barrier metal이나 passivation이 전혀 필요 없다"
+      "Cu는 Al보다 capacitance를 직접 낮추기 때문에 low-k 없이도 RC delay가 주로 개선된다"
     ],
     "answer": 2,
     "explanation": "요약본은 Al→Cu 전환 이유를 낮은 비저항으로 설명하면서 Cu oxidation, dry etch 어려움도 함께 언급한다."
@@ -2543,9 +2543,9 @@ export const questions = [
     "question": "Via-first와 trench-first 비교로 가장 적절한 것은?",
     "options": [
       "Via-first는 alignment 이슈가 커질 수 있고, trench-first는 via 형상 자체가 작아지는 경향이 있다",
-      "Via-first는 항상 dishing이 없고, trench-first는 barrier metal을 전혀 쓰지 않는다",
-      "Via-first는 capacitor 공정이고, trench-first는 transistor S/D implant 공정이다",
-      "Via-first는 W plug 전용이고, trench-first는 poly-Si gate 전용 공정이다"
+      "Via-first는 low-k 손상이 작지만 via bottom alignment margin이 없고, trench-first는 hard mask를 쓰지 않는다",
+      "Via-first와 trench-first는 모두 via와 trench 순서 차이보다 Cu seed 물질 차이로 구분된다",
+      "Trench-first는 via를 먼저 식각해 via poisoning을 줄이고, via-first는 trench CD만 제어한다"
     ],
     "answer": 0,
     "explanation": "요약본은 via-first에서 via와 metal line M/A에 따른 TDDP 신뢰성 이슈, trench-first에서 via 자체가 작아지는 경향을 정리한다."
@@ -2557,10 +2557,10 @@ export const questions = [
     "category": "Cu Fill",
     "question": "Cu 배선 형성에서 PVD seed와 electroplating을 함께 사용하는 이유는?",
     "options": [
-      "PVD seed로 Cu를 전부 채우고 electroplating은 oxide를 식각하기 위해",
+      "PVD seed가 연속적인 전기 경로를 만들지 않아도 electroplating으로 선택적 충전이 가능하기 때문에",
       "PVD seed로 전기적 경로를 만든 뒤 electroplating으로 bottom-up fill을 하기 위해",
-      "electroplating으로 barrier metal을 만들고 PVD seed로 CMP를 수행하기 위해",
-      "PVD seed와 electroplating 모두 gate oxide 성장에 쓰이는 열처리이기 때문"
+      "PVD seed로 via bottom만 채우고 electroplating으로 barrier metal을 sidewall에 형성하기 위해",
+      "PVD와 electroplating을 모두 사용하면 Cu dry etch 없이도 subtractive patterning이 가능하기 때문에"
     ],
     "answer": 1,
     "explanation": "요약본은 Cu dry etch가 어렵기 때문에 trench를 만들고 seed를 깐 뒤 electroplating으로 채우는 damascene 흐름을 정리한다."
@@ -2572,10 +2572,10 @@ export const questions = [
     "category": "CMP Dishing",
     "question": "Cu CMP에서 dishing을 줄이기 위한 설계/공정 조건으로 가장 적절한 것은?",
     "options": [
-      "S/D implant 농도를 낮춰 junction depth를 깊게 만드는 조건만 조절한다",
-      "gate oxide를 두껍게 만들어 channel electric field를 낮추는 조건만 조절한다",
+      "wide metal line의 pattern density와 over-polish margin을 고려하지 않고 slurry selectivity만 높인다",
+      "metal과 oxide 제거율 차이를 키워 Cu가 빠르게 제거되도록 하고 패턴 폭 영향은 무시한다",
       "metal/oxide 선택비와 pattern density를 고려하고 폭이 큰 line의 과연마를 제어한다",
-      "FOUP 밀폐 압력을 높여 wafer 표면의 slurry를 완전히 제거한다"
+      "barrier metal을 두껍게 남겨 dishing을 막고 후속 cap layer로 저항 증가를 보상한다"
     ],
     "answer": 2,
     "explanation": "요약본은 CMP dishing, metal:oxide 선택비, width/density, over-CMP 조건을 함께 정리한다."
@@ -2587,9 +2587,9 @@ export const questions = [
     "category": "Low-k/ULK",
     "question": "ULK 적용이 scaling에서 어려운 이유로 가장 적절한 것은?",
     "options": [
-      "Gate last 공정을 반드시 막아 모든 transistor가 planar로만 형성되기 때문이다",
-      "k가 너무 높아 배선 간 capacitance가 증가하고 RC delay가 항상 커지기 때문이다",
-      "Cu와 직접 반응해 silicide를 만들기 때문에 contact resistance가 낮아지기 때문이다",
+      "pore를 줄이면 k는 낮아지지만 mechanical strength가 약해져 CMP 손상이 커지기 때문이다",
+      "k를 낮추려는 구조가 mechanical strength와 plasma/clean damage에 취약해질 수 있기 때문이다",
+      "ULK는 barrier metal과 접착성이 좋아 추가 cap layer 없이도 신뢰성을 확보하기 때문이다",
       "k는 낮지만 mechanical strength가 약하고 plasma damage를 받으면 유전율이 다시 증가할 수 있다"
     ],
     "answer": 3,
@@ -2603,9 +2603,9 @@ export const questions = [
     "question": "Low-k dual damascene에서 trench-first가 via-first보다 손상 관점에서 유리할 수 있는 이유는?",
     "options": [
       "hard mask가 low-k를 보호해 via-first 대비 전체 damage를 줄일 수 있기 때문",
-      "via와 metal line이 항상 완벽히 정렬되어 TDDP가 완전히 사라지기 때문",
-      "Cu dry etch가 쉬워져 damascene 구조가 필요 없어지기 때문",
-      "oxide를 high-k로 바꾸어 배선 간 capacitance를 키울 수 있기 때문"
+      "via를 먼저 열어 low-k sidewall을 plasma에 오래 노출시키기 때문",
+      "trench-first는 hard mask 없이 low-k를 직접 CMP stopper로 사용하기 때문",
+      "trench-first에서는 via CD가 커져 low-k와 Cu 간 거리가 늘어나기 때문"
     ],
     "answer": 0,
     "explanation": "요약본은 trench-first가 hard mask로 low-k를 보호해 damage가 작고 ULK에 적합하다고 정리한다."
@@ -2647,12 +2647,12 @@ export const questions = [
     "category": "Alloy",
     "question": "BEOL alloy 공정의 목적과 trade-off로 가장 적절한 것은?",
     "options": [
-      "FOUP 내부 산소를 제거하지만 chip guard ring에는 손상을 준다",
-      "Cu line을 dry etch하기 쉽게 만들지만 barrier metal을 모두 제거해야 한다",
-      "Gate oxide를 성장시키지만 transistor Vt 조절에는 전혀 영향이 없다",
-      "수소로 dangling bond를 안정화하지만 capacitor 관점에서는 refresh 저하 위험이 있다"
+      "Cu grain을 크게 만들어 RC delay를 낮추지만 low-k pore를 모두 collapse시킨다",
+      "수소 passivation으로 dangling bond를 안정화하지만 공정 조건에 따라 capacitor retention trade-off가 생길 수 있다",
+      "barrier metal을 산화시켜 Cu diffusion을 막지만 line resistance 부담은 작아진다",
+      "alloy는 Cu seed 재결정만을 목적으로 하며 device interface에는 영향이 작다"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "요약본은 alloy가 외부에서 H를 주입해 DIBL/continuity 개선에 기여하지만 capacitor 관점 trade-off가 있다고 정리한다."
   },
   {
@@ -2692,10 +2692,10 @@ export const questions = [
     "category": "DRAM 불량",
     "question": "GIDL과 BTBT의 관계로 가장 적절한 것은?",
     "options": [
-      "Capacitor supporter가 무너져 honeycomb layout이 planar 구조로 바뀐다",
-      "Bit line metal이 산화되어 Cu seed가 사라지면서 refresh가 완전히 멈춘다",
+      "Gate-drain overlap 전계가 약해져 carrier generation이 줄고 junction leakage가 감소한다",
+      "Gate-drain overlap 부근 강한 전계가 band bending을 만들지만 leakage보다 drive current만 증가시킨다",
       "Gate-drain overlap 부근 강한 전계에서 BTBT가 발생해 junction leakage가 증가한다",
-      "RDL pad가 edge로 이동하면서 chip guard ring이 사라지는 현상이다"
+      "BTBT는 capacitor dielectric 내부 trap conduction이므로 transistor junction과는 별개이다"
     ],
     "answer": 2,
     "explanation": "요약본은 GIDL을 gate-drain overlap 부근 강한 electric field와 BTBT, junction leakage 증가로 정리한다."
@@ -2707,9 +2707,9 @@ export const questions = [
     "category": "DRAM 불량",
     "question": "DTBT가 DRAM Cell에서 문제가 되는 이유로 가장 적절한 것은?",
     "options": [
-      "Low-k가 damaged layer 없이 완전히 SiO2로 변환되기 때문이다",
-      "Cu 배선이 wet etch되지 않아 damascene 공정이 불가능해진다",
-      "Gate poly-Si가 전부 metal로 바뀌어 W roughness가 사라진다",
+      "Drain 전계가 channel barrier를 높여 off-current를 줄이고 retention 산포를 키우기 때문이다",
+      "Drain 전압이 channel barrier를 높여 tunneling path를 줄이고 read current만 증가시키기 때문이다",
+      "DTBT는 word line 저항만 낮추는 효과라 leakage와는 관련이 작기 때문이다",
       "Drain 전압 때문에 channel barrier가 낮아져 원치 않는 tunneling current가 증가한다"
     ],
     "answer": 3,
@@ -2767,9 +2767,9 @@ export const questions = [
     "category": "BCAT W",
     "question": "BCAT W 구조에서 W를 도입하는 주된 목적은?",
     "options": [
-      "Gate oxide를 두껍게 만들어 DIBL을 의도적으로 증가시키기 위해",
-      "Cu 배선을 완전히 제거하고 Al wire bonding만 사용하기 위해",
-      "Capacitor dielectric loss를 증가시켜 refresh 특성을 낮추기 위해",
+      "WL 저항보다 bit line coupling capacitance를 키워 sensing margin을 높이기 위해",
+      "Poly-Si depletion을 늘려 Vt를 높이고 retention leakage를 의도적으로 증가시키기 위해",
+      "BCAT 구조에서 bit line capacitance를 높여 sense margin을 조절하기 위해",
       "WL 저항을 낮춰 특성을 개선하고 poly-Si depletion 문제를 완화하기 위해"
     ],
     "answer": 3,
@@ -2812,10 +2812,10 @@ export const questions = [
     "category": "Pass Gate Effect",
     "question": "Pass Gate Effect(PGE)가 발생했을 때 victim cell에 나타나는 영향으로 가장 적절한 것은?",
     "options": [
-      "Low-k modulus가 증가해 plasma damage가 완전히 사라진다",
-      "Cu 배선의 grain size가 커져 contact resistance가 항상 낮아진다",
+      "인접 gate 전압 coupling으로 victim potential이 변하지만 Vt와 retention에는 거의 영향이 없다",
+      "pass gate coupling은 bit line metal 저항만 바꾸며 victim cell potential은 유지된다",
       "pass gate 전압 영향으로 potential이 변하고 Vt 변화와 leakage/retention 불량이 생긴다",
-      "RDL pad가 edge로 이동해 chip size가 자동으로 감소한다"
+      "PGE는 capacitor supporter 간격 문제라 cell transistor gate bias와는 무관하다"
     ],
     "answer": 2,
     "explanation": "요약본은 PGE를 pass gate가 victim potential에 영향을 주어 Vt 감소/증가와 tREF/tRDL 불량으로 이어지는 현상으로 정리한다."
@@ -2843,9 +2843,9 @@ export const questions = [
     "question": "DRAM에서 thermal neutron 등 방사선 영향이 tRDL fail로 이어지는 경로로 가장 적절한 것은?",
     "options": [
       "He가 phosphorus dopant를 밀어내 저항이 증가하고 tRDL fail이 발생할 수 있다",
-      "Cu가 산화되어 via가 모두 절연체로 바뀌며 RDL pad가 사라진다",
-      "Gate oxide가 high-k로 변하면서 refresh가 완전히 불필요해진다",
-      "Capacitor honeycomb layout이 자동으로 pillar 구조로 전환된다"
+      "neutron 영향으로 WL 저항이 낮아져 tRDL margin이 과도하게 커진다",
+      "dopant displacement가 junction/저항 특성에 영향을 주지만 read/write timing과는 무관하다",
+      "radiation-induced charge가 bit line capacitance만 낮추고 cell transistor에는 영향을 주지 않는다"
     ],
     "answer": 0,
     "explanation": "요약본은 thermal neutron에 의해 He가 방출되고 phosphorus dopant를 밀어내 저항 증가, tRDL fail로 이어질 수 있다고 정리한다."
