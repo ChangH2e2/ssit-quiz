@@ -45,7 +45,6 @@ export function getSubject(id) {
 
 export function detectSubjectFromURL() {
   const host = window.location.hostname
-  if (host.includes('ssit-toxic')) return 'toxicology'
   if (host.includes('ssit-semi')) return 'semiconductor'
   return null
 }

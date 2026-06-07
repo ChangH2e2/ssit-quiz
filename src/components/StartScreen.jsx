@@ -11,6 +11,22 @@ function shuffle(items) {
   return arr
 }
 
+function shuffleMultipleOptions(question) {
+  if (question.type !== 'multiple' || !Array.isArray(question.options)) return question
+
+  const options = question.options.map((text, index) => ({
+    text,
+    wasCorrect: index === question.answer,
+  }))
+  const shuffled = shuffle(options)
+
+  return {
+    ...question,
+    options: shuffled.map(option => option.text),
+    answer: shuffled.findIndex(option => option.wasCorrect),
+  }
+}
+
 export default function StartScreen({ subject, onStart, onBack }) {
   const hasMultipleTypes = subject.types.length > 2
   const [lecture, setLecture] = useState('all')
@@ -28,7 +44,7 @@ export default function StartScreen({ subject, onStart, onBack }) {
 
   const handleStart = () => {
     onStart({
-      questions: shuffle(pool).slice(0, effectiveCount),
+      questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
       lecture,
       type,
       count: effectiveCount,
