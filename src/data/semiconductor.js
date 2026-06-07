@@ -605,30 +605,30 @@ export const questions = [
     "type": "multiple",
     "lecture": "12강",
     "category": "Cell Cap Physics",
-    "question": "Capacitance(C = εA/d)를 크게 하는 올바른 방법 조합은?",
+    "question": "DRAM Cell Capacitor의 저장 능력을 높이기 위한 설계 방향 조합으로 가장 적절한 것은?",
     "options": [
-      "유전율(ε) 감소 + 면적(A) 증가",
-      "유전율(ε) 증가 + 두께(d) 증가",
-      "유전율(ε) 증가 + 면적(A) 증가 + 두께(d) 감소",
-      "유전율(ε) 감소 + 면적(A) 감소 + 두께(d) 감소"
+      "유전막의 유전율을 낮추고 전극 면적을 늘리며 유전막 두께를 줄인다",
+      "유전막의 유전율을 높이고 전극 면적을 줄이며 유전막 두께를 늘린다",
+      "유전막의 유전율과 전극 면적을 높이고 유전막 두께를 줄인다",
+      "유전막의 유전율과 전극 면적을 낮추고 유전막 두께도 줄인다"
     ],
     "answer": 2,
-    "explanation": "C = εA/d이므로 C를 크게 하려면 유전율(ε) 증가, 면적(A) 증가, 두께(d) 감소가 모두 필요하다. 유전율 감소나 면적 감소는 C를 낮추고, 두께 증가도 C를 낮춘다."
+    "explanation": "Capacitance는 유전율과 전극 면적이 클수록, 유전막 두께가 얇을수록 증가한다. 공식 C = εA/d는 해설에서만 확인하면 된다."
   },
   {
     "id": 40,
     "type": "multiple",
     "lecture": "12강",
     "category": "Cell Cap 특성 및 품질",
-    "question": "DRAM Sense Amplifier에서 신호(ΔVbl)를 키우기 위해 필요한 조건은?",
+    "question": "DRAM Sense Amplifier가 작은 Cell 신호를 더 잘 구분하게 하려면 어떤 조건이 가장 유리한가?",
     "options": [
-      "Cs(Storage Capacitance)가 작아야 한다",
-      "Cb(Bit Line Capacitance)가 커야 한다",
-      "Cs(Storage Capacitance)를 최대화해야 한다",
-      "Cb와 Cs가 같아야 한다"
+      "Storage Capacitance를 줄이고 Bit Line Capacitance를 키운다",
+      "Storage Capacitance를 키우고 Bit Line Capacitance의 부담을 줄인다",
+      "Storage Capacitance와 Bit Line Capacitance를 모두 동일하게 낮춘다",
+      "Bit Line Capacitance를 키우고 Cell 전하 저장량은 낮게 유지한다"
     ],
-    "answer": 2,
-    "explanation": "ΔVbl = Vdd/2 × 1/(1 + Cb/Cs) 이므로 Cs가 클수록 ΔVbl이 커진다. Cs should be maximized가 핵심 원칙이다."
+    "answer": 1,
+    "explanation": "Sense margin은 Cell의 Storage Capacitance가 클수록 유리하고, Bit Line Capacitance가 너무 크면 작은 Cell 신호가 희석된다."
   },
   {
     "id": 41,
@@ -1130,15 +1130,15 @@ export const questions = [
     "type": "multiple",
     "lecture": "9강",
     "category": "Contact RC delay",
-    "question": "Contact 저항이 중요한 이유를 RC delay와 전력 관점에서 설명한 것으로 옳은 것은?",
+    "question": "Contact 저항이 커질 때 회로 동작에 나타나는 영향으로 가장 적절한 것은?",
     "options": [
-      "R이 크면 C만 증가하여 RC delay가 감소한다",
-      "P = I²R이므로 R이 크면 전력 소비 증가, τ=RC이므로 RC delay도 증가한다",
-      "R이 작을수록 전력 소비는 증가하고 RC delay는 감소한다",
-      "R과 RC delay는 무관하다"
+      "신호 지연은 줄고 전력 소모도 감소하여 고속 동작에 유리해진다",
+      "전류 경로 손실이 커져 전력 소모와 신호 지연 문제가 함께 커진다",
+      "Capacitance만 증가하고 저항 성분은 회로 성능에 거의 영향을 주지 않는다",
+      "저항이 커질수록 contact barrier가 사라져 ohmic contact가 쉬워진다"
     ],
     "answer": 1,
-    "explanation": "P = I²R이므로 Contact 저항이 크면 전력 소비가 증가한다. τ = RC이므로 저항이 크면 RC delay도 증가한다. 따라서 Low Contact Resistance가 핵심이다."
+    "explanation": "전력 손실은 P = I²R, 지연은 RC delay와 관련된다. 따라서 contact 저항이 커지면 전력과 속도 모두 불리하다."
   },
   {
     "id": 75,
@@ -1835,15 +1835,15 @@ export const questions = [
     "type": "multiple",
     "lecture": "10강",
     "category": "BEOL RC delay",
-    "question": "BEOL RC delay 식에서 RC를 최소화하는 Metal Width(w)와 Pitch(p)의 관계는?",
+    "question": "BEOL 배선에서 일정 pitch 안에 metal width를 정할 때 RC 관점에서 가장 균형 잡힌 설계는?",
     "options": [
-      "w = p (Metal Width = Pitch)",
-      "w = p/4 (Metal Width = Pitch의 1/4)",
-      "w = p/2 (Metal Width = Pitch의 절반)",
-      "w = 2p (Metal Width = Pitch의 2배)"
+      "metal width를 pitch와 같게 만들어 배선 사이 간격을 없애는 설계",
+      "metal width를 pitch의 1/4 수준으로 줄여 저항 증가를 감수하는 설계",
+      "metal width와 space가 비슷해지도록 pitch의 절반 정도로 맞추는 설계",
+      "metal width를 pitch보다 크게 만들어 인접 배선과 겹치게 하는 설계"
     ],
     "answer": 2,
-    "explanation": "RC = 2ρkε₀·(L²/p²)·(1/a(1-a) + p²/b·t²)에서 a = w/p. a(1-a)를 최대화해야 RC가 최소. a(1-a)의 최대값은 a = 0.5, 즉 w = p/2일 때이다."
+    "explanation": "RC 최적화 식에서 a = w/p일 때 a(1-a)가 최대가 되는 지점은 a = 0.5이다. 즉 width와 space가 균형을 이룰 때 유리하다."
   },
   {
     "id": 122,
