@@ -11,7 +11,7 @@ export const SUBJECTS = [
   {
     id: 'process',
     label: '반도체 공정',
-    subtitle: 'Ch.11~13 Gate·Cap·Interconnection',
+    subtitle: '11~13강 기말고사 대비',
     icon: '⚙️',
     color: 'emerald',
     gradient: 'from-emerald-500 to-teal-600',

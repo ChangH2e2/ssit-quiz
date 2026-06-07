@@ -21,7 +21,7 @@ function SourceCard({ source, subject }) {
     <div className="mt-3 rounded-xl border border-gray-100 bg-white/80 p-3">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-bold text-gray-500 mb-1">강의자료 근거</p>
+          <p className="text-[11px] font-bold text-gray-500 mb-1">참고 자료</p>
           <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
           {source.detail && <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
         </div>
@@ -48,13 +48,6 @@ function SourceCard({ source, subject }) {
         </a>
       )}
 
-      {source.extra && (
-        <div className="mt-3 rounded-lg bg-gray-50 border border-gray-100 p-2">
-          <p className="text-[11px] font-bold text-gray-500">연습시험 근거</p>
-          <p className="text-xs font-semibold text-gray-700 mt-0.5">{source.extra.label}</p>
-          {source.extra.detail && <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{source.extra.detail}</p>}
-        </div>
-      )}
     </div>
   )
 }

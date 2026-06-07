@@ -11,71 +11,25 @@ export const QUIZ_TYPES = [
   { id: 'calc', label: '계산 단답', icon: '🧮', color: 'emerald' },
 ]
 
-const SOURCES = {
-  gateSummary: {
-    label: '기말 PDF Ch.11 Gate Dielectric/Metal Summary',
-    detail: 'p.711~712: SiO2 scaling limit 8A, high-k 결정 인자, work function, FLP/RWFF, dipole engineering 정리',
-    image: '/sources/process/gate-summary.jpg',
-  },
-  gateModule: {
-    label: '기말 PDF Ch.11 Gate Module',
-    detail: 'DRAM/Logic gate module evolution 및 HKMG 도입 배경 자료',
-    image: '/sources/process/gate-module.jpg',
-  },
-  capSummary: {
-    label: '기말 PDF Ch.12 Capacitor Summary/Problems',
-    detail: 'p.771~772: leakage current, tanδ, high-k, FOM, mold/HARC, air spacer, 계산형 문제 근거',
-    image: '/sources/process/cap-summary.jpg',
-  },
-  interconnectResistivity: {
-    label: '기말 PDF Ch.13 Thin Film Resistivity',
-    detail: 'p.818~819: R=rhoL/A, thin film resistivity model, surface/GB scattering, metal table 근거',
-    image: '/sources/process/interconnect-resistivity.jpg',
-  },
-  ecpAdditives: {
-    label: '기말 PDF Ch.13 ECP Chemistry/Additives',
-    detail: 'p.840~841: CuSO4/H2SO4/HCl 역할, accelerator/suppressor/leveler 기능 근거',
-    image: '/sources/process/ecp-additives.jpg',
-  },
-  cmpCleaning: {
-    label: '기말 PDF Ch.13 Post-CMP Cleaning',
-    detail: 'p.856~857: post-CMP cleaning force, PVA brush mechanism 근거',
-    image: '/sources/process/cmp-cleaning.jpg',
-  },
-}
-
-const examSource = {
-  label: '반도체공정_기말_연습시험.html',
-  detail: '교수님 기출 스타일에 맞춘 Ch.11~13 연습시험 문항과 정답 해설 기준',
-}
-
-function withExamSource(source) {
-  return { ...source, extra: examSource }
-}
-
 const rawQuestions = [
   {
     id: 1, type: 'multiple', lecture: 'Ch.11', category: 'Gate Dielectric',
-    question: 'SiO2 게이트 유전막의 물리적 스케일링 한계(physical scaling limit)로 강의에서 제시된 값은?',
+    question: 'SiO2 게이트 유전막의 물리적 스케일링 한계(physical scaling limit)로 요약 정리에서 다루는 값은?',
     options: ['약 0.8 nm', '약 8 nm', '약 0.8 μm', '약 80 nm'],
     answer: 0,
     difficulty: 'exam',
     formula: '1 nm = 10 Å',
-    explanation: '정답은 약 0.8 nm이다. 강의 summary에는 SiO2의 physical scaling limit이 8 Å로 제시되어 있고, 8 Å는 0.8 nm에 해당한다.',
-    solution: ['강의자료 기준값: SiO2 physical scaling limit = 8 Å', '단위 변환: 8 Å × (1 nm / 10 Å) = 0.8 nm', '따라서 ① 약 0.8 nm가 정답이다.'],
-    evidence: 'Ch.11 summary 하단: “Physical scaling limit of SiO2: 8Å”',
-    source: withExamSource(SOURCES.gateSummary),
+    explanation: '정답은 약 0.8 nm이다. SiO2의 physical scaling limit을 8 Å로 두면, 8 Å는 0.8 nm에 해당한다.',
+    solution: ['요약 기준값: SiO2 physical scaling limit = 8 Å', '단위 변환: 8 Å × (1 nm / 10 Å) = 0.8 nm', '따라서 ① 약 0.8 nm가 정답이다.'],
   },
   {
     id: 2, type: 'multiple', lecture: 'Ch.11', category: 'High-k',
-    question: 'High-k 유전체의 유전 상수(k)를 결정하는 인자로 강의 내용과 가장 거리가 먼 것은?',
+    question: 'High-k 유전체의 유전 상수(k)를 결정하는 인자로 가장 거리가 먼 것은?',
     options: ['Orbital 종류 (s < p ≪ d < f 순으로 k 증가)', 'Coordination Number (결합 수)', 'Crystal Structure (결정 구조)', '증착 챔버의 내벽 재질'],
     answer: 3,
     difficulty: 'exam',
-    explanation: '정답은 ④이다. 강의 summary는 high-k 결정 인자로 orbital, 원자 번호, 결합 수, 결정 구조를 제시한다. 챔버 내벽 재질은 공정 오염/장비 관리 항목일 수는 있지만 k를 결정하는 본질 인자로 분류되지 않는다.',
-    solution: ['강의자료의 k 결정 인자: orbital, atomic number, bond number, crystal structure', '①~③은 이 범주에 들어간다.', '④ 증착 챔버 내벽 재질은 유전 상수 결정 인자가 아니므로 정답이다.'],
-    evidence: 'Ch.11 summary: “High-k / Dielectric constant 결정 요소 - Orbital / 원자 번호 / 결합 수 / 결정구조”',
-    source: withExamSource(SOURCES.gateSummary),
+    explanation: '정답은 ④이다. high-k의 k 값은 orbital, 원자 번호, 결합 수, 결정 구조 같은 재료 자체의 결합·전자구조 인자와 연결된다. 챔버 내벽 재질은 공정 오염/장비 관리 항목일 수는 있지만 k를 결정하는 본질 인자로 분류되지 않는다.',
+    solution: ['k 결정 인자: orbital, atomic number, bond number, crystal structure', '①~③은 재료 자체의 전자구조·결합구조와 연결된다.', '④ 증착 챔버 내벽 재질은 유전 상수 결정 인자가 아니므로 정답이다.'],
   },
   {
     id: 3, type: 'multiple', lecture: 'Ch.11', category: 'EOT',
@@ -86,8 +40,6 @@ const rawQuestions = [
     formula: 'EOT = (k_SiO2 / k_high-k) × t_high-k',
     explanation: '정답은 ①이다. High-k는 물리적 두께와 전기적 효과가 다르기 때문에, SiO2로 환산했을 때 같은 전기적 capacitance를 내는 두께인 EOT로 비교한다.',
     solution: ['서로 다른 유전막은 k가 다르므로 물리적 두께만으로 비교하면 안 된다.', 'EOT는 SiO2 기준으로 환산한 전기적 두께이다.', '따라서 high-k gate stack 비교에는 EOT가 핵심 지표이다.'],
-    evidence: 'Ch.11 Gate dielectric/MOS capacitor: EOT와 C-V, charge in dielectric 정리',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 4, type: 'multiple', lecture: 'Ch.11', category: 'FLP',
@@ -96,9 +48,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     explanation: '정답은 ①이다. High-k/poly-Si 조합은 고온 열처리 중 계면 반응과 Fermi level pinning 문제가 생겨 원하는 work function 조절이 어려워진다. 이것이 metal gate 도입의 배경 중 하나이다.',
-    solution: ['문제의 핵심은 “High-k + Poly-Si 조합의 incompatibility”이다.', '강의 summary는 이 문제를 Fermi Level Pinning으로 정리한다.', '결과적으로 gate work function이 원하는 NMOS/PMOS 값으로 자유롭게 움직이지 못한다.'],
-    evidence: 'Ch.11 summary: “High-k issues - Incompatibility with Poly-Si Gate (Fermi Level Pinning)”',
-    source: withExamSource(SOURCES.gateSummary),
+    solution: ['문제의 핵심은 “High-k + Poly-Si 조합의 incompatibility”이다.', '이 계면 반응/고정 현상을 Fermi Level Pinning으로 이해한다.', '결과적으로 gate work function이 원하는 NMOS/PMOS 값으로 자유롭게 움직이지 못한다.'],
   },
   {
     id: 5, type: 'multiple', lecture: 'Ch.11', category: 'Gate Last',
@@ -108,8 +58,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Gate Last는 dummy gate를 먼저 만들고 고온 source/drain 공정 이후 metal gate를 치환해 넣는 방식이다. 따라서 metal work function이 고온 공정으로 변하는 문제를 줄일 수 있다.',
     solution: ['Gate First: metal gate가 앞단 고온 공정을 겪을 수 있다.', 'Gate Last: dummy gate 제거 후 후반에 HKMG를 형성한다.', '핵심 장점은 work function thermal stability 확보이다.'],
-    evidence: 'Ch.11 HKMG integration: metal gate thermal stability, random work function fluctuation 이슈',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 6, type: 'multiple', lecture: 'Ch.11', category: 'Dipole Engineering',
@@ -119,8 +67,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ②이다. LaO는 NMOS 쪽에서 eWF를 낮추어 NVt 감소와 연결되고, AlO는 PMOS 쪽에서 eWF를 높여 |PVt| 감소와 연결된다.',
     solution: ['PMOS는 valence band 쪽 work function 조절이 중요하다.', 'AlO capping은 eWF를 증가시키는 방향으로 작용한다.', '그 결과 PMOS의 |PVt|를 낮추는 쪽으로 활용된다.'],
-    evidence: 'Ch.11 summary: “Multi Vt - Dipole Engineering”',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 7, type: 'multiple', lecture: 'Ch.11', category: 'RWFF',
@@ -130,8 +76,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. TiN은 grain orientation에 따라 work function이 달라질 수 있고, 작은 소자에서는 grain 분포 차이가 Vt 변동으로 나타난다.',
     solution: ['Metal gate issue는 단순 평균 work function만이 아니다.', 'grain orientation별 WF 차이가 local fluctuation을 만든다.', '이 변동이 Random Work Function Fluctuation으로 정리된다.'],
-    evidence: 'Ch.11 summary: “Metal Gate issues - Thermal Stability of Work Function / Random Work Function Fluctuation”',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 8, type: 'multiple', lecture: 'Ch.11', category: 'Work Function',
@@ -141,8 +85,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Work function은 intrinsic 인자와 extrinsic 인자로 나뉘며, 결정 방향·표면 상태·결함/불순물은 공정 및 계면 상태에 의존하는 extrinsic 인자이다.',
     solution: ['Intrinsic: 물질 고유 전자구조 성격', 'Extrinsic: crystal orientation, surface state, defect/impurity 등 표면·공정·결함 영향', '따라서 ①만 extrinsic 인자 묶음이다.'],
-    evidence: 'Ch.11 summary: “Work Function - Intrinsic / Extrinsic (Crystal orientation / Surface state / Defect)”',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 9, type: 'multiple', lecture: 'Ch.12', category: 'Leakage Mechanism',
@@ -152,8 +94,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ③ Fowler-Nordheim tunneling이다. 고전기장에서는 장벽이 삼각형 형태로 얇아져 전자가 장벽 끝 부분을 터널링할 수 있다.',
     solution: ['Direct tunneling: 낮은 전기장에서 전체 절연막 두께를 통과', 'Fowler-Nordheim tunneling: 높은 전기장에서 삼각형 장벽을 통과', '문제의 “고전기장 + 삼각형 장벽”이 FN tunneling의 키워드이다.'],
-    evidence: 'Ch.12 capacitor problems: leakage current mechanism 구분 문제',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 10, type: 'multiple', lecture: 'Ch.12', category: 'Leakage Mechanism',
@@ -163,8 +103,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. DT는 낮은 전기장에서도 절연막 전체를 직접 터널링하는 것이고, FN은 높은 전기장에서 장벽이 삼각형으로 얇아질 때 나타난다.',
     solution: ['DT: rectangular barrier 전체 통과', 'FN: high field에서 triangular barrier 통과', '열 여기나 trap 경유는 각각 Schottky/PF 또는 hopping/TAT 계열과 구분해야 한다.'],
-    evidence: 'Ch.12 capacitor leakage mechanism 정리 및 연습시험 해설 기준',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 11, type: 'multiple', lecture: 'Ch.12', category: 'Dielectric Loss',
@@ -175,8 +113,6 @@ const rawQuestions = [
     formula: 'tanδ = 손실 성분 / 에너지 저장 성분',
     explanation: '정답은 ①이다. 이상적인 capacitor는 손실이 없으므로 tanδ가 0이고, 실제 dielectric에서는 유전손실이 존재하므로 tanδ가 0보다 크다.',
     solution: ['tanδ는 capacitor가 얼마나 이상적인 저장소에서 벗어나는지 보여주는 손실 지표이다.', '값이 커질수록 저장보다 손실 성분이 커진다.', '따라서 ①이 옳다.'],
-    evidence: 'Ch.12 summary: “Leakage Current & Mechanism, Dielectric Loss(tanδ)”',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 12, type: 'multiple', lecture: 'Ch.12', category: 'FOM',
@@ -187,8 +123,6 @@ const rawQuestions = [
     formula: 'FOM = (m_eff × φ_b)^1/2 × k',
     explanation: '정답은 ①이다. 식에서 k, φ_b, m_eff가 모두 커질수록 FOM은 증가한다. 특히 높은 k만 보면 누설전류 문제가 커질 수 있으므로 barrier 관련 인자를 함께 본다.',
     solution: ['FOM은 k에 비례한다.', '또한 (m_eff × φ_b)의 제곱근에 비례한다.', '따라서 세 항목이 모두 커지는 방향이 같은 EOT에서 leakage를 줄이는 설계 방향이다.'],
-    evidence: 'Ch.12 capacitor material engineering: high-k 필요성과 leakage 저감 조건',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 13, type: 'multiple', lecture: 'Ch.12', category: 'Mold',
@@ -198,8 +132,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Ch.12 summary는 mold 재료로 SiBN, BPSG/H-Mold, a-BAS, SiCN을 제시하고, 각각 stopper·main mold·anti-bowing·supporter 역할로 연결해 이해한다.',
     solution: ['BPSG/H-Mold는 주 희생 mold 역할', 'SiBN은 LAL etch stopper', 'a-BAS는 anti-bowing, SiCN은 supporter 역할로 정리한다.'],
-    evidence: 'Ch.12 summary: “Mold: SiBN, BPSG/H-Mold, a-BAS, SiCN”',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 14, type: 'multiple', lecture: 'Ch.12', category: 'HARC Etch',
@@ -209,8 +141,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. HARC에서는 깊고 좁은 구조 내부로 radical/ion 공급이 어려워 위치와 깊이에 따라 etch rate가 달라지는 ARDE가 핵심 문제가 된다.',
     solution: ['HARC = high aspect ratio contact', '깊어질수록 반응종 공급과 부산물 배출이 어려워진다.', '그 결과 aspect ratio dependent etching 문제가 발생한다.'],
-    evidence: 'Ch.12 summary: “DPT and HARC Etch” 및 capacitor problems',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 15, type: 'multiple', lecture: 'Ch.12', category: 'Air Spacer',
@@ -221,8 +151,6 @@ const rawQuestions = [
     formula: 'C ∝ k',
     explanation: '정답은 ①이다. 공기는 k가 약 1로 매우 낮기 때문에, bit-line 주변 spacer를 air gap화하면 C_BL을 줄이고 sensing margin 개선에 기여할 수 있다.',
     solution: ['기생 capacitance는 주변 유전율 k에 비례한다.', 'SiO2(k≈3.9), Si3N4(k≈7)보다 air(k≈1)가 낮다.', '따라서 air spacer는 bit-line parasitic C 감소 목적이다.'],
-    evidence: 'Ch.12 summary: “Complementary Technology - Air Spacer”',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 16, type: 'multiple', lecture: 'Ch.12', category: 'High-k Selection',
@@ -232,8 +160,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. k가 높아도 band offset이 낮거나 결함 준위가 많으면 leakage가 증가한다. 따라서 high-k 선택은 capacitance와 leakage/reliability의 동시 최적화 문제이다.',
     solution: ['k 증가 → capacitance 확보에 유리', '하지만 crystallization, low CBO, defect level → leakage 증가 가능', '따라서 k, leakage, thermal/interface stability를 함께 만족해야 한다.'],
-    evidence: 'Ch.12 summary: high-k 필요성, leakage reduction, formation energy/CBO/DOS',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 17, type: 'multiple', lecture: 'Ch.13', category: 'Contact',
@@ -244,8 +170,6 @@ const rawQuestions = [
     formula: 'ρc ∝ exp(φB / √N)',
     explanation: '정답은 ①이다. Silicide는 Schottky barrier height를 낮추고, Si 고농도 도핑은 barrier width를 줄여 tunneling을 증가시킨다. 둘 다 contact resistivity 감소 방향이다.',
     solution: ['φB를 낮추는 방법: silicide 형성', 'N을 높이는 방법: Si 고농도 도핑', '식의 지수항이 작아져 ρc가 감소한다.'],
-    evidence: 'Ch.13 녹취/강의: metal-silicon contact, silicide, Si doping에 의한 tunneling 증가 설명',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
   {
     id: 18, type: 'multiple', lecture: 'Ch.13', category: 'Silicide',
@@ -255,8 +179,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. TiSi2는 낮은 저항 C54 phase로 전환되어야 하는데, 미세 선폭에서는 상전환과 corner thinning 문제가 커진다. CoSi2는 이 size dependency가 상대적으로 덜하다.',
     solution: ['TiSi2: C49 → C54 phase transition 필요', 'narrow line에서 C54 핵생성과 corner thinning 문제가 심해진다.', '따라서 미세화 DRAM contact에서는 CoSi2가 선호될 수 있다.'],
-    evidence: 'Ch.13 녹취: TiSi2 vs CoSi2, DRAM 작은 패턴과 후속 고온 공정 안정성 설명',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
   {
     id: 19, type: 'multiple', lecture: 'Ch.13', category: 'RC Delay',
@@ -267,8 +189,6 @@ const rawQuestions = [
     formula: 'RC = 2ρεrε0(L/p)^2 × 1/[a(1-a)]',
     explanation: '정답은 ②이다. 앞의 상수항은 a와 무관하므로 1/[a(1-a)]가 최소가 되는 a를 찾으면 된다. a(1-a)는 a=0.5일 때 최대이므로 RC delay는 a=0.5에서 최소이다.',
     solution: ['최소화 대상: 1/[a(1-a)]', '분모 a(1-a)는 포물선이며 a=0.5에서 최대', '따라서 delay 최소 조건은 a=0.5, 즉 배선 폭과 간격이 같은 경우이다.'],
-    evidence: 'Ch.13 Interconnection: RC delay, width/space 1:1 설계 설명',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
   {
     id: 20, type: 'multiple', lecture: 'Ch.13', category: 'Cu vs Al',
@@ -278,8 +198,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Cu는 낮은 저항과 electromigration 장점이 있지만, 휘발성 식각 부산물 형성이 어려워 dry etch 직접 패터닝이 어렵다. 그래서 damascene 공정을 사용한다.',
     solution: ['Cu 장점: Al보다 낮은 비저항, 좋은 EM 특성', 'Cu 단점: dry etch 직접 패터닝 어려움', '결론: trench/via를 먼저 만들고 Cu를 채운 뒤 CMP하는 damascene 방식 필요'],
-    evidence: 'Ch.13 녹취: Cu damascene 도입 배경, Cu dry etch 난점 설명',
-    source: withExamSource(SOURCES.ecpAdditives),
   },
   {
     id: 21, type: 'multiple', lecture: 'Ch.13', category: 'Thin Film Resistivity',
@@ -290,8 +208,6 @@ const rawQuestions = [
     formula: 'ρtotal = ρ0 + ΔρMS + ΔρFS',
     explanation: '정답은 ①이다. Ch.13 자료는 thin film resistivity를 bulk term에 grain boundary scattering과 surface scattering 항이 더해진 형태로 설명한다.',
     solution: ['배선 폭이 작아지면 표면/측벽과 충돌하는 전자 비율이 증가한다.', 'grain size가 작거나 grain boundary가 많으면 경계 산란이 증가한다.', '따라서 thin film resistivity는 bulk resistivity보다 커진다.'],
-    evidence: 'p.818: Resistivity Model for Thin Film, surface scattering + G.B. scattering',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
   {
     id: 22, type: 'multiple', lecture: 'Ch.13', category: 'PVD',
@@ -301,8 +217,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ②이다. I-PVD는 스퍼터된 금속 원자를 이온화하고 wafer bias로 방향성을 제어해 깊은 via/trench 바닥 coverage를 개선한다.',
     solution: ['일반 PVD는 line-of-sight 특성이 강해 측벽/바닥 coverage가 불리하다.', 'I-PVD는 ionized metal flux를 bias로 끌어당겨 방향성을 제어한다.', '고종횡비 패턴 coverage 개선에는 I-PVD가 더 직접적인 답이다.'],
-    evidence: 'Ch.13 녹취: PVD view angle, poor sidewall coverage, I-PVD 방향 제어 설명',
-    source: withExamSource(SOURCES.ecpAdditives),
   },
   {
     id: 23, type: 'multiple', lecture: 'Ch.13', category: 'ECP Additive',
@@ -312,8 +226,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Accelerator는 작은 황 화합물 계열로 좁은 feature 내부에서 Cu reduction을 돕고, suppressor는 field/입구 영역을 억제하며, leveler는 돌출부 성장을 억제해 평탄화를 돕는다.',
     solution: ['Accelerator: Cu deposition rate 증가, bottom-up filling 촉진', 'Suppressor: 큰 polymer, Cl-와 함께 표면 흡착해 deposition 억제', 'Leveler: corner/돌출부에서 강한 억제 작용'],
-    evidence: 'p.840~841: ECP additive table, accelerator/suppressor/leveler 역할',
-    source: withExamSource(SOURCES.ecpAdditives),
   },
   {
     id: 24, type: 'multiple', lecture: 'Ch.13', category: 'Low-k',
@@ -323,8 +235,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. BEOL low-k는 SiO2에서 FSG, SiOCH, porous SiOCH로 갈수록 k를 낮추는 방향으로 발전했다.',
     solution: ['SiO2: k≈3.9', 'FSG: k≈3.5', 'SiOCH: k≈2.7~3.2', 'p-SiOCH: k≈2.2~2.55'],
-    evidence: 'Ch.13 녹취: F-doped oxide, SiOCH, porous low-k 순서와 기계적 강도 한계 설명',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
 
   {
@@ -335,8 +245,6 @@ const rawQuestions = [
     formula: 'EOT = (k_SiO2 / k_high-k) × t_high-k + t_IL',
     explanation: '정답은 약 1.224 nm이다. High-k HfO2 부분을 SiO2 기준 두께로 환산한 뒤, 실제 SiO2 interfacial layer 두께를 더한다.',
     solution: ['HfO2 환산 두께 = (3.9 / 25) × 4 nm = 0.624 nm', 'SiO2 계면층은 이미 SiO2이므로 0.6 nm를 그대로 더한다.', 'EOT = 0.624 + 0.6 = 1.224 nm'],
-    evidence: '연습시험 25번 및 Ch.11 EOT 개념',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 26, type: 'calc', lecture: 'Ch.11', category: 'Work Function',
@@ -346,8 +254,6 @@ const rawQuestions = [
     formula: 'X = √(XA × XB), WF = 2.27X + 0.34',
     explanation: '정답은 X = 1.80, WF ≈ 4.43 eV이다. 합금 전기음성도는 기하평균으로 계산하고, 이를 선형식에 대입한다.',
     solution: ['X = √(1.44 × 2.25) = √3.24 = 1.80', 'WF = 2.27 × 1.80 + 0.34', 'WF = 4.086 + 0.34 = 4.426 eV ≈ 4.43 eV'],
-    evidence: '연습시험 26번 및 Ch.11 work function vs electronegativity',
-    source: withExamSource(SOURCES.gateSummary),
   },
   {
     id: 27, type: 'calc', lecture: 'Ch.12', category: 'Capacitance',
@@ -357,8 +263,6 @@ const rawQuestions = [
     formula: 'C = ε0εrA / d',
     explanation: '정답은 약 2.83 fF이다. 두께 5 nm를 5×10^-9 m로 변환하고 SI 단위로 계산한 뒤 fF로 환산한다.',
     solution: ['d = 5 nm = 5×10^-9 m', 'C = (8.85×10^-12) × 40 × (4×10^-14) / (5×10^-9)', 'C = 2.832×10^-15 F = 2.83 fF'],
-    evidence: '연습시험 27번 및 Ch.12 capacitor physics',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 28, type: 'calc', lecture: 'Ch.12', category: 'Retention',
@@ -368,8 +272,6 @@ const rawQuestions = [
     formula: 't = ΔQ / I',
     explanation: '정답은 30초이다. 반감 조건에서는 빠져나간 전하량이 Q0/2 = 15 fC이고, 이를 leakage current로 나눈다.',
     solution: ['반감 시 손실 전하량 ΔQ = Q0/2 = 15 fC', 't = ΔQ/I = 15 fC / 0.5 fA', 'fC/fA = 10^-15 C / 10^-15 A = s 이므로 t = 30 s'],
-    evidence: '연습시험 28번 및 Ch.12 retention/leakage 계산',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 29, type: 'calc', lecture: 'Ch.13', category: 'Electroplating',
@@ -379,8 +281,6 @@ const rawQuestions = [
     formula: 'W = ItM/(nF), thickness = W/(ρA)',
     explanation: '정답은 약 94.7 nm이다. 먼저 Faraday law로 석출 질량을 구하고, 밀도와 면적으로 나누어 두께를 cm 단위로 구한 뒤 nm로 환산한다.',
     solution: ['W = (2×90×63.55)/(2×96500) = 0.05928 g', 'thickness = 0.05928/(8.94×700) = 9.47×10^-6 cm', '1 cm = 10^7 nm 이므로 9.47×10^-6 cm = 94.7 nm'],
-    evidence: '연습시험 29번 및 Ch.13 Cu electroplating/Faraday law',
-    source: withExamSource(SOURCES.ecpAdditives),
   },
   {
     id: 30, type: 'calc', lecture: 'Ch.13', category: 'RC Delay',
@@ -390,8 +290,6 @@ const rawQuestions = [
     formula: 'RC = 2ρεrε0(L/p)^2 × 1/[a(1-a)], a = w/p',
     explanation: '정답은 약 478 ps이다. w=p/2이므로 a=0.5이고, 1/[a(1-a)] = 4가 된다.',
     solution: ['a = w/p = 100/200 = 0.5 → 1/[a(1-a)] = 4', 'L/p = 2×10^-3 / 200×10^-9 = 10^4 → (L/p)^2 = 10^8', 'RC = 2×2.5×10^-8×2.7×8.85×10^-12×10^8×4 = 4.779×10^-10 s', '4.779×10^-10 s = 477.9 ps ≈ 478 ps'],
-    evidence: '연습시험 30번 및 Ch.13 RC delay 공식',
-    source: withExamSource(SOURCES.interconnectResistivity),
   },
 
   {
@@ -403,8 +301,6 @@ const rawQuestions = [
     formula: 'EOT ∝ t/k',
     explanation: '정답은 ①이다. High-k는 EOT를 낮추는 데 유리하지만, 실제 gate dielectric은 leakage, thermal stability, interface reliability까지 함께 만족해야 한다.',
     solution: ['높은 k → 같은 물리 두께에서 EOT 감소 가능', '하지만 band offset이 낮거나 결함이 많으면 leakage 증가', '고온 공정에서 결정화/계면 반응이 생기면 신뢰성 저하'],
-    evidence: 'Ch.11 summary: high-k selection = dielectric constant/direct tunneling/thermal stability',
-    source: SOURCES.gateSummary,
   },
   {
     id: 32, type: 'multiple', lecture: 'Ch.12', category: 'Leakage Mechanism',
@@ -414,8 +310,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Ch.12 problem의 leakage table은 전계 증가에 따른 J 급증을 보고 conduction mechanism을 판별하게 하는 유형이다.',
     solution: ['E 증가에 따라 J가 여러 order 증가한다.', '이는 field-assisted conduction, FN tunneling, PF emission 등 전계 의존 메커니즘과 연결된다.', '단순한 이상 capacitor라면 누설전류가 이렇게 커지는 설명이 되지 않는다.'],
-    evidence: 'Ch.12 summary/problems 하단 leakage current table',
-    source: SOURCES.capSummary,
   },
   {
     id: 33, type: 'multiple', lecture: 'Ch.12', category: 'Capacitance Geometry',
@@ -426,8 +320,6 @@ const rawQuestions = [
     formula: 'Aside ≈ 2πrH, C ∝ A',
     explanation: '정답은 ①이다. Sidewall 면적은 반지름 r과 높이 H에 비례한다. 반지름이 줄면 같은 면적을 유지하기 위해 높이를 키워야 한다.',
     solution: ['Pillar sidewall area ≈ 2πrH', '유전막과 k가 같다면 C는 면적에 비례한다.', '따라서 r 감소는 H 증가로 보상한다.'],
-    evidence: 'Ch.12 problems 8번: pillar capacitor 반지름 감소 시 높이 증가 배율 계산',
-    source: SOURCES.capSummary,
   },
   {
     id: 34, type: 'multiple', lecture: 'Ch.13', category: 'Damascene',
@@ -437,8 +329,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Cu는 Al처럼 휘발성 etch product를 만들기 어려워 직접 식각 패터닝이 어렵고, damascene integration이 필요하다.',
     solution: ['절연막을 먼저 patterning한다.', 'Barrier/seed 후 Cu를 채운다.', 'CMP로 overburden을 제거해 배선만 남긴다.'],
-    evidence: 'Ch.13 Cu vs Al 및 damascene 설명',
-    source: SOURCES.ecpAdditives,
   },
   {
     id: 35, type: 'multiple', lecture: 'Ch.13', category: 'ECP Additive',
@@ -448,8 +338,6 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ①이다. Suppressor는 PEG/PAG 계열 큰 polymer로 deposition을 억제하고, leveler는 corner나 돌출부에서 strong inhibitor로 작용해 평탄화를 돕는다.',
     solution: ['Suppressor: large molecular weight polymer, deposition rate 감소', 'Leveler: corner에서 강한 억제, overgrowth 방지', 'Accelerator와 함께 위치별 성장 속도 차이를 만든다.'],
-    evidence: 'p.840~841 ECP chemistry/additive table',
-    source: SOURCES.ecpAdditives,
   },
   {
     id: 36, type: 'multiple', lecture: 'Ch.13', category: 'Thin Film Resistivity',
@@ -460,8 +348,6 @@ const rawQuestions = [
     formula: 'ρtotal = ρ0 + Δρsurface + ΔρGB',
     explanation: '정답은 ①이다. p.819 표에서 Ag는 bulk resistivity가 매우 낮지만, 실제 interconnect 후보는 ρ0λ, 안정성, cost, silicide 형성 등 integration factor까지 봐야 한다.',
     solution: ['Bulk ρ만 낮으면 큰 배선에서는 유리하다.', '하지만 선폭이 mean free path 수준이면 scattering 항이 커진다.', '공정 안정성과 재료 제한도 함께 보아야 한다.'],
-    evidence: 'p.819 metallic elements table 및 limitation 목록',
-    source: SOURCES.interconnectResistivity,
   },
   {
     id: 37, type: 'calc', lecture: 'Ch.12', category: 'Retention',
@@ -471,8 +357,6 @@ const rawQuestions = [
     formula: 'Imax = (Q0 - Qmin) / tref',
     explanation: '정답은 312.5 fA이다. 64 ms 동안 잃어도 되는 전하량은 30 fC - 10 fC = 20 fC이다.',
     solution: ['허용 전하 손실 ΔQ = 30 fC - 10 fC = 20 fC', 'refresh time = 64 ms = 0.064 s', 'Imax = 20 fC / 0.064 s = 312.5 fA'],
-    evidence: '연습시험 28번 및 Ch.12 retention 계산',
-    source: withExamSource(SOURCES.capSummary),
   },
   {
     id: 38, type: 'calc', lecture: 'Ch.13', category: 'RC Delay',
@@ -482,8 +366,6 @@ const rawQuestions = [
     formula: 'geometric factor = 1/[a(1-a)]',
     explanation: '정답은 약 5.33이다. a가 0.5에서 멀어지면 geometric factor가 커져 RC delay가 증가한다.',
     solution: ['a(1-a) = 0.25 × 0.75 = 0.1875', '1/0.1875 = 5.333', 'a=0.5일 때의 4보다 크므로 delay가 더 커진다.'],
-    evidence: '연습시험 19, 30번 및 Ch.13 RC delay 공식',
-    source: SOURCES.interconnectResistivity,
   },
   {
     id: 39, type: 'calc', lecture: 'Ch.11', category: 'Work Function',
@@ -491,10 +373,8 @@ const rawQuestions = [
     answer: 4.88, tolerance: 0.05, unit: 'eV', answerText: 'X = 2.00, WF = 4.88 eV',
     difficulty: 'exam',
     formula: 'X = √(XA×XB), WF = 2.27X + 0.34',
-    explanation: '정답은 X=2.00, WF=4.88 eV이다. 연습시험 26번과 같은 계산 구조의 변형이다.',
+    explanation: '정답은 X=2.00, WF=4.88 eV이다. 전기음성도와 work function을 연결하는 기말형 계산 변형이다.',
     solution: ['X = √(1.60×2.50) = √4.00 = 2.00', 'WF = 2.27×2.00 + 0.34 = 4.54 + 0.34', 'WF = 4.88 eV'],
-    evidence: 'Ch.11 work function vs electronegativity 계산 유형',
-    source: SOURCES.gateSummary,
   },
   {
     id: 40, type: 'calc', lecture: 'Ch.12', category: 'Capacitance',
@@ -504,8 +384,6 @@ const rawQuestions = [
     formula: 'C = ε0εrA/d',
     explanation: '정답은 약 2.21 fF이다. nm를 m로 바꾸고 SI 단위 계산 후 fF로 환산한다.',
     solution: ['d = 6 nm = 6×10^-9 m', 'C = 8.85×10^-12 × 30 × 5×10^-14 / 6×10^-9', 'C = 2.2125×10^-15 F = 2.21 fF'],
-    evidence: 'Ch.12 capacitor capacitance 계산 유형',
-    source: SOURCES.capSummary,
   },
   {
     id: 41, type: 'calc', lecture: 'Ch.13', category: 'Electroplating',
@@ -513,10 +391,8 @@ const rawQuestions = [
     answer: 0.0593, tolerance: 0.002, unit: 'g', answerText: '약 0.0593 g',
     difficulty: 'exam',
     formula: 'W = ItM/(nF)',
-    explanation: '정답은 약 0.0593 g이다. 전하량 It가 연습시험 29번과 같아 동일한 질량이 나온다.',
+    explanation: '정답은 약 0.0593 g이다. Faraday law에서 전하량 It와 전자 수 n을 이용해 석출 질량을 계산하는 유형이다.',
     solution: ['I×t = 1.5×120 = 180 C', 'W = 180×63.55/(2×96500)', 'W = 11439/193000 = 0.05928 g'],
-    evidence: 'Ch.13 electroplating Faraday law',
-    source: SOURCES.ecpAdditives,
   },
   {
     id: 42, type: 'multiple', lecture: 'Ch.13', category: 'CMP Cleaning',
@@ -526,12 +402,9 @@ const rawQuestions = [
     difficulty: 'exam',
     explanation: '정답은 ④이다. Fermi level pinning은 Ch.11 HKMG 이슈이고, post-CMP particle removal force가 아니다.',
     solution: ['Post-CMP cleaning: van der Waals, electrostatic, chemical bonding, capillary, friction, hydrodynamic drag', 'Fermi level pinning: high-k/poly-Si gate incompatibility', '따라서 ④가 범주가 다르다.'],
-    evidence: 'p.856~857 Post CMP cleaning brush mechanism',
-    source: SOURCES.cmpCleaning,
   },
 ]
 
 export const questions = rawQuestions.map(question => ({
   ...question,
-  source: question.source,
 }))
