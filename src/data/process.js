@@ -11,7 +11,37 @@ export const QUIZ_TYPES = [
   { id: 'calc', label: '계산 단답', icon: '🧮', color: 'emerald' },
 ]
 
-export const questions = [
+function sourceFor(question) {
+  if (question.lecture === 'Ch.11') {
+    if (['Gate Module', 'DRAM Gate', 'Gate Scaling'].includes(question.category)) {
+      return {
+        label: '기말 PDF Ch.11 Gate Module',
+        detail: '강의자료 p.657~659: Gate Module in Samsung, DRAM/Logic gate technology evolution 표·그림 기반',
+        image: '/sources/process/gate-module.jpg',
+      }
+    }
+    return {
+      label: '기말 PDF Ch.11 Gate Dielectric/Gate Metal',
+      detail: '강의자료 p.660 이후: Gate dielectric, work function, MOS C-V/EOT, High-k/Metal Gate 단원 기반',
+      image: '/sources/process/gate-dielectric.jpg',
+    }
+  }
+  if (question.lecture === 'Ch.12') {
+    return {
+      label: '기말 PDF Ch.12 Capacitor Module',
+      detail: '공지 범위 Ch.12와 기존 반도체 구조/공정 정리의 Cell capacitor physics, High-k, MIM, retention 내용 기반',
+    }
+  }
+  if (question.lecture === 'Ch.13') {
+    return {
+      label: '녹취 DOC Ch.13 Interconnection 필기',
+      detail: 'TalkFile 녹취 03:36~02:02:56: Contact/Silicide, Plug/Via, RC delay, Low-k, PVD, Cu electroplating 설명 기반',
+    }
+  }
+  return null
+}
+
+const rawQuestions = [
   { id: 1, type: 'multiple', lecture: 'Ch.11', category: 'Gate Module',
     question: 'DRAM Cell 영역의 Gate Module 조합으로 가장 적절한 것은?',
     options: ['Planar-FET + High-k + PVD Metal Gate', '3D Fin-FET/BCAT + Thermal Oxide + ALD Metal Gate', '3D Fin-FET + High-k + Dipole Engineering', 'Planar-FET + SiON + Poly-Si Gate'],
@@ -248,3 +278,8 @@ export const questions = [
     answer: 0.667, tolerance: 0.02, unit: '배', answerText: '약 0.67배',
     explanation: '구조가 같으면 capacitance는 유전율에 비례한다. 2.6/3.9 ≈ 0.667이고 R이 같으면 RC도 같은 비율로 감소한다.' },
 ]
+
+export const questions = rawQuestions.map(question => ({
+  ...question,
+  source: question.source ?? sourceFor(question),
+}))

@@ -8,6 +8,25 @@ const TYPE_BADGE = {
 
 const LABELS = ['①', '②', '③', '④']
 
+function SourceReference({ source, subject }) {
+  if (!source) return null
+  return (
+    <div className="mt-3 rounded-xl border border-gray-100 bg-white/70 p-3">
+      <p className="text-xs font-bold text-gray-500 mb-1">근거 자료</p>
+      <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
+      {source.detail && <p className="text-xs text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
+      {source.image && (
+        <img
+          src={source.image}
+          alt={source.label}
+          className="mt-3 w-full max-h-72 object-contain rounded-lg border border-gray-100 bg-gray-50"
+          loading="lazy"
+        />
+      )}
+    </div>
+  )
+}
+
 function getCorrectAnswer(q) {
   if (q.type === 'multiple') return `${LABELS[q.answer]} ${q.options[q.answer]}`
   if (q.type === 'fill') return q.answers.map(answerSet => answerSet[0]).join(' / ')
@@ -114,6 +133,7 @@ export default function ResultScreen({ subject, results, onRestart, onRestartSam
                   {q.explanation && (
                     <div className={`mt-3 p-3 rounded-xl ${subject.bg} text-xs text-gray-600 leading-relaxed whitespace-pre-line`}>
                       {q.explanation}
+                      <SourceReference source={q.source} subject={subject} />
                     </div>
                   )}
                 </div>
