@@ -10,6 +10,44 @@ function shuffle(arr) {
   return a
 }
 
+// 키워드에서 검색 가능한 핵심 한국어/영어 단어 추출
+function extractTerm(keyword) {
+  // "생체축적 (bio-accumulation)" → "생체축적"
+  let t = keyword.split(' (')[0].trim()
+  // "바이오마커 — 노출 바이오마커" → "노출 바이오마커"
+  if (t.includes(' — ')) t = t.split(' — ').pop().trim()
+  // "반도체 실리콘 웨이퍼 생산 — 잉곳 (Ingot)" 같은 경우도 처리됨
+  return t
+}
+
+// 설명에서 키워드 단어를 빈칸 박스로 대체하는 컴포넌트
+function DescriptionText({ text, keyword, revealed }) {
+  if (revealed) return <>{text}</>
+
+  const term = extractTerm(keyword)
+  if (!term || !text.includes(term)) return <>{text}</>
+
+  const parts = text.split(term)
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {i < parts.length - 1 && (
+            <span
+              className="inline-block bg-violet-100 border border-violet-300 rounded px-1.5 mx-0.5 text-transparent select-none align-middle"
+              style={{ fontSize: '0.85em', lineHeight: '1.4' }}
+              aria-label="빈칸"
+            >
+              {term}
+            </span>
+          )}
+        </span>
+      ))}
+    </>
+  )
+}
+
 export default function KeywordStudyScreen({ subject, onHome }) {
   const [lectureFilter, setLectureFilter] = useState('all')
   const [index, setIndex] = useState(0)
@@ -106,7 +144,9 @@ export default function KeywordStudyScreen({ subject, onHome }) {
               {/* 설명 영역 */}
               <div className="p-6">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">설명</p>
-                <p className="text-gray-700 leading-relaxed text-[15px]">{card.description}</p>
+                <p className="text-gray-700 leading-relaxed text-[15px]">
+                  <DescriptionText text={card.description} keyword={card.keyword} revealed={revealed} />
+                </p>
               </div>
 
               <div className="border-t border-dashed border-violet-100" />
