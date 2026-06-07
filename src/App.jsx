@@ -6,6 +6,31 @@ import QuizScreen from './components/QuizScreen.jsx'
 import ResultScreen from './components/ResultScreen.jsx'
 import KeywordStudyScreen from './components/KeywordStudyScreen.jsx'
 
+function shuffle(items) {
+  const arr = [...items]
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
+function shuffleMultipleOptions(question) {
+  if (question.type !== 'multiple' || !Array.isArray(question.options)) return question
+
+  const options = question.options.map((text, index) => ({
+    text,
+    wasCorrect: index === question.answer,
+  }))
+  const shuffled = shuffle(options)
+
+  return {
+    ...question,
+    options: shuffled.map(option => option.text),
+    answer: shuffled.findIndex(option => option.wasCorrect),
+  }
+}
+
 export default function App() {
   const [screen, setScreen] = useState('subject') // subject | start | quiz | result | keyword-study
   const [subjectId, setSubjectId] = useState(null)
@@ -46,6 +71,17 @@ export default function App() {
   }
 
   const handleRestartSame = () => {
+    if (subject && settings) {
+      let pool = subject.questions
+      if (settings.lecture !== 'all') pool = pool.filter(q => q.lecture === settings.lecture)
+      if (settings.type !== 'all') pool = pool.filter(q => q.type === settings.type)
+      const effectiveCount = Math.min(settings.count ?? pool.length, pool.length)
+      setSettings({
+        ...settings,
+        questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
+        count: effectiveCount,
+      })
+    }
     setResults(null)
     setScreen('quiz')
   }

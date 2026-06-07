@@ -590,30 +590,30 @@ export const questions = [
     "type": "multiple",
     "lecture": "12강",
     "category": "Cell Cap Physics",
-    "question": "Capacitance(C)를 구하는 공식으로 올바른 것은?",
+    "question": "평판형 capacitor에서 저장 capacitance를 키우는 변수 변화 조합으로 가장 적절한 것은?",
     "options": [
-      "C = εd/A",
-      "C = A/(εd)",
-      "C = εA/d",
-      "C = d/(εA)"
+      "유전율을 낮추고 유효 전극 면적을 줄이며 유전체 두께를 얇게 한다",
+      "유전율을 높이고 유효 전극 면적을 넓히며 유전체 두께를 얇게 한다",
+      "유전율을 높이고 유효 전극 면적을 줄이며 유전체 두께를 두껍게 한다",
+      "유전율을 낮추고 유효 전극 면적을 넓히며 유전체 두께를 두껍게 한다"
     ],
-    "answer": 2,
-    "explanation": "C = εA/d (ε: 유전율, A: 면적, d: 유전막 두께). 면적이 넓을수록, 유전율이 높을수록, 두께가 얇을수록 Capacitance가 증가한다."
+    "answer": 1,
+    "explanation": "Capacitance는 유전율과 전극 면적이 클수록, 유전막 두께가 얇을수록 증가한다. 공식은 해설에서만 확인하면 된다."
   },
   {
     "id": 39,
     "type": "multiple",
     "lecture": "12강",
     "category": "Cell Cap Physics",
-    "question": "DRAM Cell Capacitor의 저장 능력을 높이기 위한 설계 방향 조합으로 가장 적절한 것은?",
+    "question": "DRAM Cell Capacitor에서 셀 면적 축소 이후에도 저장 용량(Cs)을 확보하기 위한 접근으로 가장 적절한 것은?",
     "options": [
-      "유전막의 유전율을 낮추고 전극 면적을 늘리며 유전막 두께를 줄인다",
-      "유전막의 유전율을 높이고 전극 면적을 줄이며 유전막 두께를 늘린다",
-      "유전막의 유전율과 전극 면적을 높이고 유전막 두께를 줄인다",
-      "유전막의 유전율과 전극 면적을 낮추고 유전막 두께도 줄인다"
+      "Bit line capacitance를 키워 sense margin을 높이고 storage node 면적은 줄인다",
+      "Planar plate 구조를 유지하고 유전체를 low-k로 바꾸어 leakage만 낮춘다",
+      "Cylinder/Pillar 등 3D 구조로 유효 면적을 늘리고 high-k 유전체와 누설 제어를 함께 적용한다",
+      "Storage node와 plate electrode 간 거리를 늘려 breakdown margin만 우선 확보한다"
     ],
     "answer": 2,
-    "explanation": "Capacitance는 유전율과 전극 면적이 클수록, 유전막 두께가 얇을수록 증가한다. 공식 C = εA/d는 해설에서만 확인하면 된다."
+    "explanation": "DRAM scaling에서는 평면 면적만으로 Cs 확보가 어려워 Cylinder/Pillar 같은 3D 구조로 유효 면적을 키우고, high-k 유전체와 leakage 제어를 함께 고려한다."
   },
   {
     "id": 40,
