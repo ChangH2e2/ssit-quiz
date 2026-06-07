@@ -10,25 +10,92 @@ const DIFFICULTY_BADGE = {
   basic: { label: '기초', cls: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
   standard: { label: '표준', cls: 'bg-amber-50 text-amber-700 border-amber-100' },
   advanced: { label: '심화', cls: 'bg-rose-50 text-rose-700 border-rose-100' },
+  exam: { label: '기말형', cls: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-100' },
 }
 
 const LABELS = ['①', '②', '③', '④']
 
-function SourceReference({ source, subject }) {
+function SourceCard({ source, subject }) {
   if (!source) return null
   return (
-    <div className="mt-3 rounded-xl border border-gray-100 bg-white/70 p-3">
-      <p className="text-xs font-bold text-gray-500 mb-1">근거 자료</p>
-      <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
-      {source.detail && <p className="text-xs text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
+    <div className="mt-3 rounded-xl border border-gray-100 bg-white/80 p-3">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-[11px] font-bold text-gray-500 mb-1">강의자료 근거</p>
+          <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
+          {source.detail && <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
+        </div>
+        {source.image && (
+          <a
+            href={source.image}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[11px] font-bold text-gray-400 hover:text-gray-700 whitespace-nowrap"
+          >
+            크게 보기
+          </a>
+        )}
+      </div>
+
       {source.image && (
-        <img
-          src={source.image}
-          alt={source.label}
-          className="mt-3 w-full max-h-72 object-contain rounded-lg border border-gray-100 bg-gray-50"
-          loading="lazy"
-        />
+        <a href={source.image} target="_blank" rel="noreferrer" className="block">
+          <img
+            src={source.image}
+            alt={source.label}
+            className="mt-3 w-full max-h-[28rem] object-contain rounded-lg border border-gray-100 bg-gray-50"
+            loading="lazy"
+          />
+        </a>
       )}
+
+      {source.extra && (
+        <div className="mt-3 rounded-lg bg-gray-50 border border-gray-100 p-2">
+          <p className="text-[11px] font-bold text-gray-500">연습시험 근거</p>
+          <p className="text-xs font-semibold text-gray-700 mt-0.5">{source.extra.label}</p>
+          {source.extra.detail && <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{source.extra.detail}</p>}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function RichExplanation({ q, subject }) {
+  const hasBody = q.explanation || q.formula || q.solution?.length || q.evidence || q.source
+  if (!hasBody) return null
+
+  return (
+    <div className={`mt-3 p-3 rounded-xl ${subject.bg} text-xs text-gray-600 leading-relaxed`}>
+      {q.explanation && <p className="whitespace-pre-line">{q.explanation}</p>}
+
+      {q.formula && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-2">
+          <p className="text-[11px] font-bold text-gray-500 mb-1">핵심식</p>
+          <p className="font-mono text-xs text-gray-800 leading-relaxed break-words">{q.formula}</p>
+        </div>
+      )}
+
+      {q.solution?.length > 0 && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-2">
+          <p className="text-[11px] font-bold text-gray-500 mb-2">풀이 흐름</p>
+          <ol className="space-y-1.5 text-xs text-gray-700 leading-relaxed">
+            {q.solution.map((step, index) => (
+              <li key={index} className="flex gap-2">
+                <span className={`font-black ${subject.accent} flex-shrink-0`}>{index + 1}.</span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {q.evidence && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-2">
+          <p className="text-[11px] font-bold text-gray-500 mb-1">근거 포인트</p>
+          <p className="text-[11px] text-gray-600 leading-relaxed whitespace-pre-line">{q.evidence}</p>
+        </div>
+      )}
+
+      <SourceCard source={q.source} subject={subject} />
     </div>
   )
 }
@@ -48,10 +115,10 @@ export default function ResultScreen({ subject, results, onRestart, onRestartSam
   const skipped = Math.max(0, total - log.length)
   const pct = total > 0 ? Math.round((correct / total) * 100) : 0
 
-  let grade = { emoji: '🔥', label: '완벽에 가까워요!', cls: 'text-orange-500' }
-  if (pct < 90) grade = { emoji: '😊', label: '좋아요, 조금만 더!', cls: 'text-emerald-500' }
-  if (pct < 70) grade = { emoji: '📝', label: '오답 위주로 다시 보면 돼요', cls: 'text-blue-500' }
-  if (pct < 50) grade = { emoji: '🌱', label: '기초부터 다시 잡아볼게요', cls: 'text-violet-500' }
+  let grade = { emoji: '🧪', label: '오답 위주로 다시 보면 돼요', cls: 'text-blue-500' }
+  if (pct >= 90) grade = { emoji: '🏆', label: '기말형도 안정권', cls: 'text-emerald-500' }
+  else if (pct >= 70) grade = { emoji: '✨', label: '좋아요, 약점만 다듬으면 돼요', cls: 'text-orange-500' }
+  else if (pct < 50) grade = { emoji: '📚', label: '공식과 해설부터 다시 잡아보자', cls: 'text-violet-500' }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100 flex flex-col items-center p-4 pb-12">
@@ -72,7 +139,7 @@ export default function ResultScreen({ subject, results, onRestart, onRestartSam
               <div className="text-sm"><span className="text-emerald-600 font-bold">{correct}</span> <span className="text-gray-400">정답</span></div>
               <div className="text-sm"><span className="text-rose-600 font-bold">{wrong.length}</span> <span className="text-gray-400">오답</span></div>
               {skipped > 0 && (
-                <div className="text-sm"><span className="text-gray-600 font-bold">{skipped}</span> <span className="text-gray-400">미응답</span></div>
+                <div className="text-sm"><span className="text-gray-600 font-bold">{skipped}</span> <span className="text-gray-400">미응시</span></div>
               )}
             </div>
           </div>
@@ -142,12 +209,7 @@ export default function ResultScreen({ subject, results, onRestart, onRestartSam
                     </div>
                   </div>
 
-                  {q.explanation && (
-                    <div className={`mt-3 p-3 rounded-xl ${subject.bg} text-xs text-gray-600 leading-relaxed whitespace-pre-line`}>
-                      {q.explanation}
-                      <SourceReference source={q.source} subject={subject} />
-                    </div>
-                  )}
+                  <RichExplanation q={q} subject={subject} />
                 </div>
               )
             })}

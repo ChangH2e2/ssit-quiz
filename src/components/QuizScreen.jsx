@@ -16,25 +16,95 @@ const DIFFICULTY_BADGE = {
   basic: { label: '기초', cls: 'bg-emerald-50 text-emerald-700 border-emerald-100' },
   standard: { label: '표준', cls: 'bg-amber-50 text-amber-700 border-amber-100' },
   advanced: { label: '심화', cls: 'bg-rose-50 text-rose-700 border-rose-100' },
+  exam: { label: '기말형', cls: 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-100' },
 }
 
 const LABELS = ['①', '②', '③', '④']
 
-function SourceReference({ source, subject }) {
+function SourceCard({ source, subject }) {
   if (!source) return null
   return (
-    <div className="mt-3 rounded-xl border border-gray-100 bg-white/70 p-3">
-      <p className="text-xs font-bold text-gray-500 mb-1">근거 자료</p>
-      <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
-      {source.detail && <p className="text-xs text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
+    <div className="mt-4 rounded-xl border border-gray-100 bg-white/80 p-3">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-xs font-bold text-gray-500 mb-1">강의자료 근거</p>
+          <p className={`text-xs font-bold ${subject.accent}`}>{source.label}</p>
+          {source.detail && <p className="text-xs text-gray-500 leading-relaxed mt-1">{source.detail}</p>}
+        </div>
+        {source.image && (
+          <a
+            href={source.image}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[11px] font-bold text-gray-400 hover:text-gray-700 whitespace-nowrap"
+          >
+            크게 보기
+          </a>
+        )}
+      </div>
+
       {source.image && (
-        <img
-          src={source.image}
-          alt={source.label}
-          className="mt-3 w-full max-h-72 object-contain rounded-lg border border-gray-100 bg-gray-50"
-          loading="lazy"
-        />
+        <a href={source.image} target="_blank" rel="noreferrer" className="block">
+          <img
+            src={source.image}
+            alt={source.label}
+            className="mt-3 w-full max-h-[34rem] object-contain rounded-lg border border-gray-100 bg-gray-50"
+            loading="lazy"
+          />
+        </a>
       )}
+
+      {source.extra && (
+        <div className="mt-3 rounded-lg bg-gray-50 border border-gray-100 p-2">
+          <p className="text-[11px] font-bold text-gray-500">연습시험 근거</p>
+          <p className="text-xs font-semibold text-gray-700 mt-0.5">{source.extra.label}</p>
+          {source.extra.detail && <p className="text-[11px] text-gray-500 leading-relaxed mt-1">{source.extra.detail}</p>}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function RichExplanation({ q, subject }) {
+  const hasBody = q.explanation || q.formula || q.solution?.length || q.evidence || q.source
+  if (!hasBody) return null
+
+  return (
+    <div className={`mt-5 p-4 rounded-xl ${subject.bg} border border-gray-100 animate-popIn`}>
+      <p className="text-xs font-bold text-gray-500 mb-1">해설</p>
+      {q.explanation && (
+        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{q.explanation}</p>
+      )}
+
+      {q.formula && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-3">
+          <p className="text-[11px] font-bold text-gray-500 mb-1">핵심식</p>
+          <p className="font-mono text-sm text-gray-800 leading-relaxed break-words">{q.formula}</p>
+        </div>
+      )}
+
+      {q.solution?.length > 0 && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-3">
+          <p className="text-[11px] font-bold text-gray-500 mb-2">풀이 흐름</p>
+          <ol className="space-y-1.5 text-sm text-gray-700 leading-relaxed">
+            {q.solution.map((step, index) => (
+              <li key={index} className="flex gap-2">
+                <span className={`font-black ${subject.accent} flex-shrink-0`}>{index + 1}.</span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      {q.evidence && (
+        <div className="mt-3 rounded-lg bg-white/80 border border-gray-100 p-3">
+          <p className="text-[11px] font-bold text-gray-500 mb-1">근거 포인트</p>
+          <p className="text-xs text-gray-600 leading-relaxed whitespace-pre-line">{q.evidence}</p>
+        </div>
+      )}
+
+      <SourceCard source={q.source} subject={subject} />
     </div>
   )
 }
@@ -93,7 +163,7 @@ export default function QuizScreen({ subject, settings, onFinish, onHome }) {
             className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors shadow-sm flex-shrink-0 text-sm"
             aria-label="홈으로 이동"
           >
-            🏠
+            홈
           </button>
           <div className="flex-1">
             <div className="flex justify-between text-xs text-gray-500 mb-1">
@@ -159,13 +229,7 @@ export default function QuizScreen({ subject, settings, onFinish, onHome }) {
           {q.type === 'match' && <MatchQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
           {q.type === 'calc' && <CalcQuestion q={q} answered={answered} onAnswer={handleAnswer} />}
 
-          {answered && q.explanation && (
-            <div className={`mt-5 p-4 rounded-xl ${subject.bg} border border-gray-100 animate-popIn`}>
-              <p className="text-xs font-bold text-gray-500 mb-1">해설</p>
-              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{q.explanation}</p>
-              <SourceReference source={q.source} subject={subject} />
-            </div>
-          )}
+          {answered && <RichExplanation q={q} subject={subject} />}
 
           {answered && isCorrect !== null && (
             <div className={`mt-4 text-center font-black text-lg animate-popIn ${isCorrect ? 'text-emerald-500' : 'text-rose-500'}`}>
@@ -187,7 +251,7 @@ export default function QuizScreen({ subject, settings, onFinish, onHome }) {
                 onClick={handleNext}
                 className={`flex-1 py-3 rounded-xl font-black text-white text-sm transition-all active:scale-95 bg-gradient-to-r ${subject.gradient} hover:brightness-105`}
               >
-                {idx + 1 >= questions.length ? '결과 보기 →' : '다음 문제 →'}
+                {idx + 1 >= questions.length ? '결과 보기' : '다음 문제'}
               </button>
             </div>
           )}
