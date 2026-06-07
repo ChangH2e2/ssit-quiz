@@ -12,15 +12,12 @@ function shuffle(arr) {
 
 // 키워드에서 검색 가능한 핵심 한국어/영어 단어 추출
 function extractTerm(keyword) {
-  // "생체축적 (bio-accumulation)" → "생체축적"
   let t = keyword.split(' (')[0].trim()
-  // "바이오마커 — 노출 바이오마커" → "노출 바이오마커"
   if (t.includes(' — ')) t = t.split(' — ').pop().trim()
-  // "반도체 실리콘 웨이퍼 생산 — 잉곳 (Ingot)" 같은 경우도 처리됨
   return t
 }
 
-// 설명에서 키워드 단어를 빈칸 박스로 대체하는 컴포넌트
+// 설명에서 키워드 단어를 빈칸 박스로 대체하는 컴포넌트 (일반 카드용)
 function DescriptionText({ text, keyword, revealed }) {
   if (revealed) return <>{text}</>
 
@@ -48,6 +45,31 @@ function DescriptionText({ text, keyword, revealed }) {
   )
 }
 
+// 사고 사례 설명을 ①②③④ 기준으로 줄 나눠 표시 (reverse 카드용)
+function ScenarioText({ text }) {
+  const hasNumbered = /[①②③④⑤⑥⑦⑧⑨]/.test(text)
+  if (!hasNumbered) {
+    return <p className="text-gray-700 leading-relaxed text-[15px]">{text}</p>
+  }
+
+  const parts = text.split(/(?=[①②③④⑤⑥⑦⑧⑨])/)
+  const header = parts[0].replace(/:$/, '').trim()
+  const items = parts.slice(1)
+
+  return (
+    <div className="space-y-2">
+      {header && (
+        <p className="text-xs font-bold text-gray-500 mb-1">{header}</p>
+      )}
+      {items.map((item, i) => (
+        <p key={i} className="text-gray-700 text-[14px] leading-relaxed border-l-2 border-violet-200 pl-3">
+          {item.trim()}
+        </p>
+      ))}
+    </div>
+  )
+}
+
 export default function KeywordStudyScreen({ subject, onHome }) {
   const [lectureFilter, setLectureFilter] = useState('all')
   const [index, setIndex] = useState(0)
@@ -63,6 +85,7 @@ export default function KeywordStudyScreen({ subject, onHome }) {
 
   const total = filtered.length
   const card = filtered[index] ?? null
+  const isReverse = card?.mode === 'reverse'
 
   const go = (delta) => {
     setIndex(i => Math.max(0, Math.min(total - 1, i + delta)))
@@ -135,53 +158,90 @@ export default function KeywordStudyScreen({ subject, onHome }) {
         {card ? (
           <>
             {/* 강의 배지 */}
-            <div className="text-xs font-bold text-violet-500 bg-violet-100 px-3 py-1 rounded-full">
-              {card.lecture}
+            <div className="flex gap-2">
+              <div className="text-xs font-bold text-violet-500 bg-violet-100 px-3 py-1 rounded-full">
+                {card.lecture}
+              </div>
+              {isReverse && (
+                <div className="text-xs font-bold text-orange-500 bg-orange-50 border border-orange-200 px-3 py-1 rounded-full">
+                  🚨 사고 사례
+                </div>
+              )}
             </div>
 
             {/* 카드 */}
             <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg shadow-violet-200/50 overflow-hidden">
-              {/* 설명/사례 영역 */}
-              <div className="p-6">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
-                  {card.mode === 'reverse' ? '사고 사례' : '설명'}
-                </p>
-                {card.mode === 'reverse' && (
-                  <p className="text-xs text-violet-500 font-semibold mb-2">이 사고의 원인 물질·개념은?</p>
-                )}
-                <p className="text-gray-700 leading-relaxed text-[15px]">
-                  {card.mode === 'reverse'
-                    ? card.description
-                    : <DescriptionText text={card.description} keyword={card.keyword} revealed={revealed} />}
-                </p>
-              </div>
-
-              <div className="border-t border-dashed border-violet-100" />
-
-              {/* 키워드 영역 */}
-              <div className="p-6">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">키워드</p>
-                <div className="relative">
-                  {revealed ? (
+              {isReverse ? (
+                <>
+                  {/* REVERSE: 키워드 먼저 (항상 공개) */}
+                  <div className="p-6">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">키워드</p>
                     <p className="text-xl font-black text-violet-700">{card.keyword}</p>
-                  ) : (
-                    <div className="h-8 rounded-lg bg-violet-100 flex items-center px-3">
-                      <span className="text-violet-400 text-sm font-semibold">탭하여 키워드 확인 →</span>
-                    </div>
-                  )}
-                </div>
+                  </div>
 
-                <button
-                  onClick={() => setRevealed(r => !r)}
-                  className={`mt-4 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-95 ${
-                    revealed
-                      ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      : 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-md hover:brightness-105'
-                  }`}
-                >
-                  {revealed ? '🙈 키워드 가리기' : '👁️ 키워드 보기'}
-                </button>
-              </div>
+                  <div className="border-t border-dashed border-violet-100" />
+
+                  {/* REVERSE: 사고 사례 (숨김 → 공개) */}
+                  <div className="p-6">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">사고 사례</p>
+                    <div className="min-h-[2rem]">
+                      {revealed ? (
+                        <ScenarioText text={card.description} />
+                      ) : (
+                        <div className="h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center px-3">
+                          <span className="text-orange-400 text-sm font-semibold">탭하여 사례 확인 →</span>
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => setRevealed(r => !r)}
+                      className={`mt-4 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-95 ${
+                        revealed
+                          ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          : 'bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-md hover:brightness-105'
+                      }`}
+                    >
+                      {revealed ? '🙈 사례 가리기' : '👁️ 사례 보기'}
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* NORMAL: 설명 먼저 (항상 공개, 키워드 단어만 빈칸) */}
+                  <div className="p-6">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">설명</p>
+                    <p className="text-gray-700 leading-relaxed text-[15px]">
+                      <DescriptionText text={card.description} keyword={card.keyword} revealed={revealed} />
+                    </p>
+                  </div>
+
+                  <div className="border-t border-dashed border-violet-100" />
+
+                  {/* NORMAL: 키워드 (숨김 → 공개) */}
+                  <div className="p-6">
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">키워드</p>
+                    <div className="relative">
+                      {revealed ? (
+                        <p className="text-xl font-black text-violet-700">{card.keyword}</p>
+                      ) : (
+                        <div className="h-8 rounded-lg bg-violet-100 flex items-center px-3">
+                          <span className="text-violet-400 text-sm font-semibold">탭하여 키워드 확인 →</span>
+                        </div>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => setRevealed(r => !r)}
+                      className={`mt-4 w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-95 ${
+                        revealed
+                          ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          : 'bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-md hover:brightness-105'
+                      }`}
+                    >
+                      {revealed ? '🙈 키워드 가리기' : '👁️ 키워드 보기'}
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* 이전 / 다음 버튼 */}
