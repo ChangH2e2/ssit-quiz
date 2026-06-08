@@ -22,7 +22,7 @@ const rawQuestions = [
     options: ['Orbital 종류 (s < p ≪ d < f 순으로 k 증가)', 'Coordination Number (결합 수)', 'Crystal Structure (결정 구조)', '증착 챔버의 내벽 재질'],
     answer: 3,
     difficulty: 'exam',
-    explanation: '정답은 ④이다. high-k의 k 값은 orbital, 원자 번호, 결합 수, 결정 구조 같은 재료 자체의 결합·전자구조 인자와 연결된다. 챔버 내벽 재질은 공정 오염/장비 관리 항목일 수는 있지만 k를 결정하는 본질 인자로 분류되지 않는다.',
+    explanation: 'high-k의 k 값은 orbital, 원자 번호, 결합 수, 결정 구조 같은 재료 자체의 결합·전자구조 인자와 연결된다. 챔버 내벽 재질은 공정 오염/장비 관리 항목일 수는 있지만 k를 결정하는 본질 인자로 분류되지 않는다.',
     solution: ['k 결정 인자: orbital, atomic number, bond number, crystal structure', '①~③은 재료 자체의 전자구조·결합구조와 연결된다.', '④ 증착 챔버 내벽 재질은 유전 상수 결정 인자가 아니므로 정답이다.'],
   },
   {
@@ -32,7 +32,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'EOT = (k_SiO2 / k_high-k) × t_high-k',
-    explanation: '정답은 ①이다. High-k는 물리적 두께와 전기적 효과가 다르기 때문에, SiO2로 환산했을 때 같은 전기적 capacitance를 내는 두께인 EOT로 비교한다.',
+    explanation: 'High-k는 물리적 두께와 전기적 효과가 다르기 때문에, SiO2로 환산했을 때 같은 전기적 capacitance를 내는 두께인 EOT로 비교한다.',
     solution: ['서로 다른 유전막은 k가 다르므로 물리적 두께만으로 비교하면 안 된다.', 'EOT는 SiO2 기준으로 환산한 전기적 두께이다.', '따라서 high-k gate stack 비교에는 EOT가 핵심 지표이다.'],
   },
   {
@@ -41,7 +41,7 @@ const rawQuestions = [
     options: ['고온 어닐 후 High-k/Si 계면에서 실리사이드가 형성되어 Work Function이 mid-gap에 고정된다', 'ALD 증착 시 잔류 전구체가 Poly-Si 표면을 오염시킨다', 'Poly-Si 전극이 고온에서 용융되기 때문이다', 'High-k의 유전 상수가 너무 높아 채널에 과잉 전하가 축적된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. High-k/poly-Si 조합은 고온 열처리 중 계면 반응과 Fermi level pinning 문제가 생겨 원하는 work function 조절이 어려워진다. 이것이 metal gate 도입의 배경 중 하나이다.',
+    explanation: 'High-k/poly-Si 조합은 고온 열처리 중 계면 반응과 Fermi level pinning 문제가 생겨 원하는 work function 조절이 어려워진다. 이것이 metal gate 도입의 배경 중 하나이다.',
     solution: ['문제의 핵심은 “High-k + Poly-Si 조합의 incompatibility”이다.', '이 계면 반응/고정 현상을 Fermi Level Pinning으로 이해한다.', '결과적으로 gate work function이 원하는 NMOS/PMOS 값으로 자유롭게 움직이지 못한다.'],
   },
   {
@@ -50,7 +50,7 @@ const rawQuestions = [
     options: ['Metal Gate가 고온 공정 이후에 형성되므로 Work Function의 열 안정성을 확보할 수 있다', 'Dummy gate 제거 공정이 불필요하여 공정 단계가 단순화된다', 'High-k 유전막을 물리 증착(PVD)으로 형성할 수 있다', 'Source/Drain 주입을 gate 형성 전에 수행하여 도핑 균일성이 향상된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Gate Last는 dummy gate를 먼저 만들고 고온 source/drain 공정 이후 metal gate를 치환해 넣는 방식이다. 따라서 metal work function이 고온 공정으로 변하는 문제를 줄일 수 있다.',
+    explanation: 'Gate Last는 dummy gate를 먼저 만들고 고온 source/drain 공정 이후 metal gate를 치환해 넣는 방식이다. 따라서 metal work function이 고온 공정으로 변하는 문제를 줄일 수 있다.',
     solution: ['Gate First: metal gate가 앞단 고온 공정을 겪을 수 있다.', 'Gate Last: dummy gate 제거 후 후반에 HKMG를 형성한다.', '핵심 장점은 work function thermal stability 확보이다.'],
   },
   {
@@ -59,7 +59,7 @@ const rawQuestions = [
     options: ['LaO 캡핑 → effective Work Function(eWF) 감소 → NVt 감소', 'AlO 캡핑 → eWF 증가 → |PVt| 감소', 'TiN 두께 감소 → eWF 증가 → PVt 감소', 'HfO2 두께 증가 → eWF 감소 → PVt 감소'],
     answer: 1,
     difficulty: 'exam',
-    explanation: '정답은 ②이다. LaO는 NMOS 쪽에서 eWF를 낮추어 NVt 감소와 연결되고, AlO는 PMOS 쪽에서 eWF를 높여 |PVt| 감소와 연결된다.',
+    explanation: 'LaO는 NMOS 쪽에서 eWF를 낮추어 NVt 감소와 연결되고, AlO는 PMOS 쪽에서 eWF를 높여 |PVt| 감소와 연결된다.',
     solution: ['PMOS는 valence band 쪽 work function 조절이 중요하다.', 'AlO capping은 eWF를 증가시키는 방향으로 작용한다.', '그 결과 PMOS의 |PVt|를 낮추는 쪽으로 활용된다.'],
   },
   {
@@ -68,7 +68,7 @@ const rawQuestions = [
     options: ['TiN 결정립(grain)의 방향에 따라 Work Function이 달라지기 때문이다', 'TiN의 전기저항이 공정 중 급격히 변화하기 때문이다', 'ALD 사이클마다 TiN 두께가 비균일하게 증가하기 때문이다', 'Cu 배선이 TiN gate를 통해 전류를 우회하기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. TiN은 grain orientation에 따라 work function이 달라질 수 있고, 작은 소자에서는 grain 분포 차이가 Vt 변동으로 나타난다.',
+    explanation: 'TiN은 grain orientation에 따라 work function이 달라질 수 있고, 작은 소자에서는 grain 분포 차이가 Vt 변동으로 나타난다.',
     solution: ['Metal gate issue는 단순 평균 work function만이 아니다.', 'grain orientation별 WF 차이가 local fluctuation을 만든다.', '이 변동이 Random Work Function Fluctuation으로 정리된다.'],
   },
   {
@@ -77,7 +77,7 @@ const rawQuestions = [
     options: ['결정 방향(Crystal orientation), 표면 상태(Surface state), 결함/불순물(Defect/Impurity)', '전자 배치(Electronic configuration), Fermi 에너지, 자유 전자 밀도', 'Pauling 전기음성도, 이온화 에너지, Work Function 자체', 'Band gap, 전도대/가전자대 위치, 유전 상수'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Work function은 intrinsic 인자와 extrinsic 인자로 나뉘며, 결정 방향·표면 상태·결함/불순물은 공정 및 계면 상태에 의존하는 extrinsic 인자이다.',
+    explanation: 'Work function은 intrinsic 인자와 extrinsic 인자로 나뉘며, 결정 방향·표면 상태·결함/불순물은 공정 및 계면 상태에 의존하는 extrinsic 인자이다.',
     solution: ['Intrinsic: 물질 고유 전자구조 성격', 'Extrinsic: crystal orientation, surface state, defect/impurity 등 표면·공정·결함 영향', '따라서 ①만 extrinsic 인자 묶음이다.'],
   },
   {
@@ -86,7 +86,7 @@ const rawQuestions = [
     options: ['Poole-Frenkel Emission', 'Direct Tunneling', 'Fowler-Nordheim Tunneling', 'Hopping Conduction'],
     answer: 2,
     difficulty: 'exam',
-    explanation: '정답은 ③ Fowler-Nordheim tunneling이다. 고전기장에서는 장벽이 삼각형 형태로 얇아져 전자가 장벽 끝 부분을 터널링할 수 있다.',
+    explanation: 'Fowler-Nordheim tunneling: 고전기장에서는 장벽이 삼각형 형태로 얇아져 전자가 장벽 끝 부분을 터널링할 수 있다.',
     solution: ['Direct tunneling: 낮은 전기장에서 전체 절연막 두께를 통과', 'Fowler-Nordheim tunneling: 높은 전기장에서 삼각형 장벽을 통과', '문제의 “고전기장 + 삼각형 장벽”이 FN tunneling의 키워드이다.'],
   },
   {
@@ -95,7 +95,7 @@ const rawQuestions = [
     options: ['DT: 저전기장, 전자가 전체 유전막 두께를 통과 / FN: 고전기장, 삼각형 장벽의 끝까지만 통과', 'DT: 고전기장, 삼각형 장벽 / FN: 저전기장, 직사각형 장벽', 'DT: 열 여기에 의해 전자가 장벽 위를 넘음 / FN: trap을 경유하는 이동', '두 메커니즘은 전기장의 크기와 무관하게 동일하게 작용한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. DT는 낮은 전기장에서도 절연막 전체를 직접 터널링하는 것이고, FN은 높은 전기장에서 장벽이 삼각형으로 얇아질 때 나타난다.',
+    explanation: 'DT는 낮은 전기장에서도 절연막 전체를 직접 터널링하는 것이고, FN은 높은 전기장에서 장벽이 삼각형으로 얇아질 때 나타난다.',
     solution: ['DT: rectangular barrier 전체 통과', 'FN: high field에서 triangular barrier 통과', '열 여기나 trap 경유는 각각 Schottky/PF 또는 hopping/TAT 계열과 구분해야 한다.'],
   },
   {
@@ -105,7 +105,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'tanδ = 손실 성분 / 에너지 저장 성분',
-    explanation: '정답은 ①이다. 이상적인 capacitor는 손실이 없으므로 tanδ가 0이고, 실제 dielectric에서는 유전손실이 존재하므로 tanδ가 0보다 크다.',
+    explanation: '이상적인 capacitor는 손실이 없으므로 tanδ가 0이고, 실제 dielectric에서는 유전손실이 존재하므로 tanδ가 0보다 크다.',
     solution: ['tanδ는 capacitor가 얼마나 이상적인 저장소에서 벗어나는지 보여주는 손실 지표이다.', '값이 커질수록 저장보다 손실 성분이 커진다.', '따라서 ①이 옳다.'],
   },
   {
@@ -115,7 +115,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'FOM = (m_eff × φ_b)^1/2 × k',
-    explanation: '정답은 ①이다. 식에서 k, φ_b, m_eff가 모두 커질수록 FOM은 증가한다. 특히 높은 k만 보면 누설전류 문제가 커질 수 있으므로 barrier 관련 인자를 함께 본다.',
+    explanation: '식에서 k, φ_b, m_eff가 모두 커질수록 FOM은 증가한다. 특히 높은 k만 보면 누설전류 문제가 커질 수 있으므로 barrier 관련 인자를 함께 본다.',
     solution: ['FOM은 k에 비례한다.', '또한 (m_eff × φ_b)의 제곱근에 비례한다.', '따라서 세 항목이 모두 커지는 방향이 같은 EOT에서 leakage를 줄이는 설계 방향이다.'],
   },
   {
@@ -124,7 +124,7 @@ const rawQuestions = [
     options: ['SiBN: LAL Etch Stopper, a-BAS: Anti-Bowing Layer, SiCN: Supporter', 'SiBN: Storage Electrode, a-BAS: Gate Dielectric, SiCN: Mold Sacrificial Layer', 'SiBN: Plate Electrode, BPSG: Barrier Metal, SiCN: Etch Mask', 'BPSG: Etch Stopper, SiBN: Anti-Bowing, SiCN: Barrier Metal'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Ch.12 summary는 mold 재료로 SiBN, BPSG/H-Mold, a-BAS, SiCN을 제시하고, 각각 stopper·main mold·anti-bowing·supporter 역할로 연결해 이해한다.',
+    explanation: 'Ch.12 summary는 mold 재료로 SiBN, BPSG/H-Mold, a-BAS, SiCN을 제시하고, 각각 stopper·main mold·anti-bowing·supporter 역할로 연결해 이해한다.',
     solution: ['BPSG/H-Mold는 주 희생 mold 역할', 'SiBN은 LAL etch stopper', 'a-BAS는 anti-bowing, SiCN은 supporter 역할로 정리한다.'],
   },
   {
@@ -133,7 +133,7 @@ const rawQuestions = [
     options: ['높은 Aspect Ratio 구조에서 식각 가스 공급이 불균일하여 ARDE가 발생한다', '유전막 k가 너무 높아 이온이 투과하지 못한다', 'SiBN Stopper의 식각 선택비가 너무 낮다', 'Cu가 절연막보다 식각되기 어렵기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. HARC에서는 깊고 좁은 구조 내부로 radical/ion 공급이 어려워 위치와 깊이에 따라 etch rate가 달라지는 ARDE가 핵심 문제가 된다.',
+    explanation: 'HARC에서는 깊고 좁은 구조 내부로 radical/ion 공급이 어려워 위치와 깊이에 따라 etch rate가 달라지는 ARDE가 핵심 문제가 된다.',
     solution: ['HARC = high aspect ratio contact', '깊어질수록 반응종 공급과 부산물 배출이 어려워진다.', '그 결과 aspect ratio dependent etching 문제가 발생한다.'],
   },
   {
@@ -143,7 +143,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'C ∝ k',
-    explanation: '정답은 ①이다. 공기는 k가 약 1로 매우 낮기 때문에, bit-line 주변 spacer를 air gap화하면 C_BL을 줄이고 sensing margin 개선에 기여할 수 있다.',
+    explanation: '공기는 k가 약 1로 매우 낮기 때문에, bit-line 주변 spacer를 air gap화하면 C_BL을 줄이고 sensing margin 개선에 기여할 수 있다.',
     solution: ['기생 capacitance는 주변 유전율 k에 비례한다.', 'SiO2(k≈3.9), Si3N4(k≈7)보다 air(k≈1)가 낮다.', '따라서 air spacer는 bit-line parasitic C 감소 목적이다.'],
   },
   {
@@ -152,7 +152,7 @@ const rawQuestions = [
     options: ['낮은 누설전류, 높은 전도대 오프셋, 열 안정성, 비정질 구조 안정성을 동시에 만족해야 하기 때문이다', '높은 k만 확보하면 전도대 오프셋과 결정 안정성은 중요하지 않기 때문이다', '결정화가 빠를수록 grain boundary leakage가 감소하므로 무조건 유리하기 때문이다', '전극 work function이 낮을수록 모든 leakage mechanism이 동시에 억제되기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. k가 높아도 band offset이 낮거나 결함 준위가 많으면 leakage가 증가한다. 따라서 high-k 선택은 capacitance와 leakage/reliability의 동시 최적화 문제이다.',
+    explanation: 'k가 높아도 band offset이 낮거나 결함 준위가 많으면 leakage가 증가한다. 따라서 high-k 선택은 capacitance와 leakage/reliability의 동시 최적화 문제이다.',
     solution: ['k 증가 → capacitance 확보에 유리', '하지만 crystallization, low CBO, defect level → leakage 증가 가능', '따라서 k, leakage, thermal/interface stability를 함께 만족해야 한다.'],
   },
   {
@@ -162,7 +162,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'ρc ∝ exp(φB / √N)',
-    explanation: '정답은 ①이다. Silicide는 Schottky barrier height를 낮추고, Si 고농도 도핑은 barrier width를 줄여 tunneling을 증가시킨다. 둘 다 contact resistivity 감소 방향이다.',
+    explanation: 'Silicide는 Schottky barrier height를 낮추고, Si 고농도 도핑은 barrier width를 줄여 tunneling을 증가시킨다. 둘 다 contact resistivity 감소 방향이다.',
     solution: ['φB를 낮추는 방법: silicide 형성', 'N을 높이는 방법: Si 고농도 도핑', '식의 지수항이 작아져 ρc가 감소한다.'],
   },
   {
@@ -171,7 +171,7 @@ const rawQuestions = [
     options: ['TiSi2은 좁은 라인에서 C54 상 전환이 어렵고 모서리 얇아짐(Corner Thinning) 문제가 있다', 'CoSi2의 비저항이 TiSi2의 절반 이하이기 때문이다', 'TiSi2이 Si과 반응하지 않기 때문이다', 'CoSi2 형성 온도가 더 높아 커패시터 고온 공정에 더 안정하다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. TiSi2는 낮은 저항 C54 phase로 전환되어야 하는데, 미세 선폭에서는 상전환과 corner thinning 문제가 커진다. CoSi2는 이 size dependency가 상대적으로 덜하다.',
+    explanation: 'TiSi2는 낮은 저항 C54 phase로 전환되어야 하는데, 미세 선폭에서는 상전환과 corner thinning 문제가 커진다. CoSi2는 이 size dependency가 상대적으로 덜하다.',
     solution: ['TiSi2: C49 → C54 phase transition 필요', 'narrow line에서 C54 핵생성과 corner thinning 문제가 심해진다.', '따라서 미세화 DRAM contact에서는 CoSi2가 선호될 수 있다.'],
   },
   {
@@ -181,7 +181,7 @@ const rawQuestions = [
     answer: 1,
     difficulty: 'exam',
     formula: 'RC = 2ρεrε0(L/p)^2 × 1/[a(1-a)]',
-    explanation: '정답은 ②이다. 앞의 상수항은 a와 무관하므로 1/[a(1-a)]가 최소가 되는 a를 찾으면 된다. a(1-a)는 a=0.5일 때 최대이므로 RC delay는 a=0.5에서 최소이다.',
+    explanation: '앞의 상수항은 a와 무관하므로 1/[a(1-a)]가 최소가 되는 a를 찾으면 된다. a(1-a)는 a=0.5일 때 최대이므로 RC delay는 a=0.5에서 최소이다.',
     solution: ['최소화 대상: 1/[a(1-a)]', '분모 a(1-a)는 포물선이며 a=0.5에서 최대', '따라서 delay 최소 조건은 a=0.5, 즉 배선 폭과 간격이 같은 경우이다.'],
   },
   {
@@ -190,7 +190,7 @@ const rawQuestions = [
     options: ['건식 식각(Dry Etching)에 의한 직접 패터닝이 어렵다', '비저항이 Al보다 높다', '전기이동(Electromigration) 저항성이 Al보다 낮다', '녹는점이 Al보다 낮아 고온 공정에 취약하다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Cu는 낮은 저항과 electromigration 장점이 있지만, 휘발성 식각 부산물 형성이 어려워 dry etch 직접 패터닝이 어렵다. 그래서 damascene 공정을 사용한다.',
+    explanation: 'Cu는 낮은 저항과 electromigration 장점이 있지만, 휘발성 식각 부산물 형성이 어려워 dry etch 직접 패터닝이 어렵다. 그래서 damascene 공정을 사용한다.',
     solution: ['Cu 장점: Al보다 낮은 비저항, 좋은 EM 특성', 'Cu 단점: dry etch 직접 패터닝 어려움', '결론: trench/via를 먼저 만들고 Cu를 채운 뒤 CMP하는 damascene 방식 필요'],
   },
   {
@@ -200,7 +200,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'ρtotal = ρ0 + ΔρMS + ΔρFS',
-    explanation: '정답은 ①이다. Ch.13 자료는 thin film resistivity를 bulk term에 grain boundary scattering과 surface scattering 항이 더해진 형태로 설명한다.',
+    explanation: 'Ch.13 자료는 thin film resistivity를 bulk term에 grain boundary scattering과 surface scattering 항이 더해진 형태로 설명한다.',
     solution: ['배선 폭이 작아지면 표면/측벽과 충돌하는 전자 비율이 증가한다.', 'grain size가 작거나 grain boundary가 많으면 경계 산란이 증가한다.', '따라서 thin film resistivity는 bulk resistivity보다 커진다.'],
   },
   {
@@ -209,7 +209,7 @@ const rawQuestions = [
     options: ['Long Throw Sputtering: 타겟-웨이퍼 거리를 늘려 입사각을 좁힌다', 'Ionized PVD: 스퍼터된 금속을 이온화한 후 바이어스 전압으로 방향을 제어한다', '스퍼터링 파워를 낮춰 입자 속도를 줄인다', '챔버 압력을 높여 산란을 증가시킨다'],
     answer: 1,
     difficulty: 'exam',
-    explanation: '정답은 ②이다. I-PVD는 스퍼터된 금속 원자를 이온화하고 wafer bias로 방향성을 제어해 깊은 via/trench 바닥 coverage를 개선한다.',
+    explanation: 'I-PVD는 스퍼터된 금속 원자를 이온화하고 wafer bias로 방향성을 제어해 깊은 via/trench 바닥 coverage를 개선한다.',
     solution: ['일반 PVD는 line-of-sight 특성이 강해 측벽/바닥 coverage가 불리하다.', 'I-PVD는 ionized metal flux를 bias로 끌어당겨 방향성을 제어한다.', '고종횡비 패턴 coverage 개선에는 I-PVD가 더 직접적인 답이다.'],
   },
   {
@@ -218,7 +218,7 @@ const rawQuestions = [
     options: ['Accelerator: via/trench 바닥에서 증착 속도를 높여 Bottom-up fill 구현', 'Suppressor: via/trench 내부에서 우선적으로 Cu를 증착시킴', 'Leveler: via 바닥의 Cu 증착을 가속하여 void를 방지함', 'Accelerator: Field 영역에서 강하게 억제하고 via 내부는 촉진하지 않음'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Accelerator는 작은 황 화합물 계열로 좁은 feature 내부에서 Cu reduction을 돕고, suppressor는 field/입구 영역을 억제하며, leveler는 돌출부 성장을 억제해 평탄화를 돕는다.',
+    explanation: 'Accelerator는 작은 황 화합물 계열로 좁은 feature 내부에서 Cu reduction을 돕고, suppressor는 field/입구 영역을 억제하며, leveler는 돌출부 성장을 억제해 평탄화를 돕는다.',
     solution: ['Accelerator: Cu deposition rate 증가, bottom-up filling 촉진', 'Suppressor: 큰 polymer, Cl-와 함께 표면 흡착해 deposition 억제', 'Leveler: corner/돌출부에서 강한 억제 작용'],
   },
   {
@@ -227,7 +227,7 @@ const rawQuestions = [
     options: ['SiO2(k≈3.9) → FSG(k≈3.5) → SiOCH(k≈2.7~3.2) → p-SiOCH(k≈2.2~2.55)', 'p-SiOCH → SiOCH → FSG → SiO2', 'FSG → HfO2 → SiOCH → Al2O3', 'SiOCH → SiO2 → p-SiOCH → FSG'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. BEOL low-k는 SiO2에서 FSG, SiOCH, porous SiOCH로 갈수록 k를 낮추는 방향으로 발전했다.',
+    explanation: 'BEOL low-k는 SiO2에서 FSG, SiOCH, porous SiOCH로 갈수록 k를 낮추는 방향으로 발전했다.',
     solution: ['SiO2: k≈3.9', 'FSG: k≈3.5', 'SiOCH: k≈2.7~3.2', 'p-SiOCH: k≈2.2~2.55'],
   },
 
@@ -293,7 +293,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'EOT ∝ t/k',
-    explanation: '정답은 ①이다. High-k는 EOT를 낮추는 데 유리하지만, 실제 gate dielectric은 leakage, thermal stability, interface reliability까지 함께 만족해야 한다.',
+    explanation: 'High-k는 EOT를 낮추는 데 유리하지만, 실제 gate dielectric은 leakage, thermal stability, interface reliability까지 함께 만족해야 한다.',
     solution: ['높은 k → 같은 물리 두께에서 EOT 감소 가능', '하지만 band offset이 낮거나 결함이 많으면 leakage 증가', '고온 공정에서 결정화/계면 반응이 생기면 신뢰성 저하'],
   },
   {
@@ -302,7 +302,7 @@ const rawQuestions = [
     options: ['전계 의존성이 큰 tunneling 또는 field-enhanced emission 계열 메커니즘', '전계 변화와 무관한 일정한 ohmic leakage만 존재하는 상태', 'capacitance 증가만으로 설명되는 displacement current 지배 상태', '전극 work function과 무관하게 trap이 완전히 제거된 상태'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Ch.12 problem의 leakage table은 전계 증가에 따른 J 급증을 보고 conduction mechanism을 판별하게 하는 유형이다.',
+    explanation: 'Ch.12 problem의 leakage table은 전계 증가에 따른 J 급증을 보고 conduction mechanism을 판별하게 하는 유형이다.',
     solution: ['E 증가에 따라 J가 여러 order 증가한다.', '이는 field-assisted conduction, FN tunneling, PF emission 등 전계 의존 메커니즘과 연결된다.', '단순한 이상 capacitor라면 누설전류가 이렇게 커지는 설명이 되지 않는다.'],
   },
   {
@@ -312,7 +312,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'Aside ≈ 2πrH, C ∝ A',
-    explanation: '정답은 ①이다. Sidewall 면적은 반지름 r과 높이 H에 비례한다. 반지름이 줄면 같은 면적을 유지하기 위해 높이를 키워야 한다.',
+    explanation: 'Sidewall 면적은 반지름 r과 높이 H에 비례한다. 반지름이 줄면 같은 면적을 유지하기 위해 높이를 키워야 한다.',
     solution: ['Pillar sidewall area ≈ 2πrH', '유전막과 k가 같다면 C는 면적에 비례한다.', '따라서 r 감소는 H 증가로 보상한다.'],
   },
   {
@@ -321,7 +321,7 @@ const rawQuestions = [
     options: ['Cu는 직접 dry etch patterning이 어려워 절연막에 trench/via를 먼저 만들고 Cu를 채운 뒤 CMP로 제거한다', 'Cu는 Al보다 비저항이 높아 subtractive etch 공정으로만 배선화해야 한다', 'Cu는 electroplating이 어려워 trench 내부를 thermal oxidation으로 채워야 한다', 'Cu는 dielectric barrier 역할을 하므로 별도 절연막 patterning이 필요 없다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Cu는 Al처럼 휘발성 etch product를 만들기 어려워 직접 식각 패터닝이 어렵고, damascene integration이 필요하다.',
+    explanation: 'Cu는 Al처럼 휘발성 etch product를 만들기 어려워 직접 식각 패터닝이 어렵고, damascene integration이 필요하다.',
     solution: ['절연막을 먼저 patterning한다.', 'Barrier/seed 후 Cu를 채운다.', 'CMP로 overburden을 제거해 배선만 남긴다.'],
   },
   {
@@ -330,7 +330,7 @@ const rawQuestions = [
     options: ['Suppressor는 큰 polymer로 전반적 증착을 억제하고, leveler는 corner/돌출부에서 강하게 억제해 평탄화를 돕는다', 'Suppressor는 bottom-up fill을 직접 가속하고, leveler는 field 영역 전체를 가속한다', 'Suppressor와 leveler는 모두 Cu2+ 공급원이며 deposition rate를 동일하게 증가시킨다', 'Suppressor는 chloride를 제거하고, leveler는 seed Cu를 산화시켜 void를 줄인다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Suppressor는 PEG/PAG 계열 큰 polymer로 deposition을 억제하고, leveler는 corner나 돌출부에서 strong inhibitor로 작용해 평탄화를 돕는다.',
+    explanation: 'Suppressor는 PEG/PAG 계열 큰 polymer로 deposition을 억제하고, leveler는 corner나 돌출부에서 strong inhibitor로 작용해 평탄화를 돕는다.',
     solution: ['Suppressor: large molecular weight polymer, deposition rate 감소', 'Leveler: corner에서 강한 억제, overgrowth 방지', 'Accelerator와 함께 위치별 성장 속도 차이를 만든다.'],
   },
   {
@@ -340,7 +340,7 @@ const rawQuestions = [
     answer: 0,
     difficulty: 'exam',
     formula: 'ρtotal = ρ0 + Δρsurface + ΔρGB',
-    explanation: '정답은 ①이다. p.819 표에서 Ag는 bulk resistivity가 매우 낮지만, 실제 interconnect 후보는 ρ0λ, 안정성, cost, silicide 형성 등 integration factor까지 봐야 한다.',
+    explanation: 'p.819 표에서 Ag는 bulk resistivity가 매우 낮지만, 실제 interconnect 후보는 ρ0λ, 안정성, cost, silicide 형성 등 integration factor까지 봐야 한다.',
     solution: ['Bulk ρ만 낮으면 큰 배선에서는 유리하다.', '하지만 선폭이 mean free path 수준이면 scattering 항이 커진다.', '공정 안정성과 재료 제한도 함께 보아야 한다.'],
   },
   {
@@ -394,7 +394,7 @@ const rawQuestions = [
     options: ['Van der Waals force', 'Electrostatic force', 'Hydrodynamic drag', 'Fermi level pinning'],
     answer: 3,
     difficulty: 'exam',
-    explanation: '정답은 ④이다. Fermi level pinning은 Ch.11 HKMG 이슈이고, post-CMP particle removal force가 아니다.',
+    explanation: 'Fermi level pinning은 Ch.11 HKMG 이슈이고, post-CMP particle removal force가 아니다.',
     solution: ['Post-CMP cleaning: van der Waals, electrostatic, chemical bonding, capillary, friction, hydrodynamic drag', 'Fermi level pinning: high-k/poly-Si gate incompatibility', '따라서 ④가 범주가 다르다.'],
   },
   {
@@ -423,7 +423,7 @@ const rawQuestions = [
     options: ['전류와 시간이 커질수록 석출 질량은 증가하고, 전자 전달 수 n이 커질수록 같은 전하량에서 석출 질량은 감소한다', '전류가 커져도 시간만 일정하면 석출 질량은 변하지 않는다', 'Cu2+ 환원에서는 전자 전달 수 n을 1로 둔다', 'Faraday 상수는 석출 질량과 무관하며 단위 변환에만 사용된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. W = ItM/(nF)이므로 I와 t는 분자에 있어 질량을 증가시키고, n과 F는 분모에 있어 같은 전하량 기준 석출 질량을 낮춘다. Cu2+ + 2e- → Cu이므로 n = 2이다.',
+    explanation: 'W = ItM/(nF)이므로 I와 t는 분자에 있어 질량을 증가시키고, n과 F는 분모에 있어 같은 전하량 기준 석출 질량을 낮춘다. Cu2+ + 2e- → Cu이므로 n = 2이다.',
     solution: ['Cu 도금 반응: Cu2+ + 2e- → Cu', '석출 질량 W는 It에 비례한다.', '전자 전달 수 n은 분모에 있으므로 같은 전하량에서는 n이 클수록 석출 mol 수가 줄어든다.'],
     source: { label: '필기 이미지 p.838 Current Density', detail: 'Faraday law의 변수 의미와 Cu n=2 필기', image: '/sources/process/notes/current-density-faraday.jfif' },
   },
@@ -443,7 +443,7 @@ const rawQuestions = [
     options: ['표면 산란과 grain boundary 산란의 기여가 커지기 때문이다', 'bulk mean free path가 linewidth보다 충분히 작아져 산란이 줄기 때문이다', 'grain size가 linewidth와 무관하게 무한히 커지기 때문이다', 'barrier metal이 없어도 표면 roughness가 완전히 제거되기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. linewidth가 작아지면 전자가 표면과 grain boundary를 더 자주 만나므로 산란 항이 커지고, 그 결과 ρtotal이 bulk ρ0보다 커진다.',
+    explanation: 'linewidth가 작아지면 전자가 표면과 grain boundary를 더 자주 만나므로 산란 항이 커지고, 그 결과 ρtotal이 bulk ρ0보다 커진다.',
     solution: ['surface scattering 항은 w가 작아질수록 커진다.', 'grain boundary scattering 항은 grain size D가 작거나 reflection R이 클수록 커진다.', '따라서 nanoscale 배선에서는 bulk resistivity만으로 재료를 판단하기 어렵다.'],
     source: { label: '필기 이미지 p.818 Thin Film Resistivity', detail: 'linewidth 감소와 surface/G.B. scattering 증가 필기', image: '/sources/process/notes/thin-film-resistivity.png' },
   },
@@ -453,7 +453,7 @@ const rawQuestions = [
     options: ['p가 커지면 surface scattering 항은 작아지고, R이 커지면 grain boundary scattering 항은 커진다', 'p가 커지면 surface scattering 항은 커지고, R이 커지면 grain boundary scattering 항은 작아진다', 'p가 커지면 grain boundary 반사가 증가하고, R이 커지면 surface specularity가 증가한다', 'p와 R이 모두 커지면 surface와 grain boundary 산란이 동시에 감소한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. surface 항에는 (1-p)가 들어가므로 p가 커질수록 표면 산란 기여가 작아진다. grain boundary 항에는 R/(1-R)이 들어가므로 R이 커질수록 산란 기여가 커진다.',
+    explanation: 'surface 항에는 (1-p)가 들어가므로 p가 커질수록 표면 산란 기여가 작아진다. grain boundary 항에는 R/(1-R)이 들어가므로 R이 커질수록 산란 기여가 커진다.',
     solution: ['surface 항 ∝ (1-p)', 'grain boundary 항 ∝ R/(1-R)', '즉 p는 표면 산란 완화 방향, R은 grain boundary 반사 증가 방향으로 해석한다.'],
     source: { label: '필기 이미지 p.818 Thin Film Resistivity', detail: 'p, R, linewidth, grain size 변수 필기', image: '/sources/process/notes/thin-film-resistivity.png' },
   },
@@ -483,7 +483,7 @@ const rawQuestions = [
     options: ['병렬은 유효 면적 증가, 직렬은 유효 두께 증가와 비슷하게 해석할 수 있다', '병렬은 유효 두께 증가, 직렬은 유효 면적 증가와 비슷하게 해석한다', '병렬은 전압 분담을 늘려 Ct를 감소시키고, 직렬은 면적을 늘려 Ct를 증가시킨다', '병렬과 직렬 모두 가장 작은 capacitor 값으로만 전체 Ct가 결정된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 병렬은 전극 면적이 더해지는 효과라 C가 증가하고, 직렬은 유전체 두께가 누적되는 효과라 C가 감소한다.',
+    explanation: '병렬은 전극 면적이 더해지는 효과라 C가 증가하고, 직렬은 유전체 두께가 누적되는 효과라 C가 감소한다.',
     solution: ['병렬: Ct = C1 + C2 + ...', '직렬: 1/Ct = 1/C1 + 1/C2 + ...', '따라서 직렬 등가 capacitance는 가장 작은 개별 C보다도 작을 수 있다.'],
     source: { label: '필기 이미지 p.726 Parallel and Series Capacitance', detail: '병렬/직렬 capacitor 구조 그림', image: '/sources/process/notes/parallel-series-capacitance.png' },
   },
@@ -513,7 +513,7 @@ const rawQuestions = [
     options: ['높이 L 증가 + b/a 비율 감소', '높이 L 감소 + b/a 비율 증가', 'εr 감소 + L 감소', 'inner radius와 outer radius를 동시에 줄여 b/a를 크게 유지'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. C = 2π ε L / ln(b/a)이므로 L이 커질수록 C가 증가하고, b/a가 작아져 ln(b/a)가 작아질수록 C가 증가한다.',
+    explanation: 'C = 2π ε L / ln(b/a)이므로 L이 커질수록 C가 증가하고, b/a가 작아져 ln(b/a)가 작아질수록 C가 증가한다.',
     solution: ['분자: ε와 L이 커지면 C 증가', '분모: ln(b/a)가 작아지면 C 증가', '따라서 높이를 키우고 전극 간격을 줄이는 방향이 capacitance 확보에 유리하다.'],
     source: { label: '필기 이미지 p.727 Derivation of Capacitance', detail: '원통형 capacitor 식 C = 2πεL/ln(b/a)', image: '/sources/process/notes/capacitance-derivation.png' },
   },
@@ -523,7 +523,7 @@ const rawQuestions = [
     options: ['Gate dielectric: SiO2 → High-k, Gate electrode: doped poly-Si → metal, Scheme: High-k Last/Gate Last', 'Gate dielectric: SiO2 → SiON만 유지, Gate electrode: doped poly-Si 유지, Scheme: Gate First만 사용', 'Gate dielectric: High-k → SiO2, Gate electrode: metal → doped poly-Si, Scheme: High-k First/Gate First', 'Gate dielectric: low-k → SiOCH, Gate electrode: Al → Cu, Scheme: dual damascene'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. gate scaling에서는 SiO2 한계 때문에 high-k가 필요해졌고, doped poly-Si의 depletion/FLP 문제 때문에 metal gate가 도입되며, thermal budget 관점에서 gate last scheme이 중요해졌다.',
+    explanation: 'gate scaling에서는 SiO2 한계 때문에 high-k가 필요해졌고, doped poly-Si의 depletion/FLP 문제 때문에 metal gate가 도입되며, thermal budget 관점에서 gate last scheme이 중요해졌다.',
     solution: ['Gate dielectric 변화: SiO2 scaling limit → High-k', 'Gate electrode 변화: doped poly-Si 한계 → metal gate', 'Scheme 변화: high-k/metal gate의 열 안정성 문제 → Gate Last'],
     source: { label: '필기 이미지 Gate Problems', detail: 'Gate dielectric, gate electrode, scheme 변화 문제 필기', image: '/sources/process/notes/gate-problems.png' },
   },
@@ -533,7 +533,7 @@ const rawQuestions = [
     options: ['k가 커질수록 band offset이나 effective mass 조건이 불리해져 direct tunneling/leakage가 커질 수 있기 때문이다', 'k가 커질수록 EOT 비교가 불가능해져 capacitance를 정의할 수 없기 때문이다', 'k가 큰 물질은 thermal stability와 interface quality가 항상 SiO2보다 우수하기 때문이다', 'k가 큰 물질은 band offset도 항상 커져 leakage가 자동으로 감소하기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 높은 k는 EOT 확보에 유리하지만, conduction band offset이나 effective mass가 낮으면 leakage가 증가할 수 있어 trade-off를 봐야 한다.',
+    explanation: '높은 k는 EOT 확보에 유리하지만, conduction band offset이나 effective mass가 낮으면 leakage가 증가할 수 있어 trade-off를 봐야 한다.',
     solution: ['k 증가: 같은 EOT에서 물리적 두께를 키울 수 있어 direct tunneling 억제에 유리', '하지만 barrier height/effective mass가 낮으면 tunneling 확률이 증가', '따라서 k만 최대화하는 것이 아니라 leakage 관련 인자와 함께 선택한다.'],
     source: { label: '필기 이미지 p.679 High-k vs Direct Tunneling', detail: 'dielectric constant, band offset, effective mass trade-off 필기', image: '/sources/process/notes/highk-direct-tunneling.png' },
   },
@@ -553,7 +553,7 @@ const rawQuestions = [
     options: ['A가 유리하다. B는 k가 크지만 m_eff와 φ_b가 너무 낮아 tunneling 억제에 불리하다', 'B가 유리하다. k 증가 효과가 m_eff와 φ_b 감소 효과보다 항상 우세하다', 'A와 B는 k가 다르므로 FOM 대신 물리적 두께만 비교해야 한다', 'B가 유리하다. φ_b가 낮을수록 barrier 통과가 어려워진다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. A의 FOM은 약 13.7이고, B의 FOM은 60×√(0.05×0.10)=약 4.24이다. k가 높아도 barrier/effective mass가 낮으면 전체 성능 지표가 낮아질 수 있다.',
+    explanation: 'A의 FOM은 약 13.7이고, B의 FOM은 60×√(0.05×0.10)=약 4.24이다. k가 높아도 barrier/effective mass가 낮으면 전체 성능 지표가 낮아질 수 있다.',
     solution: ['A: 25×√(0.20×1.50)=13.69', 'B: 60×√(0.05×0.10)=4.24', '따라서 A가 FOM 관점에서 더 유리하다.'],
     source: { label: '필기 이미지 p.679 High-k vs Direct Tunneling', detail: 'k와 direct tunneling trade-off 필기', image: '/sources/process/notes/highk-direct-tunneling.png' },
   },
@@ -573,7 +573,7 @@ const rawQuestions = [
     options: ['전계 의존적인 tunneling 또는 field-enhanced emission 계열 메커니즘', '전계 증가와 무관한 순수 displacement current만의 증가', '전극 면적 변화만으로 결정되는 병렬 capacitance 증가', '측정 주파수 변화 없이 tanδ만 선형 증가하는 손실 모델'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 전계가 커질수록 J가 급격히 커지는 패턴은 direct/FN tunneling, Poole-Frenkel emission 등 전계 의존 leakage mechanism과 연결해 해석한다.',
+    explanation: '전계가 커질수록 J가 급격히 커지는 패턴은 direct/FN tunneling, Poole-Frenkel emission 등 전계 의존 leakage mechanism과 연결해 해석한다.',
     solution: ['표에서 E 증가에 따라 J가 지수적으로 증가한다.', '이는 단순 선형 저항 모델보다 field-assisted leakage와 더 잘 맞는다.', '따라서 tunneling/emission 계열을 우선 검토한다.'],
     source: { label: '필기 이미지 p.772 Capacitor Problems', detail: 'leakage current mechanism 판단 문제', image: '/sources/process/notes/capacitor-problems.png' },
   },
@@ -603,7 +603,7 @@ const rawQuestions = [
     options: ['배선 저항과 기생 capacitance가 receiver node의 charging 속도를 결정하기 때문이다', '배선 저항이 커지면 전압 전달이 빨라져 receiver charging이 가속되기 때문이다', '기생 capacitance가 커지면 같은 전류에서 더 작은 전하만 필요하기 때문이다', 'RC product가 커질수록 time constant가 작아져 delay가 감소하기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. RC product가 커지면 Vc(t)가 최종 전압에 도달하는 속도가 느려지고, receiver가 신호를 인식하는 시점이 늦어진다.',
+    explanation: 'RC product가 커지면 Vc(t)가 최종 전압에 도달하는 속도가 느려지고, receiver가 신호를 인식하는 시점이 늦어진다.',
     solution: ['time constant τ = RC', 'τ가 커질수록 charging curve가 느려진다.', '따라서 interconnect R과 parasitic C를 줄이는 것이 delay 개선의 핵심이다.'],
     source: { label: '필기 이미지 p.801 RC Delay', detail: 'Product of RC determines charging rate and signal delay', image: '/sources/process/notes/rc-delay.png' },
   },
@@ -623,7 +623,7 @@ const rawQuestions = [
     options: ['입사 방향성을 제어하거나 ionized PVD처럼 금속 flux를 이온화해 bottom coverage를 개선한다', 'wafer bias를 없애고 모든 입자를 완전히 등방성으로 만든다', 'target과 wafer 거리를 줄여 shadowing을 증가시킨다', 'barrier metal을 제거해 Cu가 유전체로 직접 확산되게 한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. PVD는 line-of-sight 특성이 강해 고종횡비 구조에서 sidewall/bottom coverage가 불리하다. 방향성 제어와 ionized PVD는 이를 보완하는 접근이다.',
+    explanation: 'PVD는 line-of-sight 특성이 강해 고종횡비 구조에서 sidewall/bottom coverage가 불리하다. 방향성 제어와 ionized PVD는 이를 보완하는 접근이다.',
     solution: ['일반 PVD: shadowing과 poor step coverage 문제', 'Ionized PVD: 금속 원자를 이온화하고 bias로 방향성 제어', '따라서 via/trench bottom coverage 개선에 유리하다.'],
     source: { label: '필기 이미지 p.845 BEOL Problems', detail: 'PVD step coverage 개선 문제', image: '/sources/process/notes/beol-problems.png' },
   },
@@ -633,7 +633,7 @@ const rawQuestions = [
     options: ['Cu 확산을 막고 접착/계면 안정성을 확보해야 하지만, barrier가 너무 두꺼우면 유효 금속 단면적이 줄어 저항이 증가한다', 'Cu 확산은 막지만 두께가 두꺼울수록 유효 Cu 단면이 증가해 저항이 감소한다', 'Cu와 low-k 사이 capacitance를 높이기 위해 두꺼운 barrier를 넣는 것이 핵심이다', 'barrier metal은 bulk metal보다 항상 낮은 비저항을 가져 RC delay를 줄이는 주재료이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. barrier metal은 Cu diffusion barrier와 adhesion/interface 안정성 역할을 하지만, nanoscale 배선에서는 barrier 두께가 금속 유효 단면적을 줄여 저항 증가 요인이 된다.',
+    explanation: 'barrier metal은 Cu diffusion barrier와 adhesion/interface 안정성 역할을 하지만, nanoscale 배선에서는 barrier 두께가 금속 유효 단면적을 줄여 저항 증가 요인이 된다.',
     solution: ['필요성: Cu 확산 방지, adhesion 확보, 계면 안정성', '문제점: barrier 자체 저항 및 유효 Cu 단면적 감소', '따라서 얇고 안정적인 barrier가 중요하다.'],
     source: { label: '필기 이미지 p.845 BEOL Problems', detail: 'interconnection metal/barrier metal trade-off 문제', image: '/sources/process/notes/beol-problems.png' },
   },
@@ -653,7 +653,7 @@ const rawQuestions = [
     options: ['결합수, 결합각, 밀도, random network 구조 차이가 polarization 응답에 영향을 준다', '화학식이 같으면 결합 배열 차이는 주로 etch rate만 바꾸고 polarization에는 영향을 주지 않는다', 'amorphous 구조의 k 차이는 Si-O 결합보다 금속 불순물 농도 변화로만 설명된다', 'crystalline 구조의 k 차이는 결정립계 저항 증가가 capacitance를 직접 낮추기 때문에 생긴다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 동일한 SiO2라도 amorphous random network와 crystalline 구조는 결합각, 결합수, 밀도 차이를 만들고, 이 차이가 유전상수에 영향을 줄 수 있다.',
+    explanation: '동일한 SiO2라도 amorphous random network와 crystalline 구조는 결합각, 결합수, 밀도 차이를 만들고, 이 차이가 유전상수에 영향을 줄 수 있다.',
     solution: ['유전상수는 단순 화학식만이 아니라 구조와 polarization 가능성에 의존한다.', 'amorphous와 crystal은 결합 배열과 밀도가 다르다.', '따라서 구조 차이로 k 차이를 설명할 수 있다.'],
     source: { label: '필기 이미지 Gate Problems', detail: 'amorphous/crystal SiO2 유전상수 차이 문제', image: '/sources/process/notes/gate-problems.png' },
   },
@@ -663,7 +663,7 @@ const rawQuestions = [
     options: ['poly depletion과 Fermi level pinning 문제를 줄일 수 있지만, NMOS/PMOS에 맞는 work function과 thermal stability 확보가 필요하다', 'poly depletion은 줄지만 metal/high-k 계면 반응보다 contact plug 저항이 Vt를 주로 결정한다', 'metal gate는 work function 선택보다 gate oxide physical thickness만으로 NMOS/PMOS Vt를 맞춘다', 'metal gate 적용의 핵심 과제는 high-k 계면보다 Cu 배선의 grain boundary scattering 제어이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Metal gate는 doped poly-Si의 depletion effect와 high-k/poly-Si FLP 문제를 줄이지만, band-edge work function, thermal stability, reliability는 여전히 중요한 과제이다.',
+    explanation: 'Metal gate는 doped poly-Si의 depletion effect와 high-k/poly-Si FLP 문제를 줄이지만, band-edge work function, thermal stability, reliability는 여전히 중요한 과제이다.',
     solution: ['장점: poly depletion 제거, Vt pinning 완화, mobility 저하 요인 개선', '과제: NMOS/PMOS별 work function, thermal stability, reliability', '그래서 gate last/high-k last integration이 중요해진다.'],
   },
   {
@@ -672,7 +672,7 @@ const rawQuestions = [
     options: ['고온 열처리 이후 high-k/metal gate를 형성해 work function 변동, reliability, patterning 문제를 줄이기 위해서이다', 'high-k/metal gate를 초기에 형성해 후속 고온 공정으로 work function을 의도적으로 재조정하기 위해서이다', 'poly-Si gate depletion을 유지해 EOT scaling 여유를 확보하고 metal gate 반응성을 피하기 위해서이다', 'gate dielectric을 두껍게 유지해 direct tunneling을 낮추는 대신 Vt control을 포기하기 위해서이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. High-k와 metal gate는 고온 공정에서 work function 이동, reliability, patterning 이슈가 생길 수 있어 후반부에 형성하는 integration scheme이 중요하다.',
+    explanation: 'High-k와 metal gate는 고온 공정에서 work function 이동, reliability, patterning 이슈가 생길 수 있어 후반부에 형성하는 integration scheme이 중요하다.',
     solution: ['Gate First: gate stack이 고온 공정을 겪는다.', 'Gate Last: dummy gate 이후 replacement로 HKMG를 형성한다.', '핵심은 thermal budget에 따른 work function/reliability 문제 완화이다.'],
   },
   {
@@ -681,7 +681,7 @@ const rawQuestions = [
     options: ['mobility degradation과 Vfb-IL EOT roll-off', 'IL 두께 증가에 따른 EOT 감소와 channel mobility 회복', 'interfacial dipole 제거에 따른 Vt tuning 민감도 증가', 'IL 결정화에 따른 work function pinning 완화와 leakage 감소'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Interfacial layer가 너무 얇아지거나 high-k와 결합될 때 channel mobility 저하, flat-band voltage 및 EOT roll-off 문제가 중요해진다.',
+    explanation: 'Interfacial layer가 너무 얇아지거나 high-k와 결합될 때 channel mobility 저하, flat-band voltage 및 EOT roll-off 문제가 중요해진다.',
     solution: ['IL은 high-k/Si 사이 계면 품질에 직접 관여한다.', '계면/remote scattering은 mobility degradation과 연결된다.', 'Vfb-IL EOT roll-off는 IL scaling 시 나타나는 전기적 특성 변화이다.'],
   },
   {
@@ -690,7 +690,7 @@ const rawQuestions = [
     options: ['Schottky는 전극/유전체 계면 장벽을 넘는 전자 방출, Poole-Frenkel은 유전막 내부 trap 장벽 완화와 관련된다', 'Schottky는 유전막 내부 trap 사이 hopping이고, Poole-Frenkel은 전극 계면의 thermionic emission이다', 'Schottky와 Poole-Frenkel은 모두 trap 위치와 무관한 Fowler-Nordheim tunneling으로 해석한다', 'Schottky는 bulk trap density가 증가할 때만 생기고, Poole-Frenkel은 전극 work function과만 관련된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Schottky emission은 계면 barrier를 넘는 전극 주입 성격이 강하고, Poole-Frenkel emission은 유전체 bulk 내부 trap의 field-assisted emission으로 본다.',
+    explanation: 'Schottky emission은 계면 barrier를 넘는 전극 주입 성격이 강하고, Poole-Frenkel emission은 유전체 bulk 내부 trap의 field-assisted emission으로 본다.',
     solution: ['Schottky: electrode/interface limited current', 'Poole-Frenkel: bulk trap assisted current', '둘 다 온도/전계 의존성이 있지만 물리적 위치와 장벽 해석이 다르다.'],
   },
   {
@@ -699,7 +699,7 @@ const rawQuestions = [
     options: ['유전막 내부 trap site들 사이를 전자가 이동하는 trap-to-trap conduction이다', '전극에서 유전체 conduction band로 직접 주입되는 interface-limited emission이다', '고전계에서 삼각형 barrier를 통과하는 전극-전극 tunneling 성분만을 뜻한다', '유전체 두께와 무관하게 electrode series resistance만으로 결정되는 손실 전류이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Hopping current는 유전막 내부 trap site 간 이동으로 설명되며, trap density와 trap energy level의 영향을 받는다.',
+    explanation: 'Hopping current는 유전막 내부 trap site 간 이동으로 설명되며, trap density와 trap energy level의 영향을 받는다.',
     solution: ['trap이 많으면 이동 가능한 site가 늘어난다.', 'trap energy가 band gap 내에서 적절한 위치에 있으면 carrier 이동이 쉬워진다.', '따라서 impurity/defect 관리가 leakage 저감에 중요하다.'],
   },
   {
@@ -708,7 +708,7 @@ const rawQuestions = [
     options: ['이상 capacitor는 DC leakage가 없지만, 실제 capacitor는 유전체를 통한 leakage와 dielectric loss가 존재한다', '이상 capacitor는 ESR을 포함하고 실제 capacitor는 유전막 손실을 무시해도 된다', '실제 capacitor는 charge storage보다 trap conduction만으로 동작을 설명한다', '이상 capacitor와 실제 capacitor의 차이는 electrode 면적 산포만으로 정해진다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 실제 capacitor는 유전체 손실, ESR, DC leakage current를 가지므로 이상적인 에너지 저장 소자와 다르게 동작한다.',
+    explanation: '실제 capacitor는 유전체 손실, ESR, DC leakage current를 가지므로 이상적인 에너지 저장 소자와 다르게 동작한다.',
     solution: ['이상 capacitor: 손실 없는 charge storage', '실제 capacitor: leakage current, ESR, dielectric loss 존재', '그래서 tanδ와 leakage mechanism 평가가 중요하다.'],
   },
   {
@@ -717,7 +717,7 @@ const rawQuestions = [
     options: ['DC leakage는 유전체를 통한 직류 누설 경로를, tanδ는 AC 구동에서 저장 성분 대비 손실 성분을 주로 반영하기 때문이다', 'DC leakage와 tanδ는 같은 물리량이므로 하나만 측정하면 다른 값도 계산 없이 확정되기 때문이다', 'tanδ는 전극 면적만 반영하고 DC leakage는 유전상수 k만 반영해 서로 독립적으로만 변하기 때문이다', 'DC leakage는 이상 capacitor에서만 나타나고 tanδ는 real capacitor에서는 정의되지 않기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. DC leakage는 전압 인가 시 유전체를 통해 흐르는 직류 누설을 보고, tanδ는 AC 조건에서 dielectric loss와 ESR 등 손실 성분을 평가하는 지표이다.',
+    explanation: 'DC leakage는 전압 인가 시 유전체를 통해 흐르는 직류 누설을 보고, tanδ는 AC 조건에서 dielectric loss와 ESR 등 손실 성분을 평가하는 지표이다.',
     solution: ['DC leakage: 유전체 결함, trap, barrier를 통한 직류 누설 전류', 'tanδ: AC에서 저장 성분 대비 손실 성분', '둘은 모두 real capacitor 평가 항목이지만 같은 값으로 취급하면 안 된다.'],
   },
   {
@@ -726,7 +726,7 @@ const rawQuestions = [
     options: ['band gap 내부 trap level이 많아지면 carrier가 단계적으로 이동할 수 있어 leakage가 증가할 수 있다', 'impurity가 늘면 trap-assisted path보다 dielectric constant 증가 효과가 leakage를 주로 낮춘다', 'trap level이 band edge 근처에 있으면 carrier 이동보다 electrode roughness만 바꾼다', 'defect가 증가하면 capacitance 유효 면적 증가가 leakage 증가 효과를 상쇄한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 유전막 내부 trap은 Poole-Frenkel, hopping, trap-assisted tunneling과 같은 leakage path를 제공할 수 있다.',
+    explanation: '유전막 내부 trap은 Poole-Frenkel, hopping, trap-assisted tunneling과 같은 leakage path를 제공할 수 있다.',
     solution: ['trap density 증가 → 가능한 conduction path 증가', 'trap energy level 위치 → carrier injection/transport 난이도 변화', '따라서 불순물과 결함 제어가 leakage 저감의 핵심이다.'],
   },
   {
@@ -735,7 +735,7 @@ const rawQuestions = [
     options: ['전극/유전체 계면의 carrier injection 조건과 barrier 형성에 영향을 주어 trap-assisted leakage 조건을 바꿀 수 있기 때문이다', '전극 work function은 유전막 bulk trap과 무관하므로 P-F current보다 series resistance만 바꾼다', 'work function이 낮아지면 electron injection barrier가 커지는 방향으로만 작용해 leakage가 감소한다', 'work function 변화는 capacitor leakage보다 mold etch ARDE를 직접 조절하는 변수이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. 전극 work function과 계면 상태는 carrier injection 및 barrier 조건을 바꾸며, 이는 유전체 내부 trap을 통한 leakage와 연결될 수 있다.',
+    explanation: '전극 work function과 계면 상태는 carrier injection 및 barrier 조건을 바꾸며, 이는 유전체 내부 trap을 통한 leakage와 연결될 수 있다.',
     solution: ['전극 work function은 Fermi level과 barrier alignment에 관여한다.', 'barrier가 낮아지면 carrier injection이 쉬워질 수 있다.', '따라서 high work function electrode/interface engineering이 leakage 저감 전략이 된다.'],
   },
   {
@@ -744,7 +744,7 @@ const rawQuestions = [
     options: ['ALD 균일 증착, multi-layer/doping, high work function electrode, interface engineering을 함께 고려한다', 'high-k 단일막의 결정성을 높이면 grain boundary와 trap 영향 없이 leakage가 낮아진다', '유전막 physical thickness를 줄이면 capacitance와 direct tunneling leakage가 같은 방향으로 개선된다', '전극 산화 저항성을 낮춰 계면 산화막을 늘리면 high-k 효과와 leakage가 함께 개선된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. capacitor 유전체는 높은 k뿐 아니라 leakage, CBO, trap, 계면, 전극 특성, 열 안정성을 함께 만족해야 한다.',
+    explanation: 'capacitor 유전체는 높은 k뿐 아니라 leakage, CBO, trap, 계면, 전극 특성, 열 안정성을 함께 만족해야 한다.',
     solution: ['ALD: 고종횡비 구조의 균일 막 형성', 'multi-layer/doping: leakage path와 결정화 제어', 'high WF electrode/interface engineering: injection 및 trap-assisted leakage 저감'],
   },
   {
@@ -753,7 +753,7 @@ const rawQuestions = [
     options: ['ion angle/voltage control, higher power, sticking coefficient control, higher temperature 등으로 깊은 hole 내부 반응/배출을 제어한다', 'ion 방향성을 낮추고 radical sticking을 높여 hole 입구 반응을 강화하는 방향이 유리하다', 'oxide/poly/oxide stack에서는 layer별 etch rate 차이를 줄이기보다 mask selectivity만 보면 된다', '깊은 hole 내부 부산물 배출보다 top CD shrink만 제어하면 ARDE가 해소된다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. HARC는 높은 aspect ratio, 복합 stack, 구조 취약성이 겹치는 난도가 높은 식각이며, ion 방향성/에너지와 반응종 sticking/온도 제어가 중요하다.',
+    explanation: 'HARC는 높은 aspect ratio, 복합 stack, 구조 취약성이 겹치는 난도가 높은 식각이며, ion 방향성/에너지와 반응종 sticking/온도 제어가 중요하다.',
     solution: ['ARDE: 깊고 좁은 hole에서 etch rate가 위치/깊이에 따라 달라지는 문제', 'ion angle/voltage와 power는 방향성/에너지 제어', 'sticking coefficient와 temperature는 반응/부산물 거동 제어와 관련된다.'],
   },
   {
@@ -762,7 +762,7 @@ const rawQuestions = [
     options: ['전구체의 thermal stability, source feeding/purging, 장비의 공급·배기 기술', '전구체가 공급 라인에서 빠르게 분해되어 입구부 growth rate를 높이는 특성', 'line-of-sight 성분을 키워 상부 전극 부근 deposition을 집중시키는 특성', '전극 산화 반응성을 높여 유전막과 전극 계면 산화막을 두껍게 만드는 특성'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. DRAM capacitor는 고종횡비 구조이므로 전구체가 깊은 구조 내부까지 균일하게 들어가고 반응/퍼지가 제어되어야 한다.',
+    explanation: 'DRAM capacitor는 고종횡비 구조이므로 전구체가 깊은 구조 내부까지 균일하게 들어가고 반응/퍼지가 제어되어야 한다.',
     solution: ['thermal stability: 전구체가 공급 과정에서 조기 분해되지 않아야 함', 'source feeding: 깊은 구조 내부까지 충분히 공급', 'purging/equipment: 잔류물과 부산물 제거 및 균일성 확보'],
   },
   {
@@ -771,7 +771,7 @@ const rawQuestions = [
     options: ['고온 공정과 산화성 분위기에서 전극 형상과 전기적 특성을 유지해야 하기 때문이다', '전극 산화를 유도해 interfacial layer를 두껍게 만들고 effective capacitance를 높이기 위해서이다', '전극 hardness를 낮춰 wet clean 중 표면 roughness를 늘리고 storage area를 확보하기 위해서이다', '전극 산화 저항성을 낮춰 oxygen vacancy를 늘리면 leakage path가 줄어들기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. capacitor electrode는 후속 고온/산화 분위기 공정을 견디면서 storage/plate electrode 특성을 유지해야 한다.',
+    explanation: 'capacitor electrode는 후속 고온/산화 분위기 공정을 견디면서 storage/plate electrode 특성을 유지해야 한다.',
     solution: ['hardness: 구조 안정성과 공정 내구성', 'oxidation resistance: 산화에 따른 전극 열화 방지', '고온 공정 호환성이 capacitor module 신뢰성과 연결된다.'],
   },
   {
@@ -780,7 +780,7 @@ const rawQuestions = [
     options: ['Schottky barrier height를 낮추고 Si doping 농도를 높여 space charge layer 폭을 줄인다', 'Schottky barrier height를 높이고 Si doping 농도를 낮춰 thermionic emission만 남긴다', 'contact 면적은 유지하되 계면 산화막을 두껍게 하여 barrier uniformity를 높인다', 'silicide 형성을 피하고 금속/Si 직접 계면을 유지해 계면 반응을 줄인다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. contact resistivity는 barrier height와 doping density 영향을 크게 받으며, 고농도 doping은 barrier 폭을 줄여 tunneling 가능성을 높인다.',
+    explanation: 'contact resistivity는 barrier height와 doping density 영향을 크게 받으며, 고농도 doping은 barrier 폭을 줄여 tunneling 가능성을 높인다.',
     solution: ['ρc는 Schottky barrier height가 낮을수록 작아진다.', 'doping N이 커지면 space charge layer width가 줄어든다.', 'silicide는 barrier 조절과 안정적인 contact 형성에 도움을 준다.'],
   },
   {
@@ -798,7 +798,7 @@ const rawQuestions = [
     options: ['Si와 같은 covalent semiconductor에서는 surface state가 외부 금속 work function 영향을 부분적으로 screening하기 때문이다', 'ionic 성격이 강한 계면에서는 metal work function 변화가 barrier에 더 민감하게 반영되기 때문이다', '금속 electronegativity가 커질수록 vacuum level alignment가 강화되어 pinning이 줄기 때문이다', 'doping 농도가 높아지면 depletion width 변화가 metal electronegativity slope를 직접 1보다 크게 만들기 때문이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Covalent semiconductor에서는 interface/surface state가 Fermi level pinning 성격을 만들 수 있어 금속 work function 변화가 barrier height에 완전히 반영되지 않는다.',
+    explanation: 'Covalent semiconductor에서는 interface/surface state가 Fermi level pinning 성격을 만들 수 있어 금속 work function 변화가 barrier height에 완전히 반영되지 않는다.',
     solution: ['S≈1: metal property가 barrier에 잘 반영되는 경우', 'S<1: surface/interface state가 외부 전하 영향을 screening', 'Si, Ge, GaAs 같은 covalent 계열에서 pinning 성격이 커질 수 있다.'],
   },
   {
@@ -807,7 +807,7 @@ const rawQuestions = [
     options: ['PVD는 step coverage가 불리할 수 있고, CVD/ALD 계열은 coverage 개선에 유리하지만 재료 특성과 저항도 함께 고려해야 한다', 'PVD는 방향성이 크므로 via bottom coverage가 증가하고 sidewall coverage도 동시에 개선된다', 'CVD/ALD barrier는 conformality가 좋아도 barrier 저항과 impurity 문제는 고려하지 않는다', 'barrier metal은 Cu 확산 억제보다 low-k pore sealing 기능만을 기준으로 선택한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Barrier metal은 diffusion barrier, adhesion, thermal stability, resistivity, step coverage를 함께 봐야 한다.',
+    explanation: 'Barrier metal은 diffusion barrier, adhesion, thermal stability, resistivity, step coverage를 함께 봐야 한다.',
     solution: ['PVD: directional 특성 때문에 깊은 구조 coverage가 제한될 수 있음', 'CVD/ALD: conformality에 유리', '하지만 barrier 자체 저항과 Cu 확산 방지 능력도 동시에 고려해야 한다.'],
   },
   {
@@ -816,7 +816,7 @@ const rawQuestions = [
     options: ['DB/ESL 증착 → IMD 증착 → damascene patterning → BM 증착 → Cu fill → anneal → Cu CMP → capping', 'Cu CMP → BM 증착 → IMD 증착 → DB/ESL 증착 → Cu fill → damascene patterning', 'BM 증착 → Cu fill → DB/ESL 제거 → photo 없이 direct dry etch → capping', 'PVD Cu fill → low-k 제거 → silicide 형성 → HARC etch → mold strip'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. BEOL damascene은 절연막/etch stop 구조를 먼저 만들고, trench/via patterning 후 barrier/seed와 Cu fill, anneal, CMP, cap 순서로 이해한다.',
+    explanation: 'BEOL damascene은 절연막/etch stop 구조를 먼저 만들고, trench/via patterning 후 barrier/seed와 Cu fill, anneal, CMP, cap 순서로 이해한다.',
     solution: ['절연막 stack 형성: DB/ESL, IMD', 'patterning: trench/via damascene', 'metal integration: BM/seed, Cu fill, anneal, CMP, capping'],
   },
   {
@@ -845,7 +845,7 @@ const rawQuestions = [
     options: ['PVD로 barrier/seed를 형성하고, electroplating으로 고종횡비 구조를 bottom-up fill하기 위해서이다', 'PVD seed 없이 electroplating을 먼저 진행한 뒤 barrier를 확산 방지막으로 후증착하기 위해서이다', 'PVD로 via 내부를 완전 충전하고 electroplating은 top overburden 두께만 낮추기 위해서이다', 'PVD와 electroplating을 조합해 Cu를 직접 dry etch 가능한 volatile compound로 바꾸기 위해서이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Cu damascene에서는 PVD 계열로 seed/barrier를 준비하고 ECP로 trench/via 내부를 bottom-up fill하는 조합이 중요하다.',
+    explanation: 'Cu damascene에서는 PVD 계열로 seed/barrier를 준비하고 ECP로 trench/via 내부를 bottom-up fill하는 조합이 중요하다.',
     solution: ['PVD: seed/barrier 형성, 방향성 deposition', 'ECP: 용액 기반 Cu fill, bottom-up filling', '조합 목적: coverage와 fill capability를 함께 확보'],
   },
   {
@@ -854,7 +854,7 @@ const rawQuestions = [
     options: ['film density를 낮추거나 polarizability/ionization을 낮춰 SiO2보다 작은 k를 만든다', '유전체 네트워크에 금속 원자 농도를 높여 carrier mobility를 증가시키는 방향을 쓴다', '결정화를 강화해 grain boundary를 늘리고 bulk dielectric response를 낮추는 방향을 쓴다', 'Cu와 유전체 계면 반응을 촉진해 interline capacitance의 유효 거리를 늘리는 방향을 쓴다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Low-k는 SiO2(k≈3.9)보다 낮은 k를 목표로 하며, 밀도 감소나 polarizability 감소가 대표적 접근이다.',
+    explanation: 'Low-k는 SiO2(k≈3.9)보다 낮은 k를 목표로 하며, 밀도 감소나 polarizability 감소가 대표적 접근이다.',
     solution: ['density reduction: Si-CH3, porous 구조 등', 'polarizability reduction: Si-F 등', '단, k를 낮출수록 mechanical strength와 integration 문제가 커질 수 있다.'],
   },
   {
@@ -863,7 +863,7 @@ const rawQuestions = [
     options: ['SiO2계 절연막에 F를 도입해 polarizability를 낮추는 low-k 접근이며, F 농도와 안정성 한계를 함께 관리해야 한다', 'porogen을 넣고 UV curing으로 pore를 만드는 porous low-k만을 의미한다', 'Cu seed layer의 결정립을 키우기 위한 금속 첨가제이다', 'high-k gate dielectric으로 쓰기 위해 k를 25 이상으로 높인 물질이다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. FSG는 SiO2 네트워크에 fluorine을 도입해 k를 낮추는 접근이며, F 함량이 높아질수록 안정성과 integration 문제가 중요해진다.',
+    explanation: 'FSG는 SiO2 네트워크에 fluorine을 도입해 k를 낮추는 접근이며, F 함량이 높아질수록 안정성과 integration 문제가 중요해진다.',
     solution: ['F 도입 → polarizability 감소 → k 감소', '하지만 F 농도와 film stability를 관리해야 함', 'SiOCH/p-SiOCH와 구분되는 low-k 세대이다.'],
   },
   {
@@ -872,7 +872,7 @@ const rawQuestions = [
     options: ['mechanical strength 감소와 integration damage 민감도 증가', 'bulk metal resistivity 감소와 grain boundary scattering 완화', 'gate contact의 Schottky barrier height 증가와 Fermi level pinning 완화', 'electroplating current efficiency 증가와 suppressor 소모량 감소'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. SiOCH/porous low-k는 k를 낮추는 데 유리하지만, 밀도와 기계적 강도가 낮아져 공정 손상과 신뢰성 문제가 커질 수 있다.',
+    explanation: 'SiOCH/porous low-k는 k를 낮추는 데 유리하지만, 밀도와 기계적 강도가 낮아져 공정 손상과 신뢰성 문제가 커질 수 있다.',
     solution: ['k 감소: capacitance와 RC delay 측면에서는 유리', 'mechanical strength 감소: CMP, etch, integration 손상에 취약', '따라서 low-k는 전기적 이점과 기계적 안정성 trade-off를 본다.'],
   },
   {
@@ -881,7 +881,7 @@ const rawQuestions = [
     options: ['porogen을 이용해 film 내부 pore를 만들고 UV curing 등으로 porogen 제거/치밀화를 진행한다', 'SiO2에 Cu를 확산시켜 금속 pore를 만든다', 'FSG에서 fluorine 농도를 0으로 낮춰 k를 3.9로 되돌린다', 'barrier metal을 두껍게 넣어 interline capacitance를 증가시킨다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. p-SiOCH는 film 내부에 인공적으로 pore를 도입해 k를 낮추며, porogen 제거와 curing이 중요하다.',
+    explanation: 'p-SiOCH는 film 내부에 인공적으로 pore를 도입해 k를 낮추며, porogen 제거와 curing이 중요하다.',
     solution: ['porogen 도입 → pore 형성', 'UV curing → porogen 제거 및 film densification', '장점: 낮은 k, 단점: 낮은 mechanical strength와 pore 관련 integration 이슈'],
   },
   {
@@ -890,7 +890,7 @@ const rawQuestions = [
     options: ['균일한 brush, 높은 compressive material, 넓은 nodule contact area로 wafer 표면에 전달되는 shear를 높인다', 'brush-wafer 접촉을 줄이고 hydrodynamic drag만 활용해 particle adhesion force를 넘긴다', 'organic particle source 분석보다 brush 압력 증가만으로 scratch와 particle을 동시에 줄인다', 'PVA brush의 표면 구조보다 slurry chemistry만 조절해 mechanical removal을 대체한다'],
     answer: 0,
     difficulty: 'exam',
-    explanation: '정답은 ①이다. Post-CMP cleaning은 particle adhesion force를 이겨낼 만큼의 mechanical/shear action과 화학적 보조가 필요하며, brush 균일성·압축성·접촉 면적이 중요하다.',
+    explanation: 'Post-CMP cleaning은 particle adhesion force를 이겨낼 만큼의 mechanical/shear action과 화학적 보조가 필요하며, brush 균일성·압축성·접촉 면적이 중요하다.',
     solution: ['입자 부착력: van der Waals, electrostatic, chemical bonding 등', '제거력: friction, hydrodynamic drag, brush-particle interaction', 'brush 설계는 표면에 전달되는 shear와 균일성을 좌우한다.'],
   },
 ]
