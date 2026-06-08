@@ -980,7 +980,7 @@ export const questions = [
     "type": "multiple",
     "lecture": "8강",
     "category": "Gate Stack 불량",
-    "question": "1. 선택비(Selectivity) 문제에서 \"Gate Oxide 불량\"의 원인은?",
+    "question": "선택비(Selectivity) 문제에서 Gate Oxide 불량이 발생하는 원인은?",
     "options": [
       "Metal을 식각할 때 HM이 함께 식각되어 Gate Oxide가 손상되는 경우",
       "Over Etch 정지 시 아래쪽 물질까지 식각하여 Gate Oxide가 손상되는 경우",
