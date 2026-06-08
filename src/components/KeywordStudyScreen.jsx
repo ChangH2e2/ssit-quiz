@@ -45,25 +45,40 @@ function DescriptionText({ text, keyword, revealed }) {
   )
 }
 
-// 사고 사례 설명을 ①②③④ 기준으로 줄 나눠 표시 (reverse 카드용)
+// reverse 카드 내용을 ①②③ / • 불릿 / 1. 2. 3. 목록 기준으로 줄 나눠 표시
 function ScenarioText({ text }) {
-  const hasNumbered = /[①②③④⑤⑥⑦⑧⑨]/.test(text)
-  if (!hasNumbered) {
+  // 목록 마커 우선순위: 원문자 → 가운뎃점 불릿 → 숫자(1. / 1))
+  let splitRe = null
+  if (/[①②③④⑤⑥⑦⑧⑨]/.test(text)) {
+    splitRe = /(?=[①②③④⑤⑥⑦⑧⑨])/
+  } else if ((text.match(/•\s/g) || []).length >= 2) {
+    splitRe = /(?=•\s)/
+  } else if ((text.match(/(?:^|\s)\d+[.)]\s/g) || []).length >= 2) {
+    splitRe = /(?=(?:^|\s)\d+[.)]\s)/
+  }
+
+  if (!splitRe) {
     return <p className="text-gray-700 leading-relaxed text-[15px]">{text}</p>
   }
 
-  const parts = text.split(/(?=[①②③④⑤⑥⑦⑧⑨])/)
-  const header = parts[0].replace(/:$/, '').trim()
-  const items = parts.slice(1)
+  const parts = text.split(splitRe).map(s => s.trim()).filter(Boolean)
+  const startsWithMarker = (s) => /^[①②③④⑤⑥⑦⑧⑨•]/.test(s) || /^\d+[.)]/.test(s)
+
+  let header = ''
+  let items = parts
+  if (parts.length && !startsWithMarker(parts[0])) {
+    header = parts[0].replace(/[:：]\s*$/, '').trim()
+    items = parts.slice(1)
+  }
 
   return (
     <div className="space-y-2">
       {header && (
-        <p className="text-xs font-bold text-gray-500 mb-1">{header}</p>
+        <p className="text-[13px] text-gray-600 leading-relaxed mb-1">{header}</p>
       )}
       {items.map((item, i) => (
-        <p key={i} className="text-gray-700 text-[14px] leading-relaxed border-l-2 border-violet-200 pl-3">
-          {item.trim()}
+        <p key={i} className="text-gray-700 text-[14px] leading-relaxed border-l-2 border-orange-200 pl-3">
+          {item}
         </p>
       ))}
     </div>
@@ -164,7 +179,7 @@ export default function KeywordStudyScreen({ subject, onHome }) {
               </div>
               {isReverse && (
                 <div className="text-xs font-bold text-orange-500 bg-orange-50 border border-orange-200 px-3 py-1 rounded-full">
-                  🚨 사고 사례
+                  🔁 거꾸로 — 내용 떠올리기
                 </div>
               )}
             </div>
@@ -181,15 +196,15 @@ export default function KeywordStudyScreen({ subject, onHome }) {
 
                   <div className="border-t border-dashed border-violet-100" />
 
-                  {/* REVERSE: 사고 사례 (숨김 → 공개) */}
+                  {/* REVERSE: 내용 (숨김 → 공개) */}
                   <div className="p-6">
-                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">사고 사례</p>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">내용</p>
                     <div className="min-h-[2rem]">
                       {revealed ? (
                         <ScenarioText text={card.description} />
                       ) : (
                         <div className="h-8 rounded-lg bg-orange-50 border border-orange-200 flex items-center px-3">
-                          <span className="text-orange-400 text-sm font-semibold">탭하여 사례 확인 →</span>
+                          <span className="text-orange-400 text-sm font-semibold">탭하여 내용 확인 →</span>
                         </div>
                       )}
                     </div>
@@ -201,7 +216,7 @@ export default function KeywordStudyScreen({ subject, onHome }) {
                           : 'bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-md hover:brightness-105'
                       }`}
                     >
-                      {revealed ? '🙈 사례 가리기' : '👁️ 사례 보기'}
+                      {revealed ? '🙈 내용 가리기' : '👁️ 내용 보기'}
                     </button>
                   </div>
                 </>

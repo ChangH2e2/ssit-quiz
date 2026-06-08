@@ -70,27 +70,27 @@ export const keywords = [
     description: '반도체 이온주입 공정에서 n형 도펀트 가스로 사용되는 무색 비소 화합물 가스. 허용기준 0.05 ppm. 흡입 시 적혈구 세포막을 파괴하는 강력한 용혈작용(hemolysis)으로 빈혈·황달·급성 신부전 유발.',
   },
   {
-    id: 'k013', lecture: '9강',
+    id: 'k013', lecture: '9강', mode: 'reverse',
     keyword: '납(Pb) 직업병',
     description: '페인트·배관 용접 작업자에서 뼈에 약 95% 장기 축적. ALAD 효소 억제 → 헴(Heme) 합성 장애 → 복통·빈혈·만성 신부전 유발.',
   },
   {
-    id: 'k014', lecture: '9강',
+    id: 'k014', lecture: '9강', mode: 'reverse',
     keyword: '수은(Hg) 직업병 — 미나마타병',
     description: '금속 증기 흡입(문송면 사건) 또는 유기 화합물 형태로 오염된 어패류 섭취로 중추신경계 파괴. 언어장애·시야협착·운동실조 유발. 만성 미나마타병.',
   },
   {
-    id: 'k015', lecture: '9강',
+    id: 'k015', lecture: '9강', mode: 'reverse',
     keyword: '카드뮴(Cd) 직업병 — 이타이이타이병',
     description: '광산 폐수·전지 재생 공정 유출 → 칼슘 대사 교란 → 골연화증·골절. "아프다 아프다"는 뜻의 일본어에서 유래. 신장 세뇨관 손상 바이오마커: β₂-마이크로글로불린(소변).',
   },
   {
-    id: 'k016', lecture: '9강',
+    id: 'k016', lecture: '9강', mode: 'reverse',
     keyword: '6가 크롬(Cr⁶⁺) 직업병',
     description: '도금·도색 공정 근로자에게 비강 격벽이 뚫리는 비중격천공 및 폐암·비강암 유발. IARC 1군 발암물질.',
   },
   {
-    id: 'k017', lecture: '9강',
+    id: 'k017', lecture: '9강', mode: 'reverse',
     keyword: '망간(Mn) 직업병',
     description: '용접 근로자에게 만성 축적되어 보행 장애·떨림을 동반하는 파킨슨 유사 증후군 유발.',
   },
@@ -100,7 +100,7 @@ export const keywords = [
     description: '준금속(Metalloid) 원소로 IARC 1군 발암물질. 직업적 노출: 농약 살포·목재방부제 제조·반도체 이온주입(아르신 AsH₃ 가스). 만성 노출 시 피부각화증·흑피증·피부암·폐암·방광암 유발. 소변 비소 농도가 생물학적 모니터링의 핵심 바이오마커.',
   },
   {
-    id: 'k019', lecture: '9강',
+    id: 'k019', lecture: '9강', mode: 'reverse',
     keyword: '방사능 물질 원소 개념',
     description: '방사능(Radioactivity): 방사성 원소 핵붕괴 시 방출하는 방사선 세기. 단위: 베크렐(Bq). 방사선 유형: ①알파선(α, 헬륨핵, 투과력 낮음, 종이로 차폐) ②베타선(β, 전자, 중간 투과, 알루미늄 차폐) ③감마선(γ, 전자기파, 투과력 최강, 납·콘크리트 차폐). 직업적 피폭: 의료 방사선 종사자, 핵의학 요원, 이온주입 장비 정비 작업자.',
   },
@@ -279,7 +279,7 @@ export const keywords = [
     description: '고순도 실리콘 단결정 기둥(잉곳, Ingot)을 얇게 슬라이싱·연마한 원판 형태의 기판. 집적회로(IC)가 층층이 새겨지는 베이스 기판.',
   },
   {
-    id: 'k063', lecture: '12-13강',
+    id: 'k063', lecture: '12-13강', mode: 'reverse',
     keyword: '반도체 Fab 공정 (Fabrication)',
     description: '클린룸에서 웨이퍼 표면에 집적회로를 층층이 형성하는 전공정. 기본 사이클: 산화 → 포토리소그래피 → 식각 → 박막증착·이온주입이 수십~수백 번 반복.',
   },
@@ -309,7 +309,7 @@ export const keywords = [
     description: '순수 실리콘에 n형/p형 전기 특성을 부여하기 위해 5족(비소·인) 또는 3족(붕소) 도펀트를 이온화한 후 수백 keV 고전압으로 가속하여 웨이퍼 내부에 박아 넣는 공정. 아르신(AsH₃)·포스핀(PH₃) 등 맹독 가스 사용.',
   },
   {
-    id: 'k069', lecture: '12-13강',
+    id: 'k069', lecture: '12-13강', mode: 'reverse',
     keyword: '엑스레이 발생 공정 (X-Ray 제동복사)',
     description: '이온주입 장비(200~400 kV)에서 이온이 금속 슬릿·내벽에 충돌할 때 감속 에너지의 일부가 X선으로 변환·방출되는 현상. 인터록 우회 상태 정비 시 근로자 방사선 피폭 위험.',
   },
@@ -334,7 +334,7 @@ export const keywords = [
     description: '근로자가 단일 화학물질이 아닌 다종 유기용제·독성 가스·X선·극저주파 전자기장·야간 3교대 스트레스 등이 동시에 중첩·시너지(Synergy)를 일으키는 노출 형태. 단일 TWA 기준 충족에도 직업병 발생 가능.',
   },
   {
-    id: 'k076', lecture: '12-13강',
+    id: 'k076', lecture: '12-13강', mode: 'reverse',
     keyword: '웨이퍼 크기 (Wafer Size)',
     description: '반도체 제조 효율은 웨이퍼 지름에 의해 결정됨. 표준 크기 변천: 150mm(6인치) → 200mm(8인치) → 300mm(12인치, 현재 주류). 웨이퍼가 클수록 1회 공정에서 생산 가능한 칩 수 증가 → 단가 절감. 차세대 450mm(18인치) 전환은 비용 문제로 지연 중.',
   },
@@ -349,12 +349,12 @@ export const keywords = [
     description: '수십억 개의 트랜지스터·다이오드·저항·커패시터를 수 나노미터 크기로 실리콘 웨이퍼 위에 집적한 전자 소자. 메모리(DRAM·NAND 플래시)와 비메모리(CPU·GPU·AP)로 분류. Fab 전공정(회로 형성)과 패키징 후공정(조립가공)으로 제조.',
   },
   {
-    id: 'k079', lecture: '12-13강',
+    id: 'k079', lecture: '12-13강', mode: 'reverse',
     keyword: '반도체 실리콘 웨이퍼 생산 — 잉곳 (Ingot)',
     description: '순도 99.9999999%(9N급) 고순도 실리콘을 1,400°C 이상으로 용융 후 씨앗 결정(Seed Crystal)을 회전·인상하여 단결정 기둥(잉곳)을 성장시키는 쵸크랄스키(Czochralski) 공정. 잉곳을 다이아몬드 와이어로 슬라이싱·연마하여 웨이퍼 완성.',
   },
   {
-    id: 'k079a', lecture: '12-13강',
+    id: 'k079a', lecture: '12-13강', mode: 'reverse',
     keyword: '반도체 칩 조립가공 (후공정, Back-End Process)',
     description: '웨이퍼 전공정(Fab) 완료 후 개별 칩을 패키징하는 공정. 순서: 웨이퍼 다이싱(절단) → 다이 어태치 → 와이어 본딩(금 와이어) → 에폭시 몰딩(밀봉) → 마킹·검사. 금 와이어·에폭시 수지·플럭스 화학물질 노출 위험. 주로 동남아 생산기지에서 수행.',
   },
@@ -386,7 +386,7 @@ export const keywords = [
     description: '해당 협회가 발행하는 반도체 장비·공정 안전 기술 문서 시리즈. 대표 표준: S2(장비 ESH 안전 가이드라인, 전 세계 장비 입고 필수), S10(정량적 위험성평가 가이드라인, Risk = Severity × Likelihood, 위험 매트릭스 도출 기준).',
   },
   {
-    id: 'k082', lecture: '13-14강',
+    id: 'k082', lecture: '13-14강', mode: 'reverse',
     keyword: '반도체 위험성평가 / 위험 매트릭스',
     description: 'SEMI S10 기준. 결함 심각도(Catastrophic/Critical/Marginal/Negligible) × 발생 가능성(A~E)을 표로 조합하여 리스크 수준 결정. Risk = Severity × Likelihood.',
   },
@@ -421,17 +421,17 @@ export const keywords = [
     description: '독성·가연성 가스가 상시 운용되는 챔버·배관을 개방 정비 전, 고압 질소(N₂)를 반복 주입하여 잔류 독성 가스를 강제 배출·제거하는 안전 환기 작업. 불충분 시 TMAH·아르신 잔류 분사로 사망 사고 직결.',
   },
   {
-    id: 'k089', lecture: '13-14강',
+    id: 'k089', lecture: '13-14강', mode: 'reverse',
     keyword: '정비 작업 안전',
     description: '반도체 화학물질 중독 사고의 90% 이상이 정비 작업 단계에서 발생. 필수 조치: PTW 취득 → LOTO → 퍼지 → 산소·독성가스 농도 측정 → 화학방호복·송기 마스크 착용 → 2인 1조 작업.',
   },
   {
-    id: 'k090', lecture: '13-14강',
+    id: 'k090', lecture: '13-14강', mode: 'reverse',
     keyword: '전자산업 직업병 (반도체 직업성 암)',
     description: '반도체·LCD 제조 라인 장기 근무자에서 백혈병·비호지킨림프종·악성 뇌암·불임·만성 신부전 등 발생. 복합 노출·장기 잠복기·과거 노출 데이터 유실로 1:1 인과 증명이 불가능에 가깝고, "업무관련성 상당성 인정" 패러다임 전환을 야기.',
   },
   {
-    id: 'k091', lecture: '13-14강',
+    id: 'k091', lecture: '13-14강', mode: 'reverse',
     keyword: '백혈병 원인 3대 인자',
     description: '전자산업 직업병 역학 결과 혈액암(AML·NHL) 유발이 명확히 입증된 인자: ①벤젠(Benzene) — IARC 1군, 골수 독성 → AML 유발 ②포름알데히드(Formaldehyde) — 혈액암 유발 ③전리방사선(X선 등) — 이온주입 장비 정비 시 피폭, 염색체 파괴.',
   },
