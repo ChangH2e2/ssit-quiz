@@ -16,9 +16,11 @@ const SEMESTER_OPTIONS = [
 
 export default function PastExamScreen({ onStart, onHome }) {
   const [years, setYears] = useState([])
+  const [categories, setCategories] = useState([])
   const [selectedYear, setSelectedYear] = useState('all')
   const [selectedSemester, setSelectedSemester] = useState('all')
   const [selectedSubject, setSelectedSubject] = useState('all')
+  const [selectedCategory, setSelectedCategory] = useState('all')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -32,6 +34,20 @@ export default function PastExamScreen({ onStart, onHome }) {
       })
   }, [])
 
+  useEffect(() => {
+    let query = supabase.from('exam_questions').select('category')
+    if (selectedSubject !== 'all') query = query.eq('subject', selectedSubject)
+    query.not('category', 'is', null).then(({ data }) => {
+      if (data) {
+        const unique = [...new Set(data.map(r => r.category))].sort()
+        setCategories(unique)
+      } else {
+        setCategories([])
+      }
+      setSelectedCategory('all')
+    })
+  }, [selectedSubject])
+
   const handleStart = async () => {
     setLoading(true)
     setError(null)
@@ -40,6 +56,7 @@ export default function PastExamScreen({ onStart, onHome }) {
     if (selectedYear !== 'all') query = query.eq('year', Number(selectedYear))
     if (selectedSemester !== 'all') query = query.eq('semester', selectedSemester)
     if (selectedSubject !== 'all') query = query.eq('subject', selectedSubject)
+    if (selectedCategory !== 'all') query = query.eq('category', selectedCategory)
 
     const { data, error: fetchError } = await query
     setLoading(false)
@@ -53,6 +70,11 @@ export default function PastExamScreen({ onStart, onHome }) {
   const yearOptions = [
     { id: 'all', label: '전체 연도' },
     ...years.map(y => ({ id: String(y), label: `${y}년` })),
+  ]
+
+  const categoryOptions = [
+    { id: 'all', label: '전체' },
+    ...categories.map(c => ({ id: c, label: c })),
   ]
 
   return (
@@ -90,6 +112,14 @@ export default function PastExamScreen({ onStart, onHome }) {
             value={selectedSubject}
             onChange={setSelectedSubject}
           />
+          {categories.length > 0 && (
+            <FilterSelect
+              label="강좌"
+              options={categoryOptions}
+              value={selectedCategory}
+              onChange={setSelectedCategory}
+            />
+          )}
 
           {error && (
             <p className="text-sm text-red-500 text-center bg-red-50 rounded-lg py-2 px-4">{error}</p>
