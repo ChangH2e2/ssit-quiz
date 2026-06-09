@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { supabase } from '../lib/supabase.js'
 
 const COUNT_OPTIONS = [10, 20, 30, 50, 999]
 
@@ -32,7 +33,10 @@ export default function StartScreen({ subject, onStart, onBack, onKeywordStudy }
   const [lecture, setLecture] = useState('all')
   const [type, setType] = useState('all')
   const [count, setCount] = useState(20)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
+  // Used only for count display and button disabled state
   const pool = useMemo(() => {
     let qs = subject.questions
     if (lecture !== 'all') qs = qs.filter(q => q.lecture === lecture)
@@ -42,13 +46,35 @@ export default function StartScreen({ subject, onStart, onBack, onKeywordStudy }
 
   const effectiveCount = count === 999 ? pool.length : Math.min(count, pool.length)
 
-  const handleStart = () => {
-    onStart({
-      questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
-      lecture,
-      type,
-      count: effectiveCount,
+  const handleStart = async () => {
+    setLoading(true)
+    setError(null)
+
+    // Fetch practice questions from DB
+    let query = supabase.from('exam_questions').select('*').eq('subject', subject.id).eq('year', 0)
+    if (lecture !== 'all') query = query.eq('lecture', lecture)
+    if (type !== 'all') query = query.eq('type', type)
+    const { data, error: fetchError } = await query
+
+    // Merge local calc/short questions (not stored in DB yet)
+    const localFallback = subject.questions.filter(q => {
+      if (q.type !== 'calc' && q.type !== 'short') return false
+      if (lecture !== 'all' && q.lecture !== lecture) return false
+      if (type !== 'all' && q.type !== type) return false
+      return true
     })
+
+    setLoading(false)
+
+    if (fetchError) { setError('문제를 불러오지 못했습니다.'); return }
+
+    const combined = [...(data || []), ...localFallback]
+    if (combined.length === 0) { setError('해당 조건의 문제가 없습니다.'); return }
+
+    const finalCount = count === 999 ? combined.length : Math.min(count, combined.length)
+    const selected = shuffle(combined).slice(0, finalCount).map(shuffleMultipleOptions)
+
+    onStart({ questions: selected, lecture, type, count: selected.length })
   }
 
   return (
@@ -146,12 +172,16 @@ export default function StartScreen({ subject, onStart, onBack, onKeywordStudy }
             <span className="text-gray-500">문제 출제</span>
           </div>
 
+          {error && (
+            <p className="text-sm text-red-500 text-center bg-red-50 rounded-lg py-2 px-4">{error}</p>
+          )}
+
           <button
             onClick={handleStart}
-            disabled={pool.length === 0}
+            disabled={pool.length === 0 || loading}
             className={`w-full py-4 rounded-xl font-black text-white text-lg shadow-lg transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed bg-gradient-to-r ${subject.gradient} hover:shadow-xl hover:brightness-105`}
           >
-            퀴즈 시작하기 →
+            {loading ? '불러오는 중...' : '퀴즈 시작하기 →'}
           </button>
 
           {onKeywordStudy && (

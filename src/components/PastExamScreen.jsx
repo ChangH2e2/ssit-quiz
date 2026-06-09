@@ -28,6 +28,7 @@ export default function PastExamScreen({ onStart, onHome }) {
     supabase
       .from('exam_questions')
       .select('year')
+      .gt('year', 0)
       .order('year', { ascending: false })
       .then(({ data }) => {
         if (data) setYears([...new Set(data.map(r => r.year))])
@@ -52,7 +53,7 @@ export default function PastExamScreen({ onStart, onHome }) {
     setLoading(true)
     setError(null)
 
-    let query = supabase.from('exam_questions').select('*')
+    let query = supabase.from('exam_questions').select('*').gt('year', 0)
     if (selectedYear !== 'all') query = query.eq('year', Number(selectedYear))
     if (selectedSemester !== 'all') query = query.eq('semester', selectedSemester)
     if (selectedSubject !== 'all') query = query.eq('subject', selectedSubject)
