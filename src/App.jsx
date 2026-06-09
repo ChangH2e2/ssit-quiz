@@ -5,6 +5,20 @@ import StartScreen from './components/StartScreen.jsx'
 import QuizScreen from './components/QuizScreen.jsx'
 import ResultScreen from './components/ResultScreen.jsx'
 import KeywordStudyScreen from './components/KeywordStudyScreen.jsx'
+import PastExamScreen from './components/PastExamScreen.jsx'
+
+const PAST_EXAM_SUBJECT = {
+  id: 'past-exam',
+  label: '기출문제',
+  subtitle: '연도별 기출 모음',
+  icon: '📋',
+  color: 'amber',
+  gradient: 'from-amber-500 to-orange-500',
+  ring: 'ring-amber-400',
+  bg: 'bg-amber-50',
+  accent: 'text-amber-600',
+  btn: 'bg-amber-600 hover:bg-amber-700',
+}
 
 function shuffle(items) {
   const arr = [...items]
@@ -32,7 +46,7 @@ function shuffleMultipleOptions(question) {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState('subject') // subject | start | quiz | result | keyword-study
+  const [screen, setScreen] = useState('subject') // subject | start | quiz | result | keyword-study | past-exam
   const [subjectId, setSubjectId] = useState(null)
   const [settings, setSettings] = useState(null)  // { questions[], lecture, type, count }
   const [results, setResults] = useState(null)     // { total, log[] }
@@ -46,7 +60,9 @@ export default function App() {
     }
   }, [])
 
-  const subject = subjectId ? SUBJECTS.find(s => s.id === subjectId) : null
+  const subject = subjectId === 'past-exam'
+    ? PAST_EXAM_SUBJECT
+    : subjectId ? SUBJECTS.find(s => s.id === subjectId) : null
 
   const handleSelectSubject = (id) => {
     setSubjectId(id)
@@ -72,15 +88,22 @@ export default function App() {
 
   const handleRestartSame = () => {
     if (subject && settings) {
-      let pool = subject.questions
-      if (settings.lecture !== 'all') pool = pool.filter(q => q.lecture === settings.lecture)
-      if (settings.type !== 'all') pool = pool.filter(q => q.type === settings.type)
-      const effectiveCount = Math.min(settings.count ?? pool.length, pool.length)
-      setSettings({
-        ...settings,
-        questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
-        count: effectiveCount,
-      })
+      if (subject.id === 'past-exam') {
+        setSettings({
+          ...settings,
+          questions: shuffle(settings.questions).map(shuffleMultipleOptions),
+        })
+      } else {
+        let pool = subject.questions
+        if (settings.lecture !== 'all') pool = pool.filter(q => q.lecture === settings.lecture)
+        if (settings.type !== 'all') pool = pool.filter(q => q.type === settings.type)
+        const effectiveCount = Math.min(settings.count ?? pool.length, pool.length)
+        setSettings({
+          ...settings,
+          questions: shuffle(pool).slice(0, effectiveCount).map(shuffleMultipleOptions),
+          count: effectiveCount,
+        })
+      }
     }
     setResults(null)
     setScreen('quiz')
@@ -109,8 +132,30 @@ export default function App() {
       />
     )
   }
+  if (screen === 'past-exam') {
+    return (
+      <PastExamScreen
+        onStart={(cfg) => {
+          setSubjectId('past-exam')
+          setSettings(cfg)
+          setResults(null)
+          setScreen('quiz')
+        }}
+        onHome={() => {
+          setSubjectId(null)
+          setScreen('subject')
+        }}
+      />
+    )
+  }
   if (screen === 'subject') {
-    return <SubjectScreen subjects={SUBJECTS} onSelect={handleSelectSubject} />
+    return (
+      <SubjectScreen
+        subjects={SUBJECTS}
+        onSelect={handleSelectSubject}
+        onPastExam={() => setScreen('past-exam')}
+      />
+    )
   }
   if (screen === 'start') {
     return (
